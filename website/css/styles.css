@@ -1,0 +1,152 @@
+/* Mariia(everything) */
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #e5e5e5;
+  }
+
+/* Nav bar */
+.navbar {
+  background-color: #1844bc;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.navbar .nav-link {
+    color: white;
+}
+
+.navbar-toggler {
+    border-color: white;
+}
+
+.navbar-toggler-icon {
+    background-color: #1844bc;
+}
+
+/* Blob */
+.section-with-background {
+  background: url('blob-haikei1.svg') center center/cover no-repeat;
+  padding: 100px 0; 
+}
+
+.section-with-background-circles {
+  background: url('circle-scatter-haikei.svg') center center/cover no-repeat;
+  padding: 100px 0; 
+}
+
+.section-with-background-circles2 {
+  background: url('circle-scatter-haikei1.svg') center center/cover no-repeat;
+  padding: 100px 0; 
+}
+
+.section-with-background-corners {
+  background: url('blob-scene-haikei.svg') center center/cover no-repeat;
+  padding: 100px 0; 
+}
+
+
+/* Text */
+.header-content {
+  z-index: 1;
+  position: relative;
+}
+
+.header1 {
+  font-size: 70px;
+  font-weight: bold;
+  color: #e5e5e5;
+  margin-bottom: 20px;
+}
+
+.header2 {
+  font-size: 35px;
+  font-weight: bold;
+  color: #e5e5e5;
+  margin-bottom: 20px;
+}
+
+.header3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #e5e5e5;
+  margin-bottom: 20px;
+}
+
+.header-description {
+  font-size: 20px;
+  color: #e5e5e5;
+  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+.description {
+  font-size: 15px;
+  color: gainsboro;
+  max-width: auto;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.custom-btn {
+  background-color: #2E5BFF;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: gainsboro;
+}
+.custom-btn:hover {
+  background-color: #1e4ad8; /* A slightly darker shade for hover */
+  text-decoration: none;
+  color: white;
+}
+
+/* Sections*/
+.blue-section {
+  background-color: #1844bc;
+  padding: 50px 0;
+  position: relative;
+}
+
+.black-section {
+  background-color: rgb(63, 64, 65);
+  padding: 50px 0;
+  position: relative;
+}
+
+
+/* Images */
+.tower-img {
+  max-width: 75%;
+  text-align: left;
+}
+.building-img{
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+
+/* Footer */
+.footer {
+  background-color: #143899;
+  color: #fff;
+  padding: 30px 0;
+}
+
+.footer a {
+  color: #fff;
+  margin-right: 20px;
+}
+
+.footer .social-icons a {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
