@@ -1,0 +1,143 @@
+/* Rachana(without footer and navbar) */
+
+/* Resetting margin and padding for all elements */
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: rgb(251, 252, 255);
+}
+
+/* Nav bar */
+.navbar {
+  background-color: #1844bc;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.navbar .nav-link {
+  color: white;
+}
+
+.navbar-toggler {
+  border-color: white;
+}
+
+.navbar-toggler-icon {
+  background-color: #1844bc;
+}
+
+/* Header Content Styles */
+.header-content {
+  z-index: 1;
+  position: relative;
+}
+
+.description {
+  font-size: 17px;
+  color: gainsboro;
+  max-width: auto;
+  margin-bottom: 30px;
+}
+
+/* Input Details Styles */
+.inputDetails {
+  color: gainsboro;
+  max-width: 500px;
+  margin-bottom: 30px;
+  font-size: large;
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.input-row .input-group {
+  flex-basis: 45%;
+}
+/* Input Field Styles */
+.inputHere {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #020202;
+  outline: none;
+  padding-bottom: 5px;
+}
+
+/* Textarea Styles */
+textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  box-sizing: border-box;
+}
+/* Label Styles */
+label {
+  margin-bottom: 6px;
+  display: rgb(0, 0, 0);
+  color: gainsboro;
+}
+/* Submit Button Styles */
+.submit {
+  background: rgb(9, 65, 232);
+  width: 100px;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  height: 35px;
+  border-radius: 30px;
+  margin-top: 20px;
+  box-shadow: 5px 5px 5px rgb(11, 10, 15);
+}
+.submit:hover {
+  box-shadow: 0 0 10px rgb(1, 15, 120);
+}
+
+
+.employee-details-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.employee-details {
+  color: gainsboro;
+  font-size: large;
+}
+
+.employee-details ul {
+  margin-bottom: 3px;
+}
+
+img{
+  max-width: 240px;
+  margin-bottom: 35px;
+  float: auto;
+}
+
+
+/* Footer */
+.footer {
+  background-color: #143899;
+  color: #fff;
+  padding: 30px 0;
+}
+
+.footer a {
+  color: #fff;
+  margin-right: 20px;
+}
+
+.footer .social-icons a {
+  font-size: 20px;
+  margin-right: 15px;
+}
+ 
+ 
