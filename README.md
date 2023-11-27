@@ -2,8 +2,8 @@
 
 10
 Masha's change
-Rachana changed 
+Rachana changed
 I made change
 Sasha was here
 I made change
-
+Masha's change from gui
