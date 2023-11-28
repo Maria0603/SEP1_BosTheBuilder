@@ -7,16 +7,15 @@ public class Commercial extends Project
   private int squareMeters;
   private int numberOfFloors;
   private String usedFor;
-  
 
-  public Commercial(int id, String title, int expectedBudget, int spentBudget, int expectedMonths,
-      int spentMonths, boolean isFinished, Date creationDate, Date endingDate,
+
+  public Commercial(int id, String title, int expectedBudget, int expectedMonths, Date creationDate, Date endingDate,
       int squareMeters, int numberOfFloors, String usedFor)
   {
-    super(id, title, expectedBudget, spentBudget, expectedMonths, spentMonths, isFinished, creationDate, endingDate);
-    this.squareMeters = 0;
-    this.numberOfFloors = 0;
-    this.usedFor = "";
+    super(id, title, expectedBudget, expectedMonths, creationDate, endingDate);
+    this.squareMeters = squareMeters;
+    this.numberOfFloors = numberOfFloors;
+    this.usedFor = usedFor;
   }
 
   public int getSquareMeters()
@@ -34,17 +33,17 @@ public class Commercial extends Project
     return usedFor;
   }
 
-  public void setSquareMeters()
+  public void setSquareMeters(int squareMeters)
   {
     this.squareMeters = squareMeters;
   }
 
-  public void setNumberOfFloors()
+  public void setNumberOfFloors(int numberOfFloors)
   {
     this.numberOfFloors = numberOfFloors;
   }
 
-  public void setUsedFor()
+  public void setUsedFor(String usedFor)
   {
     this.usedFor = usedFor;
   }
