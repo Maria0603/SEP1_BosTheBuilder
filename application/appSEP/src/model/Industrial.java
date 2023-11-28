@@ -3,12 +3,10 @@ package model;
 public class Industrial {
     private int SquareMeters;
     private String UsedFor;
-
-    public Industrial(){
-        SquareMeters= 0;
-        UsedFor= "";
+    public Industrial(int SquareMeters, String UsedFor){
+        this.SquareMeters=SquareMeters;
+        this.UsedFor=UsedFor;
     }
-
     public int getSquareMeters() {
         return SquareMeters;
     }
