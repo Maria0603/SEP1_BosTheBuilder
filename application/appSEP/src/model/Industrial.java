@@ -22,4 +22,5 @@ public class Industrial {
     public void setUsedFor(String usedFor) {
         UsedFor = usedFor;
     }
+
 }
