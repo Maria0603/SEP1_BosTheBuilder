@@ -58,14 +58,14 @@ public class Road extends Project{
 
     @Override
     public boolean equals(Object obj) {
-        if(obj== null || getClass()!=obj.getClass()){
+        if(obj == null || getClass() != obj.getClass()){
             return false;
         }
         Road other= (Road)obj;
-        return super.equals(obj)&& this.length== other.length
-                &&this.width==other.width
-                &&this.numberOfTunnels==other.numberOfTunnels
-                &&this.numberOfBridges==other.numberOfBridges
+        return super.equals(obj) && this.length == other.length
+                &&this.width == other.width
+                &&this.numberOfTunnels == other.numberOfTunnels
+                &&this.numberOfBridges == other.numberOfBridges
                 &&this.environmentalChallenges.equals(other.environmentalChallenges);
     }
 }
