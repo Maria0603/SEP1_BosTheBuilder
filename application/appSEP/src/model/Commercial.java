@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Commercial extends Project
 {
@@ -46,6 +47,18 @@ public class Commercial extends Project
   public void setUsedFor(String usedFor)
   {
     this.usedFor = usedFor;
+  }
+  public boolean equals(Object obj) {
+
+    if (!(obj instanceof Commercial)) {
+
+      return false;
+    }
+    Commercial other = (Commercial) obj;
+
+    return this.squareMeters == other.squareMeters &&
+        this.numberOfFloors == other.numberOfFloors &&
+        Objects.equals(this.usedFor, other.usedFor);
   }
 }
 
