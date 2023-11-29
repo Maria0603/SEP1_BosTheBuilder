@@ -1,18 +1,21 @@
 package model;
 import java.util.ArrayList;
-public class Road {
+import java.util.Date;
+
+public class Road extends Project{
     private int length;
     private int width;
     private int numberOfBridges;
     private int numberOfTunnels;
     private ArrayList<String> environmentalChallenges;
 
-    public Road() {
+    public Road(int length, int width, int numberOfBridges, int numberOfTunnels, int id, String title, int expectedBudget, int expectedMonths, Date creationDate, Date endingDate) {
+        super( id,  title,  expectedBudget,  expectedMonths,  creationDate,  endingDate);
         this.environmentalChallenges = new ArrayList<>();
-        this.length=0;
-        this.width=0;
-        this.numberOfBridges=0;
-        this.numberOfTunnels=0;
+        this.length=length;
+        this.width=width;
+        this.numberOfBridges=numberOfBridges;
+        this.numberOfTunnels=numberOfTunnels;
     }
 
     public int getLength(){
@@ -55,14 +58,14 @@ public class Road {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj== null || getClass()!=obj.getClass()){
+        if(obj == null || getClass() != obj.getClass()){
             return false;
         }
         Road other= (Road)obj;
-        return this.length== other.length
-                &&this.width==other.width
-                &&this.numberOfTunnels==other.numberOfTunnels
-                &&this.numberOfBridges==other.numberOfBridges
+        return super.equals(obj)&& this.length == other.length
+                &&this.width == other.width
+                &&this.numberOfTunnels == other.numberOfTunnels
+                &&this.numberOfBridges == other.numberOfBridges
                 &&this.environmentalChallenges.equals(other.environmentalChallenges);
     }
 }
