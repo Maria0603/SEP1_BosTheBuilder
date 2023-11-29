@@ -62,7 +62,7 @@ public class Road extends Project{
             return false;
         }
         Road other= (Road)obj;
-        return super.equals(obj) && this.length == other.length
+        return super.equals(obj)&& this.length == other.length
                 &&this.width == other.width
                 &&this.numberOfTunnels == other.numberOfTunnels
                 &&this.numberOfBridges == other.numberOfBridges
