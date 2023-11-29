@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Date;
-
 public abstract class Project {
   private int id;
   private String title;
@@ -10,10 +8,10 @@ public abstract class Project {
   private int expectedMonths;
   private int spentMonths;
   private boolean isFinished;
-  private Date creationDate;
-  private Date endingDate;
+  private MyDate creationDate;
+  private MyDate endingDate;
 
-  public Project(int id, String title, int expectedBudget, int expectedMonths, Date creationDate, Date endingDate){
+  public Project(int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate, MyDate endingDate){
     this.id = id;
     this.title = title;
     this.expectedBudget = expectedBudget;
@@ -29,12 +27,12 @@ public abstract class Project {
   public String getTitle() {return title;}
   public int getExpectedBudget() {return expectedBudget;}
   public int getSpentBudget() {return spentBudget;}
-  public Date getCreationDate() {return creationDate;}
-  public Date getEndingDate() {return endingDate;}
+  public MyDate getCreationDate() {return creationDate;}
+  public MyDate getEndingDate() {return endingDate;}
   public int getExpectedMonths() {return expectedMonths;}
   public int getSpentMonths() {return spentMonths;}
-  public void setCreationDate(Date creationDate) {this.creationDate = creationDate;}
-  public void setEndingDate(Date endingDate) {this.endingDate = endingDate;}
+  public void setCreationDate(MyDate creationDate) {this.creationDate = creationDate;}
+  public void setEndingDate(MyDate endingDate) {this.endingDate = endingDate;}
   public void setExpectedBudget(int expectedBudget) {this.expectedBudget = expectedBudget;}
   public void setExpectedMonths(int expectedMonths) {this.expectedMonths = expectedMonths;}
   public void setFinished(boolean finished) {isFinished = finished;}
@@ -42,7 +40,27 @@ public abstract class Project {
   public void setSpentBudget(int spentBudget) {this.spentBudget = spentBudget;}
   public void setSpentMonths(int spentMonths) {this.spentMonths = spentMonths;}
   public void setTitle(String title) {this.title = title;}
-  public int calculateSpentMonths(model.Date creationDate, model.Date endingDate){
-    return model.Date.monthsBetween(creationDate, endingDate);
+  public int calculateSpentMonths(MyDate creationMyDate, MyDate endingMyDate){
+    return MyDate.monthsBetween(creationMyDate, endingMyDate);
   }
+
+  @Override public String toString() {
+    return "ID = " + id + " title = " + title + "\n" +
+        "expected budget = " + expectedBudget + " spent budget = " + spentBudget + "\n" +
+        "expected months = " + expectedMonths + " spent months = " + spentMonths + "\n" +
+        "creation date = " + creationDate + " ending date = " + endingDate;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null || getClass() != obj.getClass()) {
+      return false;
+    }
+    Project other = (Project) obj;
+    return this.id == other.id && this.isFinished == other.isFinished && this.expectedBudget == other.expectedBudget &&
+        this.spentBudget == other.spentBudget && this.spentMonths == other.spentMonths && this.expectedMonths == other.expectedMonths &&
+        this.title.equals(other.title) && this.creationDate.equals(other.creationDate) && this.endingDate.equals(other.endingDate);
+  }
+
+
 }

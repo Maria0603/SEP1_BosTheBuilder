@@ -1,6 +1,5 @@
 package model;
 
-import java.util.Date;
 import java.util.Objects;
 
 public class Commercial extends Project
@@ -10,7 +9,7 @@ public class Commercial extends Project
   private String usedFor;
 
 
-  public Commercial(int id, String title, int expectedBudget, int expectedMonths, Date creationDate, Date endingDate,
+  public Commercial(int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate, MyDate endingDate,
       int squareMeters, int numberOfFloors, String usedFor)
   {
     super(id, title, expectedBudget, expectedMonths, creationDate, endingDate);
@@ -44,21 +43,22 @@ public class Commercial extends Project
     this.numberOfFloors = numberOfFloors;
   }
 
-  public void setUsedFor(String usedFor)
-  {
-    this.usedFor = usedFor;
-  }
+  @Override
   public boolean equals(Object obj) {
-
-    if (!(obj instanceof Commercial)) {
-
+    if(obj == null || getClass() != obj.getClass()){
       return false;
     }
     Commercial other = (Commercial) obj;
-
     return super.equals(other) && this.squareMeters == other.squareMeters &&
         this.numberOfFloors == other.numberOfFloors &&
         Objects.equals(this.usedFor, other.usedFor);
+  }
+
+  @Override
+  public String toString() {
+    return "Commercial"  + "\n" + super.toString() + "\n" +
+        "square meters = " + squareMeters + " number of floors = " + numberOfFloors +
+        "\n" + "used fro = " + usedFor;
   }
 }
 

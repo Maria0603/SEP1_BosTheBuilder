@@ -1,6 +1,5 @@
 package model;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Road extends Project{
     private int length;
@@ -9,7 +8,7 @@ public class Road extends Project{
     private int numberOfTunnels;
     private ArrayList<String> environmentalChallenges;
 
-    public Road(int length, int width, int numberOfBridges, int numberOfTunnels, int id, String title, int expectedBudget, int expectedMonths, Date creationDate, Date endingDate) {
+    public Road(int length, int width, int numberOfBridges, int numberOfTunnels, int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate, MyDate endingDate) {
         super( id,  title,  expectedBudget,  expectedMonths,  creationDate,  endingDate);
         this.environmentalChallenges = new ArrayList<>();
         this.length=length;
@@ -62,10 +61,20 @@ public class Road extends Project{
             return false;
         }
         Road other= (Road)obj;
-        return super.equals(obj)&& this.length == other.length
+        return super.equals(obj) && this.length == other.length
                 &&this.width == other.width
                 &&this.numberOfTunnels == other.numberOfTunnels
                 &&this.numberOfBridges == other.numberOfBridges
                 &&this.environmentalChallenges.equals(other.environmentalChallenges);
     }
+
+    public String toString() {
+        return  "\nRoad\n" + super.toString() +
+            "length=" + length +
+            " width=" + width +
+            "\nnumberOfBridges=" + numberOfBridges +
+            " numberOfTunnels=" + numberOfTunnels +
+            "\nenvironmentalChallenges=" + environmentalChallenges;
+    }
+
 }
