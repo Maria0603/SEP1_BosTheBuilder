@@ -56,7 +56,7 @@ public class Commercial extends Project
     }
     Commercial other = (Commercial) obj;
 
-    return this.squareMeters == other.squareMeters &&
+    return super.equals(other) && this.squareMeters == other.squareMeters &&
         this.numberOfFloors == other.numberOfFloors &&
         Objects.equals(this.usedFor, other.usedFor);
   }
