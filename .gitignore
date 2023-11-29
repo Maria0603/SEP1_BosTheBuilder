@@ -3,4 +3,5 @@
 # For mac user
 .DS_Store
 *.iml
+.idea
 /SEP1_BosTheBuilder.iml
