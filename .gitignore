@@ -2,5 +2,5 @@
 
 # For mac user
 .DS_Store
-
+*.iml
 /SEP1_BosTheBuilder.iml
