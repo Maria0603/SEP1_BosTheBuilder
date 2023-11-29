@@ -1,13 +1,11 @@
 package model;
 
-import java.util.Date;
-
 public class Industrial extends Project {
     private int SquareMeters;
     private String UsedFor;
 
-    public Industrial(int id, String title, int expectedBudget, int expectedMonths, java.util.Date creationDate,
-                      Date endingDate, int SquareMeters, String UsedFor) {
+    public Industrial(int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate,
+                      MyDate endingDate, int SquareMeters, String UsedFor) {
         super(id, title, expectedBudget, expectedMonths, creationDate, endingDate);
         this.SquareMeters = SquareMeters;
         this.UsedFor = UsedFor;
@@ -40,9 +38,8 @@ public class Industrial extends Project {
 
     @Override
     public String toString() {
-        return "Industrial{" +
-                "SquareMeters=" + SquareMeters +
-                ", UsedFor='" + UsedFor + '\'' +
-                '}';
+        return "\nIndustrial\n" + super.toString() +
+                "SquareMeters = " + SquareMeters +
+                " UsedFor = " + UsedFor;
     }
 }
