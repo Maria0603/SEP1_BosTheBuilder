@@ -42,4 +42,9 @@ public class Industrial extends Project {
                 "SquareMeters = " + SquareMeters +
                 " UsedFor = " + UsedFor;
     }
+
+    public Project copy() {
+        return new Industrial(this.getId(), this.getTitle(), this.getExpectedBudget(), this.getExpectedMonths(),
+            this.getCreationDate(), this.getEndingDate(), this.getSquareMeters(), this.getUsedFor());
+    }
 }
