@@ -38,21 +38,6 @@ public class FinishedProjectList
     System.out.println("Project " + project.getTitle() + " is added to the Finished project list.");
   }
 
-  public void showFinishedList()
-  {
-    if (finishedProjects.isEmpty())
-    {
-      System.out.println("The list is empty.");
-    }
-    else
-    {
-      for (Project project : finishedProjects)
-      {
-        System.out.println(project);
-      }
-    }
-  }
-
   public String toString()
   {
     String output = "";
