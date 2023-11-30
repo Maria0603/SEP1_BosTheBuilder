@@ -10,15 +10,14 @@ public class Road extends Project
     private ArrayList<String> environmentalChallenges;
 
     public Road(int length, int width, int numberOfBridges, int numberOfTunnels,
-        int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate, MyDate endingDate)
-    {
-        super(id, title, expectedBudget, expectedMonths, creationDate,
-            endingDate);
-        this.environmentalChallenges = new ArrayList<>();
-        this.length = length;
-        this.width = width;
-        this.numberOfBridges = numberOfBridges;
-        this.numberOfTunnels = numberOfTunnels;
+        int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate,
+        MyDate endingDate, ArrayList<String> challenges) {
+        super( id,  title,  expectedBudget,  expectedMonths,  creationDate,  endingDate);
+        this.environmentalChallenges = challenges;
+        this.length=length;
+        this.width=width;
+        this.numberOfBridges=numberOfBridges;
+        this.numberOfTunnels=numberOfTunnels;
     }
 
     public int getLength()
@@ -41,6 +40,9 @@ public class Road extends Project
         return numberOfTunnels;
     }
 
+    public ArrayList<String> getEnvironmentalChallenges(){
+        return environmentalChallenges;
+    }
     public void addEnvironmentalChallenges(String newChallenge)
     {
         if (!environmentalChallenges.contains(newChallenge))
@@ -104,7 +106,7 @@ public class Road extends Project
     {
         Road copiedRoad = new Road(length, width, numberOfBridges,
             numberOfTunnels, getId(), getTitle(), getExpectedBudget(),
-            getExpectedMonths(), getCreationDate(), getEndingDate());
+            getExpectedMonths(), getCreationDate(), getEndingDate(), getEnvironmentalChallenges());
 
         for (String challenge : environmentalChallenges)
         {
