@@ -31,7 +31,7 @@ public abstract class Project {
   public MyDate getEndingDate() {return endingDate;}
   public int getExpectedMonths() {return expectedMonths;}
   public int getSpentMonths() {return spentMonths;}
-  public boolean getIsFinished() { return isFinished;}
+  public boolean isFinished() { return isFinished;}
   public void setCreationDate(MyDate creationDate) {this.creationDate = creationDate;}
   public void setEndingDate(MyDate endingDate) {this.endingDate = endingDate;}
   public void setExpectedBudget(int expectedBudget) {this.expectedBudget = expectedBudget;}

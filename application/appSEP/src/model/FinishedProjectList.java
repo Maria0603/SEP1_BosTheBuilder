@@ -23,7 +23,7 @@ public class FinishedProjectList
 
   public Project sendToOngoing(Project project)
   {
-    if (!project.getIsFinished())
+    if (!project.isFinished())
     {
       project.setFinished(false);
       System.out.println("The project is set as Ongoing.");
@@ -33,9 +33,7 @@ public class FinishedProjectList
 
   public void addToFinishedList(Project project)
   {
-    if (project.getIsFinished())
-      finishedProjects.add(project);
-    System.out.println("Project " + project.getTitle() + " is added to the Finished project list.");
+    finishedProjects.add(project);
   }
 
   public String toString()
