@@ -45,11 +45,15 @@ public class Commercial extends Project
 
   @Override
   public boolean equals(Object obj) {
-    if(obj == null || getClass() != obj.getClass()){
+    if (this == obj) {
+      return true;
+    }
+    if (!(obj instanceof Commercial)) {
       return false;
     }
     Commercial other = (Commercial) obj;
-    return super.equals(other) && this.squareMeters == other.squareMeters &&
+    return super.equals(obj) &&
+        this.squareMeters == other.squareMeters &&
         this.numberOfFloors == other.numberOfFloors &&
         Objects.equals(this.usedFor, other.usedFor);
   }
@@ -59,6 +63,13 @@ public class Commercial extends Project
     return "Commercial"  + "\n" + super.toString() + "\n" +
         "square meters = " + squareMeters + " number of floors = " + numberOfFloors +
         "\n" + "used fro = " + usedFor;
+  }
+
+  public Commercial copy() {
+    return new Commercial(
+        getId(), getTitle(), getExpectedBudget(), getExpectedMonths(), getCreationDate().copy(), getEndingDate().copy(),
+        squareMeters, numberOfFloors, usedFor
+    );
   }
 }
 

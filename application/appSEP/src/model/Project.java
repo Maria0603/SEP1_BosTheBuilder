@@ -31,6 +31,7 @@ public abstract class Project {
   public MyDate getEndingDate() {return endingDate;}
   public int getExpectedMonths() {return expectedMonths;}
   public int getSpentMonths() {return spentMonths;}
+  public boolean getIsFinished() { return isFinished;}
   public void setCreationDate(MyDate creationDate) {this.creationDate = creationDate;}
   public void setEndingDate(MyDate endingDate) {this.endingDate = endingDate;}
   public void setExpectedBudget(int expectedBudget) {this.expectedBudget = expectedBudget;}
@@ -61,6 +62,6 @@ public abstract class Project {
         this.spentBudget == other.spentBudget && this.spentMonths == other.spentMonths && this.expectedMonths == other.expectedMonths &&
         this.title.equals(other.title) && this.creationDate.equals(other.creationDate) && this.endingDate.equals(other.endingDate);
   }
-
+  public abstract Project copy();
 
 }
