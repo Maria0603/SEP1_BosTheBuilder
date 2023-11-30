@@ -1,5 +1,5 @@
 package model;
-public class MyDate {
+public class MyDate implements Comparable<MyDate> {
   private static final int[] DAYS_IN_MONTH = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
   private int day;
   private int month;
@@ -11,6 +11,17 @@ public class MyDate {
     this.day = day;
     this.month = month;
     this.year = year;
+  }
+
+  @Override
+  public int compareTo(MyDate other) {
+    if (this.year != other.year) {
+      return Integer.compare(this.year, other.year);
+    } else if (this.month != other.month) {
+      return Integer.compare(this.month, other.month);
+    } else {
+      return Integer.compare(this.day, other.day);
+    }
   }
 
   private void validateMonth(int month) {
@@ -65,17 +76,6 @@ public class MyDate {
   public boolean isInInterval(MyDate fromMyDate, MyDate toMyDate) {
     return this.compareTo(fromMyDate) >= 0 && this.compareTo(toMyDate) <= 0;
   }
-
-  public int compareTo(MyDate anotherMyDate) {
-    if (this.year != anotherMyDate.year) {
-      return this.year - anotherMyDate.year;
-    }
-    if (this.month != anotherMyDate.month) {
-      return this.month - anotherMyDate.month;
-    }
-    return this.day - anotherMyDate.day;
-  }
-
 
   @Override
   public String toString() {
