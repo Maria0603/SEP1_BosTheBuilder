@@ -3,50 +3,72 @@ package model;
 import java.util.ArrayList;
 
 public class OngoingProjectList {
-
-    private ArrayList<Project> ongoingProjects;
-
-    private OngoingProjectList() {
-        ongoingProjects = new ArrayList<>();
+  private ArrayList<Project> ongoingProjects;
+  private OngoingProjectList() {
+    ongoingProjects = new ArrayList<>();
+  }
+  public Project getProject(Project project) {
+    for (Project tmp : ongoingProjects) {
+      if (tmp.equals(project)) {
+        return tmp;
+      }
     }
+    return null;
+  }
+  public void addProjectToOngoingList(Project project) {
+    ongoingProjects.add(project);
+  }
+  public void deleteProjectFromOngoingList(Project project) {
+    ongoingProjects.remove(project);
+  }
+  public void editProject(Project projectToEdit, Project projectWithNewData) {
+    Project existingProject = getProject(projectToEdit);
 
-    public Project getProject(Project project) {
-        for (Project tmp: ongoingProjects) {
-            if (project.equals(tmp)){
-                return tmp;
-            }
-        }
-        return null;
+    if (existingProject != null) {
+      int index = ongoingProjects.indexOf(existingProject);
+      if (index != -1) {
+        ongoingProjects.set(index, projectWithNewData);
+      }
+    } else {
+      System.out.println("Project to edit was not found in the ongoing projects list.");
     }
+  }
 
-    public void addProjectToOngoingList(Project project) {
-        ongoingProjects.add(project);
+  public Project SendToFinishedList(Project project) {
+    Project tmp;
+    tmp = project.copy();
+    ongoingProjects.remove(project);
+    return tmp;
+  }
+
+  public OngoingProjectList copy() {
+    OngoingProjectList newList = new OngoingProjectList();
+    for (Project project : ongoingProjects) {
+      newList.addProjectToOngoingList(project.copy());
     }
+    return newList;
+  }
 
-    public void deleteProjectFromOngoingList(Project project) {
-        ongoingProjects.remove(project);
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
     }
-
-    public void editProject(Project projectToEdit, Project projectWithNewData) {
-        ongoingProjects.get(projectToEdit) = projectWithNewData;
+    if (obj == null || getClass() != obj.getClass()) {
+      return false;
     }
+    OngoingProjectList other = (OngoingProjectList) obj;
+    return this.ongoingProjects.equals(other.ongoingProjects);
+  }
 
-    public String SendToFinishedList(Project project) {
-        ongoingProjects.remove(project);
-        return "The Project " + project + "is now sent to the Finished Projects List";
+  public String toString()
+  {
+    String output = "";
+    for ( Project project : ongoingProjects)
+    {
+      output += project.toString();
     }
+    return output;
+  }
 
-    public void showOngoingList() {
-        System.out.println("Ongoing Projects:");
-
-        if (ongoingProjects.isEmpty()) {
-            System.out.println("There aren't any Ongoing projects in the list.");
-        } else {
-
-            for (Project project : ongoingProjects) {
-                System.out.println(project);
-            }
-        }
-
-    }
 }
