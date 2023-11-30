@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" >
+   <children>
+      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Industrial Project">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Text>
+         </children></HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="              ID" wrappingWidth="200.11865234375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="355.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="           Title" wrappingWidth="200.11865234375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="355.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Creation Date" wrappingWidth="200.11865234375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="355.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Expected Budget" wrappingWidth="200.11865234375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="355.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Expected Month" wrappingWidth="200.11865234375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="355.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="    Squre Meters" wrappingWidth="200.11865234375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="355.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="106.0" prefWidth="682.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="131.0" text="Cancel">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="160.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="130.0" text="Submit">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
