@@ -50,4 +50,12 @@ public class Residental extends Project {
         " numberOfOtherPlumbingRooms=" + numberOfOtherPlumbingRooms +
         "\nisNew=" + isNew;
   }
+
+  public Residental copy() {
+    Residental copiedResidental = new Residental(getId(), getTitle(), getExpectedBudget(), getExpectedMonths(),
+        getCreationDate(), getEndingDate(), squareMeters, numberOfKitchens,
+        numberOfBathrooms, numberOfOtherPlumbingRooms, isNew);
+
+    return copiedResidental;
+  }
 }

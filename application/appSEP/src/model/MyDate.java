@@ -91,5 +91,7 @@ public class MyDate {
         month == other.month &&
         year == other.year;
   }
-
+  public MyDate copy() {
+    return new MyDate(day, month, year);
+  }
 }
