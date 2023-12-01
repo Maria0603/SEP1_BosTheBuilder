@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class BuildingCompany {
+public class BuildingCompany implements BuildingCompanyModel {
 
     private FinishedProjectList finishedProjectList;
     private ArrayList<Project> ongoingProjects;
@@ -56,6 +56,6 @@ public class BuildingCompany {
 
         return reports; // Return the report list if needed for further processing
     }
-    void showReportInfo() {
-    }
+    /*void showReportInfo() {
+    }*/
 }
