@@ -9,7 +9,7 @@ public interface BuildingCompanyModel {
     public void editStatusOfFinishedProject(Project project);
     public void deleteOngoingProject(Project project);
    public ReportList generateReport(MyDate fromDate, MyDate toDate, Sort.Order order, Sort.SortingCategory sortingCategory, Sort.ProjectType projectType);
-    void showReportInfo();
+    //void showReportInfo();
 
 
 }
