@@ -40,6 +40,21 @@ public class ViewHandler {
         case "finished" -> tabViewController.openTab(1);
       }
     }
+    public void openIndsturial() {
+        primaryStage = new Stage();
+
+        Region root = loadTabView("EditIndustrial.fxml");
+        currentScene.setRoot(root);
+        String title = "Ongoing Projects";
+        if (root.getUserData() != null) {
+            title += root.getUserData();
+        }
+        primaryStage.setTitle(title);
+        primaryStage.setScene(currentScene);
+        primaryStage.setWidth(root.getPrefWidth());
+        primaryStage.setHeight(root.getPrefHeight());
+        primaryStage.show();
+    }
     public void closeView(){
         primaryStage.close();
     }

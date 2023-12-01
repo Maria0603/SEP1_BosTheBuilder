@@ -23,6 +23,8 @@ public class Industrial extends Project {
         return UsedFor;
     }
 
+
+
     public void setUsedFor(String usedFor) {
         UsedFor = usedFor;
     }
