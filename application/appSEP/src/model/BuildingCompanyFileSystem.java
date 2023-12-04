@@ -22,17 +22,19 @@ public class BuildingCompanyFileSystem implements Serializable {
         }
     }
 
-//    public void updateOngoingBINfile(OngoingProjectList ongoingList) {
-//        if (ongoingList == null) {
-//            throw new IllegalArgumentException("Ongoing project list cannot not be null");
-//        }
-//
-//        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(ONGOING_FILE_PATH))) {
-//            objectOutputStream.writeObject(ongoingList);
-//        } catch (IOException e) {
-//            throw new IllegalArgumentException("Error updating  the ongoing file", e);
-//        }
-//    }
+
+
+    public void updateOngoingBINfile(OngoingProjectList ongoingList) {
+        if (ongoingList == null) {
+            throw new IllegalArgumentException("Ongoing project list cannot not be null");
+        }
+
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(ONGOING_FILE_PATH))) {
+            objectOutputStream.writeObject(ongoingList);
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Error updating  the ongoing file", e);
+        }
+    }
 
     public void updateFinishedBINfile(FinishedProjectList finishedList) {
         if (finishedList == null) {
@@ -46,15 +48,15 @@ public class BuildingCompanyFileSystem implements Serializable {
         }
     }
 
-//    public OngoingProjectList readFromFinishedBINfile() {
-//        OngoingProjectList ongoingList = null;
-//        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(FINISHED_FILE_PATH))) {
-//            ongoingList = (OngoingProjectList) objectInputStream.readObject();
-//        } catch (IOException | ClassNotFoundException e) {
-//            throw new IllegalArgumentException("Error reading from the  finished file", e);
-//        }
-//        return ongoingList;
-//    }
+    public OngoingProjectList readFromFinishedBINfile() {
+        OngoingProjectList ongoingList = null;
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(FINISHED_FILE_PATH))) {
+            ongoingList = (OngoingProjectList) objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new IllegalArgumentException("Error reading from the  finished file", e);
+        }
+        return ongoingList;
+    }
 
     public FinishedProjectList readFromOngoingBINfile() {
         FinishedProjectList finishedList = null;
