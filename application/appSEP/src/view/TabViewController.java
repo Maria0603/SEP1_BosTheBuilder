@@ -14,37 +14,17 @@ public class TabViewController {
   @FXML private OngoingProjectsController ongoingProjectsController;
   @FXML private FinishedProjectsController finishedProjectsController;
   private Region root;
-
-  public void init(ViewHandler viewManager, BuildingCompanyModel model, Region root){
-    this.root = root;
-    ongoingProjectsController.init(viewManager, model, root);
-    finishedProjectsController.init(viewManager, model, root);
+  private ViewHandler viewHandler;
+  public TabViewController() {
+    viewHandler = ViewHandler.getInstance();
   }
 
-  public void reset(){
-    ongoingProjectsController.reset();
-    finishedProjectsController.reset();
-  }
-
-  public Region getRoot(){
-    return root;
-  }
-
-  @FXML private void tabSelected(Event event){
-    if (ongoingProjectsController != null &&
-        finishedProjectsController.getRoot() != null){
-      int index = ((Tab)event.getSource()).getTabPane().getSelectionModel().getSelectedIndex();
-      switch (index) {
-        case 0 -> ongoingProjectsController.reset();
-        case 1 -> finishedProjectsController.reset();
-      }
+  public void openTab(int tabIndex) {
+    if (tabPane.getTabs().size() > tabIndex) {
+      tabPane.getSelectionModel().select(tabIndex);
     }
   }
 
-  public void openTab(int index){
-    tabPane.getSelectionModel().select(index);
+  public void tabSelected(Event event) {
   }
-
 }
-
-
