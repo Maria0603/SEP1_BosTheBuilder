@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="344.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.OngoingProjectsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.OngoingProjectsController">
    <children>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="258.0" prefWidth="488.0">
                      <children>
@@ -30,7 +30,7 @@
                                        <children>
                                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                              <children>
-                                                <Button mnemonicParsing="false" onAction="#addbuttonClick" prefHeight="36.0" prefWidth="114.0" text="Add" />
+                                                <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="114.0" text="Add" />
                                              </children>
                                           </HBox>
                                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -52,15 +52,15 @@
                                     </VBox>
                                  </children>
                               </VBox>
-                              <VBox prefHeight="304.0" prefWidth="273.0">
+                              <VBox prefHeight="304.0" prefWidth="320.0">
                                  <children>
-                                    <HBox prefHeight="244.0" prefWidth="226.0">
+                                    <HBox prefHeight="305.0" prefWidth="319.0">
                                        <children>
-                                          <TableView fx:id="projectListTable" prefHeight="200.0" prefWidth="302.0">
+                                          <TableView fx:id="projectListTable" prefHeight="224.0" prefWidth="324.0">
                                             <columns>
                                               <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-                                              <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Title" />
-                                                <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
+                                              <TableColumn fx:id="titleColumn" prefWidth="105.0" text="Title" />
+                                                <TableColumn fx:id="dateColumn" prefWidth="129.0" text="Date" />
                                             </columns>
                                           </TableView>
                                        </children>

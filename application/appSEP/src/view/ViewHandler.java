@@ -79,6 +79,8 @@ public class ViewHandler {
         }
         primaryStage.setScene(tabViewScene);
         primaryStage.show();
+
+
     }
 
     private Region loadTabView(String fxmlFileName) {

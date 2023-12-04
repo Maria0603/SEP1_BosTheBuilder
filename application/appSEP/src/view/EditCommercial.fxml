@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="662.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditCommercialController" >
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="662.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditCommercialController">
    <children>
       <HBox alignment="CENTER" prefHeight="66.0" prefWidth="600.0">
          <children>
@@ -27,7 +27,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="commercialID" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -37,7 +37,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="commercialTitle" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -47,7 +47,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="commercialDate" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">

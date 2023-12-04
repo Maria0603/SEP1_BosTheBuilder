@@ -1,6 +1,8 @@
 package view;
 
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import model.BuildingCompanyModel;
 import model.Commercial;
 import model.Industrial;
@@ -12,6 +14,10 @@ import java.util.ResourceBundle;
 public class EditCommercialController implements Initializable {
     private final ViewHandler viewHandler;
     private final BuildingCompanyModel model;
+    @FXML
+    private TextField commercialTitle;
+    @FXML
+    private TextField commercialID;
     Commercial commercial;
 
     public EditCommercialController() {
@@ -28,11 +34,8 @@ public class EditCommercialController implements Initializable {
         if(model.getOngoingProject(projectId) != null){
             commercial = (Commercial) model.getOngoingProject(projectId);
             System.out.println(commercial.toString());
-          //  commercial.setT
-//            industrial = (Industrial) model.getOngoingProject(projectId);
-//            System.out.printf(industrial.toString());
-//            industrialId.setText(industrial.getId()+"");
-//            industrialTitle.setText(industrial.getTitle());
+            commercialID.setText(commercial.getId()+"");
+            commercialTitle.setText(commercial.getTitle());
         }
     }
 }

@@ -62,17 +62,25 @@ public class BuildingCompany implements BuildingCompanyModel {
         return reports; // Return the report list if needed for further processing
     }
 
-    @Override
     public List<Project> getOngoingProjectList() {
         // TODO :  With acutal data
         // return (ObservableList<Project>) ongoingProjects;
-        MyDate startDate = new MyDate(1, 12, 2023);
-        MyDate endingDate = new MyDate(1, 7, 2024);
-        Industrial ABCCompany = new Industrial(1, "Industrial", 90000, 8, startDate, endingDate, 1000, "Company");
+        MyDate startDate1 = new MyDate(1, 12, 2023);
+        MyDate endingDate1 = new MyDate(1, 7, 2024);
+        Industrial ABCCompany = new Industrial(1, "Industrial", 90000, 8, startDate1, endingDate1, 1000, "Company");
         ongoingProjectList.add(ABCCompany);
-        Residental residental = new Residental(2,"WOWOWO ", 12212,1212,startDate,endingDate,100,2,1,1,Boolean.TRUE);
+
+        MyDate startDate2 = new MyDate(10, 9, 2023);
+        MyDate endingDate2 = new MyDate(10, 2, 2024);
+        Residental residental = new Residental(2,"Residental ", 12212,5,startDate2,endingDate2,100,2,1,1,Boolean.TRUE);
         ongoingProjectList.add(residental);
+
+        MyDate startDate4 = new MyDate(5, 07, 2023);
+        MyDate endingDate4 = new MyDate(5, 05, 2024);
+        Commercial commercial = new Commercial(4, "Commercial ", 49999, 10, startDate4, endingDate4, 777, 5, "Company");
+        ongoingProjectList.add(commercial);
         return ongoingProjectList;
+
     }
 
 //    @Override

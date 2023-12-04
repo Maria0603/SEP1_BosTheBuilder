@@ -52,10 +52,6 @@ public class OngoingProjectsController implements Initializable {
   public void reset() {
   }
 
-  public void addbuttonClick(ActionEvent actionEvent) {
-    viewHandler.openAddOngoingView();
-  }
-
   private void handleItemClicked(Project project) {
     String classType = project.getClass().getName();
     if (classType.equals("model.Industrial")){
