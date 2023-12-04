@@ -2,7 +2,6 @@ package model;
 
 public interface BuildingCompanyModel {
     public void listAllOngoing();
-
     public void listAllFinished();
     public void addNewProject(Project project);
     public void editOngoingProjectData(Project projectToEdit, Project projectWithNewData);

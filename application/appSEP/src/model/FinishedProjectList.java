@@ -1,34 +1,52 @@
 package model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
-public class FinishedProjectList
+@XmlRootElement(name = "FinishedProjects")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class FinishedProjectList implements Serializable
 {
-  private ArrayList<Project> finishedProjects;
+  @XmlElement(name = "Project")
+  private List<Project> finishedProjects;
 
   public FinishedProjectList()
   {
     this.finishedProjects = new ArrayList<Project>();
   }
 
-  public ArrayList<Project> getFinishedProjects()
+  public List<Project> getFinishedProjects()
   {
     return finishedProjects;
   }
 
-  public void setFinishedProjects(Project finishedProjects)
+  public Project getProject(int index){return finishedProjects.get(index);}
+
+  public Project getProject(Project project){
+    for (Project tmp : finishedProjects) {
+      if (tmp.equals(project))
+        return project;
+    }
+    return null;
+  }
+
+  public void setFinishedProjects(ArrayList<Project> finishedProjects)
   {
-    this.finishedProjects = new ArrayList<Project>();
+    this.finishedProjects = finishedProjects;
   }
 
   public Project sendToOngoing(Project project)
   {
-    if (!project.isFinished())
-    {
+      Project tmp = project;
       project.setFinished(false);
       System.out.println("The project is set as Ongoing.");
-    }
-    return project;
+
+    return tmp;
   }
 
   public void addToFinishedList(Project project)

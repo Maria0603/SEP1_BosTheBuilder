@@ -1,15 +1,30 @@
 package model;
 
+import javax.xml.bind.annotation.*;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlSeeAlso({Residental.class, Commercial.class, Industrial.class, Road.class})
 public abstract class Project {
+
   private int id;
+
   private String title;
+
   private int expectedBudget;
+
   private int spentBudget;
+
   private int expectedMonths;
+
   private int spentMonths;
+
   private boolean isFinished;
   private MyDate creationDate;
   private MyDate endingDate;
+
+  private String creationDateString;
+
+  private String endingDateString;
 
   public Project(int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate, MyDate endingDate){
     this.id = id;
@@ -21,8 +36,24 @@ public abstract class Project {
     this.creationDate = creationDate;
     this.endingDate = endingDate;
     this.isFinished = false;
+    creationDateString = creationDate.getDateString();
+    endingDateString = endingDate.getDateString();
   }
 
+  public Project(){
+    this.id = -1;
+    this.title = null;
+    this.expectedBudget = -1;
+    this.spentBudget = -1;
+    this.expectedMonths = -1;
+    this.spentMonths = -1;
+    this.creationDate = null;
+    this.endingDate = null;
+    this.isFinished = false;
+    creationDateString = null;
+    endingDateString = null;
+
+  }
   public int getId() {return id;}
   public String getTitle() {return title;}
   public int getExpectedBudget() {return expectedBudget;}
@@ -32,8 +63,14 @@ public abstract class Project {
   public int getExpectedMonths() {return expectedMonths;}
   public int getSpentMonths() {return spentMonths;}
   public boolean isFinished() { return isFinished;}
-  public void setCreationDate(MyDate creationDate) {this.creationDate = creationDate;}
-  public void setEndingDate(MyDate endingDate) {this.endingDate = endingDate;}
+  public void setCreationDate(MyDate creationDate) {
+    this.creationDate = creationDate;
+    creationDateString = creationDate.getDateString();
+  }
+  public void setEndingDate(MyDate endingDate) {
+    this.endingDate = endingDate;
+    endingDateString = endingDate.getDateString();
+  }
   public void setExpectedBudget(int expectedBudget) {this.expectedBudget = expectedBudget;}
   public void setExpectedMonths(int expectedMonths) {this.expectedMonths = expectedMonths;}
   public void setFinished(boolean finished) {isFinished = finished;}

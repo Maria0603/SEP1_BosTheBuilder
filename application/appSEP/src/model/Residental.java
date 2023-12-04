@@ -1,10 +1,19 @@
 package model;
 
+import javax.xml.bind.annotation.*;
+
+//@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlType(name = "Residental")
 public class Residental extends Project {
+  @XmlElement(name = "SquareMeters")
   private int squareMeters;
+  @XmlElement(name = "NumberOfKitchens")
   private int numberOfKitchens;
+  @XmlElement(name = "NumberOfBathrooms")
   private int numberOfBathrooms;
+  @XmlElement(name = "NumberOfPlumbingRooms")
   private int numberOfOtherPlumbingRooms;
+  @XmlElement(name = "IsNew")
   private boolean isNew;
   public Residental(int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate,
       MyDate endingDate, int squareMeters, int numberOfKitchens, int numberOfBathrooms,
@@ -18,6 +27,14 @@ public class Residental extends Project {
     this.isNew = isNew;
   }
 
+  public Residental(){
+    super();
+    this.squareMeters = -1;
+    this.numberOfKitchens = -1;
+    this.numberOfBathrooms = -1;
+    this.numberOfOtherPlumbingRooms = -1;
+    this.isNew = false;
+  }
   public int getSquareMeters() {return squareMeters;}
   public int getNumberOfBathrooms() {return numberOfBathrooms;}
   public int getNumberOfKitchens() {return numberOfKitchens;}

@@ -1,7 +1,12 @@
 package model;
 
+import javax.xml.bind.annotation.*;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Industrial extends Project {
+    @XmlElement(name = "SquareMeters")
     private int SquareMeters;
+    @XmlElement(name = "UsedFor")
     private String UsedFor;
 
     public Industrial(int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate,
@@ -11,6 +16,11 @@ public class Industrial extends Project {
         this.UsedFor = UsedFor;
     }
 
+    public Industrial(){
+        super();
+        this.SquareMeters = -1;
+        this.UsedFor = null;
+    }
     public int getSquareMeters() {
         return SquareMeters;
     }
