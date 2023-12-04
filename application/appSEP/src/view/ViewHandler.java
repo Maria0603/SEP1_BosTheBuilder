@@ -132,7 +132,7 @@ public class ViewHandler {
             this.openResidentialViewScene= new Scene(new Region());
             Region root = loadEditResidential("EditResidental.fxml", projectId);
             openResidentialViewScene.setRoot(root);
-            String title = "Login";
+            String title = "EditResidental";
             primaryStage.setTitle(title);
             primaryStage.setWidth(root.getPrefWidth());
             primaryStage.setHeight(root.getPrefHeight());

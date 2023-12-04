@@ -65,7 +65,4 @@ public class OngoingProjectsController implements Initializable {
       viewHandler.openResidential(project.getId());
     }
   }
-
-
-
 }
