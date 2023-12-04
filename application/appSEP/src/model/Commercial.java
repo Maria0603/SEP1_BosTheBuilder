@@ -10,8 +10,7 @@ public class Commercial extends Project
 
 
   public Commercial(int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate, MyDate endingDate,
-      int squareMeters, int numberOfFloors, String usedFor)
-  {
+      int squareMeters, int numberOfFloors, String usedFor) {
     super(id, title, expectedBudget, expectedMonths, creationDate, endingDate);
     this.squareMeters = squareMeters;
     this.numberOfFloors = numberOfFloors;

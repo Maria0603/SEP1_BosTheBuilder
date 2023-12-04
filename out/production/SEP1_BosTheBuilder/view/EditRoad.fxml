@@ -2,30 +2,27 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="AddCommercialProject" maxHeight="-Infinity" maxWidth="-Infinity"
-      minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0"
-      prefWidth="600.0" xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.AddCommercialProjectController">
-
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/21" >
    <children>
-      <HBox alignment="CENTER" prefHeight="48.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="66.0" prefWidth="616.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Commercial Project">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Road">
                <font>
-                  <Font size="26.0" />
+                  <Font size="33.0" />
                </font>
             </Text>
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="                  ID" wrappingWidth="200.21630859375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="                  ID" wrappingWidth="210.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
@@ -35,18 +32,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="              Title" wrappingWidth="200.21630859375">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Text>
-
-            <TextField prefHeight="34.0" prefWidth="357.0" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Creation Date" wrappingWidth="200.21630859375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="              Title" wrappingWidth="210.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
@@ -56,7 +42,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Expected Month" wrappingWidth="200.21630859375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="      Creation Date" wrappingWidth="210.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
@@ -66,7 +52,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Expected Budget" wrappingWidth="200.21630859375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="      Expected Budget" wrappingWidth="210.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
@@ -76,7 +62,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="    Square Meters" wrappingWidth="200.21630859375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="          Length" wrappingWidth="210.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
@@ -86,7 +72,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="    Number Of Floor" wrappingWidth="200.21630859375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="           Width" wrappingWidth="210.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
@@ -94,25 +80,58 @@
             <TextField prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="101.0" text="Cancel">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Number Of Bridge" wrappingWidth="210.21630859375">
                <font>
                   <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField prefHeight="34.0" prefWidth="357.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Number Of Tunnels" wrappingWidth="210.21630859375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField prefHeight="34.0" prefWidth="357.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="90.0" prefWidth="628.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="131.0" text="Cancel">
+               <font>
+                  <Font size="23.0" />
                </font>
                <HBox.margin>
-                  <Insets left="170.0" />
+                  <Insets left="160.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="98.0" text="Submit">
+            <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="130.0" text="Submit">
+               <font>
+                  <Font size="23.0" />
+               </font>
                <HBox.margin>
                   <Insets left="100.0" />
                </HBox.margin>
-               <font>
-                  <Font size="21.0" />
-               </font>
             </Button>
          </children>
       </HBox>
+      <VBox prefHeight="58.0" prefWidth="326.0">
+         <children>
+            <VBox prefHeight="51.0" prefWidth="604.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="51.0" prefWidth="732.0" text="Error Label" textFill="#cc1111">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
    </children>
 </VBox>
