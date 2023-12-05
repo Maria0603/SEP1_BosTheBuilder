@@ -86,7 +86,7 @@ public abstract class Project {
     return "ID = " + id + " title = " + title + "\n" +
         "expected budget = " + expectedBudget + " spent budget = " + spentBudget + "\n" +
         "expected months = " + expectedMonths + " spent months = " + spentMonths + "\n" +
-        "creation date = " + creationDate + " ending date = " + endingDate;
+        "creation date = " + creationDateString + " ending date = " + endingDateString;
   }
 
   @Override

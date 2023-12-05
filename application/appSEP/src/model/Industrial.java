@@ -49,7 +49,7 @@ public class Industrial extends Project {
     @Override
     public String toString() {
         return "\nIndustrial\n" + super.toString() +
-                "SquareMeters = " + SquareMeters +
+                "\nSquareMeters = " + SquareMeters +
                 " UsedFor = " + UsedFor;
     }
 

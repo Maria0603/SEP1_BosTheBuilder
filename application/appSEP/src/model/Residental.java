@@ -61,7 +61,7 @@ public class Residental extends Project {
   @Override
   public String toString() {
     return "\nResidental\n" + super.toString() +
-        "squareMeters=" + squareMeters +
+        "\nsquareMeters=" + squareMeters +
         " numberOfKitchens=" + numberOfKitchens +
         "\nnumberOfBathrooms=" + numberOfBathrooms +
         " numberOfOtherPlumbingRooms=" + numberOfOtherPlumbingRooms +

@@ -71,9 +71,9 @@ public class Commercial extends Project
 
   @Override
   public String toString() {
-    return "Commercial"  + "\n" + super.toString() + "\n" +
+    return "\nCommercial"  + "\n" + super.toString() + "\n" +
         "square meters = " + squareMeters + " number of floors = " + numberOfFloors +
-        "\n" + "used fro = " + usedFor;
+        "\n" + "used for = " + usedFor;
   }
 
   public Commercial copy() {
