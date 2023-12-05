@@ -4,18 +4,24 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.BuildingCompanyModel;
-import model.Commercial;
 import model.MyDate;
+import model.Road;
 import view.ViewHandler;
 
-public class AddCommercialProjectController {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class AddRoadProjectController {
+
   @FXML private TextField idField;
   @FXML private TextField titleField;
   @FXML private TextField creationDateField;
   @FXML private TextField expectedBudgetField;
-  @FXML private TextField expectedMonthsField;
-  @FXML private TextField squareMetersField;
-  @FXML private TextField numberOfFloorsField;
+  @FXML private TextField lengthField;
+  @FXML private TextField widthField;
+  @FXML private TextField numberOfBridgesField;
+  @FXML private TextField numberOfTunnelsField;
+
 
   private Region root;
   private BuildingCompanyModel model;
@@ -36,16 +42,16 @@ public class AddCommercialProjectController {
       int id = Integer.parseInt(idField.getText());
       String title = titleField.getText();
       int expectedBudget = Integer.parseInt(expectedBudgetField.getText());
-      int expectedMonths = Integer.parseInt(expectedMonthsField.getText());
+      int length = Integer.parseInt(lengthField.getText());
+      int width = Integer.parseInt(widthField.getText());
+      int numberOfBridges = Integer.parseInt(numberOfBridgesField.getText());
+      int numberOfTunnels = Integer.parseInt(numberOfTunnelsField.getText());
       String creationDate = creationDateField.getText();
-      int squareMeters = Integer.parseInt(squareMetersField.getText());
-      int numberOfFloors = Integer.parseInt(numberOfFloorsField.getText());
       MyDate myCreationDate = new MyDate(10,10,2010);
-      Commercial newCommercialProject = new Commercial(
-          id, title, expectedBudget, expectedMonths, myCreationDate, null,
-          squareMeters, numberOfFloors, "");
+      MyDate myEndingDate = new MyDate(10, 10, 2020);
+      Road newRoadProject = new Road(length, width, numberOfBridges, numberOfTunnels, id, title, expectedBudget, 42, myCreationDate, myEndingDate, new ArrayList<>(Arrays.asList("landslide", "mountains", "BIG GOOSE")));
 
-      model.addNewProject(newCommercialProject);
+      model.addNewProject(newRoadProject);
       clearFields();
       viewHandler.openTabView("ongoing");
     } catch (NumberFormatException e) {
@@ -64,8 +70,10 @@ public class AddCommercialProjectController {
     titleField.clear();
     creationDateField.clear();
     expectedBudgetField.clear();
-    expectedMonthsField.clear();
-    squareMetersField.clear();
-    numberOfFloorsField.clear();
+    lengthField.clear();
+    widthField.clear();
+    numberOfBridgesField.clear();
+    numberOfTunnelsField.clear();
+
   }
 }

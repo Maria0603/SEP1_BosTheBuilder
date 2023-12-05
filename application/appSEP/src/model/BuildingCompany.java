@@ -12,12 +12,14 @@ public class BuildingCompany implements BuildingCompanyModel {
         this.ongoingProjects = new ArrayList<>();
     }
 
+    public ArrayList<Project> getOngoingProjects() {
+        return ongoingProjects;
+    }
 
     public void listAllOngoing() {
         for (Project project : ongoingProjects) {
             System.out.println(project.toString());
         }
-
     }
 
     public void listAllFinished() {
