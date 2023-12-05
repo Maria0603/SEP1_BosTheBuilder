@@ -58,7 +58,10 @@ public class OngoingProjectsController implements Initializable {
       viewHandler.openEditIndustrial(project.getId());
     }
     if (classType.equals("model.Residental")){
-      viewHandler.openResidential(project.getId());
+      viewHandler.openEditResidential(project.getId());
+    }
+    if (classType.equals("model.Commercial")){
+      viewHandler.openEditCommercial(project.getId());
     }
   }
 }
