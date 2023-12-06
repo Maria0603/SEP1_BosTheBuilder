@@ -16,9 +16,7 @@
       minWidth="-Infinity" prefHeight="344.0" prefWidth="488.0"
       xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="view.OngoingProjectsController">
-   <TabPane prefHeight="346.0" prefWidth="483.0"
-            tabClosingPolicy="UNAVAILABLE">
-      <Tab text="Ongoing">
+
          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="258.0"
                      prefWidth="488.0">
             <HBox layoutX="7.0" layoutY="4.0" prefHeight="304.0"
@@ -95,10 +93,5 @@
                </VBox>
             </HBox>
          </AnchorPane>
-      </Tab>
-      <Tab text="Finished">
-         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
-                     prefWidth="200.0"/>
-      </Tab>
-   </TabPane>
+   
 </VBox>
