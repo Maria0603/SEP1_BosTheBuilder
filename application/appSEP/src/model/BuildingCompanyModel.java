@@ -10,7 +10,7 @@ public interface BuildingCompanyModel {
 
     public void listAllOngoing();
 
-   // public void listAllFinished();
+    // public void listAllFinished();
     // public FinishedProjectList listAllFinished(); Sneha
 
     public void addNewProject(Project project);

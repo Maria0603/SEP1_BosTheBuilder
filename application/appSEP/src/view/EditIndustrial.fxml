@@ -47,7 +47,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="creationDateIndustrial" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -57,7 +57,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="expectedBudgetIndustrial" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -67,7 +67,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="expectedMonthsIndustrial" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -77,12 +77,12 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="squareMetersIndustrial" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="662.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="131.0" text="Cancel">
+            <Button mnemonicParsing="false" onAction="#cancelButtonPressed" prefHeight="47.0" prefWidth="131.0" text="Cancel">
                <font>
                   <Font size="23.0" />
                </font>
@@ -90,7 +90,7 @@
                   <Insets left="160.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="130.0" text="Submit">
+            <Button mnemonicParsing="false" onAction="#submitButtonPressed" prefHeight="49.0" prefWidth="130.0" text="Submit">
                <font>
                   <Font size="23.0" />
                </font>
