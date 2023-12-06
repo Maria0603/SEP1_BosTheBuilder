@@ -68,8 +68,6 @@ public class BuildingCompany implements BuildingCompanyModel {
 
     @Override
     public Project getOngoingProject(int projectId) {
-        //Dummy data if there is no file
-
         for (int i = 0; i < ongoingProjectList.getOngoingProjects().size(); i++) {
             if (ongoingProjectList.getOngoingProjects().get(i).getId() == projectId){
                 return ongoingProjectList.getOngoingProjects().get(i);

@@ -7,6 +7,7 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import model.BuildingCompanyModel;
 import model.Commercial;
+import model.Industrial;
 import model.MyDate;
 
 public class ViewHandler {
@@ -16,17 +17,19 @@ public class ViewHandler {
     private AddCommercialProjectController commercialProjectController;
     private AddResidentialProjectController residentialProjectController;
     private AddIndustrialProjectController industrialProjectController;
+    private EditIndustrialController editIndustrialController;
     private AddRoadProjectController roadProjectController;
     private Scene currentScene;
     private Stage primaryStage;
-    private Scene editIndustrialViewScene;
     private Scene openResidentialViewScene;
     private Scene editRoadViewScene;
+    private Scene editIndustrialViewScene;
 
     public ViewHandler(BuildingCompanyModel model) {
         this.currentScene = new Scene(new Region());
         this.model = model;
         model.addNewProject(new Commercial(1, "hello", 10, 10, new MyDate(10, 10, 1000), new MyDate(10, 10, 1000), 100, 5, "serious business"));
+        model.addNewProject(new Industrial(2,"Testing edit ", 121212,21,new MyDate(10, 10, 1000), new MyDate(10, 10, 1000),122,"BOMBING"));
     }
 
     public BuildingCompanyModel getModel() {
@@ -173,37 +176,42 @@ public class ViewHandler {
 
     //      For EDIT windows
 
-    public Region openEditIndustrial(String fxmlFile) {
-        Region root = null;
-
-        try
-        {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource(fxmlFile));
-            root = loader.load();
-            roadProjectController = loader.getController();
-            roadProjectController.init(this, model, root);
-        } catch (Exception e) {
-            e.printStackTrace();
+    /// Yaaaa dekhi
+    public void openEditIndustrial(int projectId) {
+        if (editIndustrialViewScene == null){
+            this.editIndustrialViewScene = new Scene(new Region());
+            Region root = loadEditIndustrial("./EditIndustrial.fxml", projectId);
+            editIndustrialViewScene.setRoot(root);
+            String title = "EditIndustrial";
+            primaryStage.setTitle(title);
+            primaryStage.setWidth(root.getPrefWidth());
+            primaryStage.setHeight(root.getPrefHeight());
         }
-
-        return root;
+        primaryStage.setScene(editIndustrialViewScene);
+        primaryStage.show();
     }
 
-    private Region loadEditIndustrial(String fxmlFileName) {
+    private Region loadEditIndustrial(String fxmlFileName,int projectId) {
         Region root = null;
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource(fxmlFileName));
             root = loader.load();
-            EditIndustrialController editIndustrialController = loader.getController();
-            //editIndustrialController.setItem(projectId);
+            if (editIndustrialController == null){
+                editIndustrialController = loader.getController();
+                editIndustrialController.init(this,model,root);
+                editIndustrialController.setItem(projectId);
+            }else {
+                editIndustrialController.setItem(projectId);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return root;
     }
 
+
+    /// ya sammma
     public void openResidential(int projectId) {
 
         if (openResidentialViewScene == null){

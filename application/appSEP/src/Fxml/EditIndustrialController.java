@@ -3,6 +3,7 @@ package Fxml;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
 import model.BuildingCompanyModel;
 import model.Industrial;
 import view.ViewHandler;
@@ -21,8 +22,6 @@ public class EditIndustrialController implements Initializable {
     private Industrial industrial;
 
     public EditIndustrialController() {
-        viewHandler = new ViewHandler(model);
-        model = viewHandler.getModel();
     }
 
     @Override
@@ -37,5 +36,10 @@ public class EditIndustrialController implements Initializable {
             industrialId.setText(industrial.getId()+"");
             industrialTitle.setText(industrial.getTitle());
         }
+    }
+
+    public void init(ViewHandler viewHandler, BuildingCompanyModel model, Region root) {
+        this.viewHandler = viewHandler;
+        this.model = model;
     }
 }

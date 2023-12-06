@@ -31,7 +31,7 @@ public class TabViewController {
 
   @FXML private void tabSelected(Event event) {
     if (ongoingProjectsController != null
-        && finishedProjectsController.getRoot() != null) {
+        && finishedProjectsController != null) {
       int index = ((Tab) event.getSource()).getTabPane().getSelectionModel().getSelectedIndex();
       switch (index) {
         case 0 -> ongoingProjectsController.reset();

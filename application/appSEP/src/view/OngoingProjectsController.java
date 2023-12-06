@@ -70,13 +70,13 @@ public class OngoingProjectsController {
 
   private void handleItemClicked(ProjectViewModel project) {
     StringProperty classType = project.getTypeProperty();
-    if (classType.equals("industrial")){
-      viewHandler.openEditIndustrial("./EditIndustrial.fxml");
+    if (classType.getValue().equals("industrial")){
+      viewHandler.openEditIndustrial(project.getIdProperty().get());
     }
-    if (classType.equals("residential")){
+    if (classType.getValue().equals("residential")){
       viewHandler.openResidential(project.getIdProperty().get());
     }
-    if (classType.equals("road")){
+    if (classType.getValue().equals("road")){
       viewHandler.openEditRoad(project.getIdProperty().get());
     }
     /*if (classType.equals("model.Commercial")){
