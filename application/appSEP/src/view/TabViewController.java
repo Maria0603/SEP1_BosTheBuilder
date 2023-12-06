@@ -12,6 +12,11 @@ public class TabViewController {
   @FXML private OngoingProjectsController ongoingProjectsController;
   @FXML private FinishedProjectsController finishedProjectsController;
   private Region root;
+  private ViewHandler viewHandler;
+
+  public TabViewController() {
+    viewHandler = ViewHandler.getInstance();
+  }
 
   public void init(BuildingCompanyModel model, ViewHandler viewHandler, Region root) {
     this.root = root;
@@ -29,9 +34,10 @@ public class TabViewController {
     return root;
   }
 
-  @FXML private void tabSelected(Event event){
-    if (ongoingProjectsController != null && finishedProjectsController.getRoot() != null) {
-      int index = ((Tab)event.getSource()).getTabPane().getSelectionModel().getSelectedIndex();
+  @FXML private void tabSelected(Event event) {
+    if (ongoingProjectsController != null
+        && finishedProjectsController.getRoot() != null) {
+      int index = ((Tab) event.getSource()).getTabPane().getSelectionModel().getSelectedIndex();
       switch (index) {
         case 0 -> ongoingProjectsController.reset();
         case 1 -> finishedProjectsController.reset();
@@ -39,9 +45,14 @@ public class TabViewController {
     }
   }
 
-  public void openTab(int index){
-    tabPane.getSelectionModel().select(index);
+
+
+  public void openTab(int tabIndex) {
+    if (tabPane.getTabs().size() > tabIndex) {
+      tabPane.getSelectionModel().select(tabIndex);
+    }
   }
+
 }
 
 

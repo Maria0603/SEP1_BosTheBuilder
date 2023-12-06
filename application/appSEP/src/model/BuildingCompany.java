@@ -1,15 +1,20 @@
 package model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class BuildingCompany implements BuildingCompanyModel {
 
     private FinishedProjectList finishedProjectList;
-    private ArrayList<Project> ongoingProjects;
+    private ArrayList<Project> ongoingProjectList;
 
     public BuildingCompany() {
         this.finishedProjectList = new FinishedProjectList();
-        this.ongoingProjects = new ArrayList<>();
+        this.ongoingProjectList = new ArrayList<>();
     }
 
     public ArrayList<Project> getOngoingProjects() {
@@ -17,23 +22,22 @@ public class BuildingCompany implements BuildingCompanyModel {
     }
 
     public void listAllOngoing() {
-        for (Project project : ongoingProjects) {
+        for (Project project : ongoingProjectList) {
             System.out.println(project.toString());
         }
     }
 
-    public void listAllFinished() {
-        System.out.println(finishedProjectList.toString());
+    public FinishedProjectList listAllFinished() {
+        return finishedProjectList;
     }
 
     public void addNewProject(Project project) {
-        ongoingProjects.add(project);
+        ongoingProjectList.add(project);
     }
-
     public void editOngoingProjectData(Project projectToEdit, Project projectWithNewData) {
-        int index = ongoingProjects.indexOf(projectToEdit);
+        int index = ongoingProjectList.indexOf(projectToEdit);
         if (index != -1) {
-            ongoingProjects.set(index, projectWithNewData);
+            ongoingProjectList.set(index, projectWithNewData);
         } else {
             System.out.println("Project not found in ongoing projects.");
         }
@@ -44,7 +48,7 @@ public class BuildingCompany implements BuildingCompanyModel {
     }
 
     public void deleteOngoingProject(Project project) {
-        ongoingProjects.remove(project);
+        ongoingProjectList.remove(project);
     }
 
     public ReportList generateReport(MyDate fromDate, MyDate toDate, Sort.Order order, Sort.SortingCategory sortingCategory, Sort.ProjectType projectType) {
@@ -55,8 +59,49 @@ public class BuildingCompany implements BuildingCompanyModel {
         for (Project project : filteredAndSortedProjects) {
             System.out.println(project.toString());
         }
-
         return reports; // Return the report list if needed for further processing
+    }
+
+    @Override
+    public List<Project> getOngoingProjectList() {
+        // TODO :  With acutal data
+        // return (ObservableList<Project>) ongoingProjects;
+        MyDate startDate = new MyDate(1, 12, 2023);
+        MyDate endingDate = new MyDate(1, 7, 2024);
+        ArrayList<String> challenges = new ArrayList<>();
+        challenges.add("Challenge1");
+
+        Industrial ABCCompany = new Industrial(1, "Industrial", 90000, 8, startDate, endingDate, 1000, "Company");
+        ongoingProjectList.add(ABCCompany);
+
+        Residental residental = new Residental(2,"Residental ", 12212,1212,startDate,endingDate,100,2,1,1,Boolean.TRUE);
+        ongoingProjectList.add(residental);
+
+        Road road= new Road(7677, 678, 5,7,3, "Road",89000,9, startDate, endingDate, challenges);
+        ongoingProjectList.add(road);
+        return ongoingProjectList;
+
+    }
+
+//    @Override
+//    public ObservableList<Project> getObservableOngoingProjectList() {
+//        ObservableList<Project> observableList = FXCollections.observableArrayList();
+//        observableList = (ObservableList<Project>) getOngoingProjectList();
+//        return observableList;
+//    }
+
+
+    @Override
+    public Project getOngoingProject(int projectId) {
+        //Dummy data if there is no file
+
+        for (int i = 0; i < ongoingProjectList.size(); i++) {
+            if (ongoingProjectList.get(i).getId() == projectId){
+                return ongoingProjectList.get(i);
+            }
+        }
+
+        return null;
     }
     /*void showReportInfo() {
     }*/
