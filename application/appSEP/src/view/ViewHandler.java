@@ -1,14 +1,10 @@
 package view;
 
-import Fxml.AddCommercialProjectController;
-import Fxml.AddIndustrialProjectController;
-import Fxml.AddResidentialProjectController;
-import Fxml.AddRoadProjectController;
+import Fxml.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import model.BuildingCompany;
 import model.BuildingCompanyModel;
 import model.Commercial;
 import model.MyDate;

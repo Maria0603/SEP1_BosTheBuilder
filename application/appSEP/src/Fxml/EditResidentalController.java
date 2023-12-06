@@ -1,4 +1,4 @@
-package view;
+package Fxml;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import model.BuildingCompanyModel;
 import model.Industrial;
 import model.Residental;
+import view.ViewHandler;
 
 import java.awt.*;
 import java.net.URL;
@@ -33,7 +34,7 @@ public class EditResidentalController implements Initializable {
     }
 
 
-    void setItem(int projectId){
+    public void setItem(int projectId){
         if(model.getOngoingProject(projectId) != null){
              residental = (Residental) model.getOngoingProject(projectId);
             System.out.printf(residental.toString());

@@ -1,10 +1,11 @@
-package view;
+package Fxml;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import model.BuildingCompanyModel;
 import model.Industrial;
+import view.ViewHandler;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,7 +30,7 @@ public class EditIndustrialController implements Initializable {
 
     }
 
-    void setItem(int projectId){
+   public void setItem(int projectId){
         if(model.getOngoingProject(projectId) != null){
             industrial = (Industrial) model.getOngoingProject(projectId);
             System.out.printf(industrial.toString());

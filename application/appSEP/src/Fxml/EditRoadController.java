@@ -1,5 +1,5 @@
 
-package view;
+package Fxml;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,6 +8,7 @@ import model.BuildingCompanyModel;
 import model.Industrial;
 import model.Residental;
 import model.Road;
+import view.ViewHandler;
 
 import java.awt.*;
 import java.net.URL;
@@ -15,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class EditRoadController implements Initializable {
 
-    private  ViewHandler viewHandler;
+    private ViewHandler viewHandler;
     private  BuildingCompanyModel model;
   @FXML
   public TextField roadTitle;

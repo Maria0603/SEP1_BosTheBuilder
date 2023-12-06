@@ -1,4 +1,4 @@
-package view;
+package Fxml;
 
 public class EditCommercialController {
 }
