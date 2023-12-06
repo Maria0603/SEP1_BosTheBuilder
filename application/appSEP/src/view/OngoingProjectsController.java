@@ -79,9 +79,9 @@ public class OngoingProjectsController {
     if (classType.getValue().equals("road")){
       viewHandler.openEditRoad(project.getIdProperty().get());
     }
-    /*if (classType.equals("model.Commercial")){
-      viewHandler.openEditCommercial(project.getId());
-    }*/
+    if (classType.getValue().equals("commercial")){
+      viewHandler.openEditCommercial(project.getIdProperty().get());
+    }
   }
 
 }
