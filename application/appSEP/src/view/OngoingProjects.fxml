@@ -32,11 +32,7 @@
                      <HBox alignment="CENTER" layoutX="10.0" layoutY="143.0" prefHeight="100.0" prefWidth="200.0">
                         <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" text="Send to Finished" />
                      </HBox>
-               <HBox alignment="CENTER" layoutX="10.0" layoutY="143.0" prefHeight="100.0" prefWidth="200.0">
-                  <children>
-                     <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" text="Details" />
-                  </children>
-               </HBox>
+               <HBox alignment="CENTER" layoutX="10.0" layoutY="143.0" prefHeight="100.0" prefWidth="200.0" />
                   </VBox>
                </VBox>
                <VBox prefHeight="304.0" prefWidth="300.0">
