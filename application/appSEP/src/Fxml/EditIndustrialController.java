@@ -3,39 +3,54 @@ package Fxml;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
 import model.BuildingCompanyModel;
+import model.Commercial;
 import model.Industrial;
 import view.ViewHandler;
+import viewModel.ProjectViewModel;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EditIndustrialController implements Initializable {
+public class EditIndustrialController {
 
-    private ViewHandler viewHandler;
-    private  BuildingCompanyModel model;
-    @FXML
-    private TextField industrialTitle;
-    @FXML
-    private TextField industrialId;
-    private Industrial industrial;
+  @FXML public TextField idField;
+  @FXML public TextField titleField;
+  @FXML public TextField creationDateField;
+  @FXML public TextField expectedBudgetField;
+  @FXML public TextField expectedMonthField;
+  @FXML public TextField squareMetersField;
+  private ViewHandler viewHandler;
+  private BuildingCompanyModel model;
 
-    public EditIndustrialController() {
-        viewHandler = new ViewHandler(model);
-        model = viewHandler.getModel();
-    }
+  private Industrial industrialProject;
+  private Region root;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+  public void init(ViewHandler viewHandler, BuildingCompanyModel model,
+      Region root, ProjectViewModel selectedItem) {
+    this.model = model;
+    this.viewHandler = viewHandler;
+    this.root = root;
+    industrialProject = (Industrial) model.getOngoingProject(selectedItem.getIdProperty().get());
 
-    }
+  }
 
-   public void setItem(int projectId){
-        if(model.getOngoingProject(projectId) != null){
-            industrial = (Industrial) model.getOngoingProject(projectId);
-            System.out.printf(industrial.toString());
-            industrialId.setText(industrial.getId()+"");
-            industrialTitle.setText(industrial.getTitle());
-        }
-    }
+  public void reset() {
+    idField.setText(String.valueOf(industrialProject.getId()));
+
+    titleField.setText(industrialProject.getTitle());
+
+    creationDateField.setText(industrialProject.getCreationDate().toString());
+
+    expectedBudgetField.setText(
+        String.valueOf(industrialProject.getExpectedBudget()));
+
+    expectedMonthField.setText(
+        String.valueOf(industrialProject.getExpectedMonths()));
+
+    squareMetersField.setText(
+        String.valueOf(industrialProject.getSquareMeters()));
+
+  }
 }

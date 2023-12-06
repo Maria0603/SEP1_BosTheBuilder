@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
@@ -25,6 +26,7 @@ public class OngoingProjectsController {
   @FXML private TableColumn<ProjectViewModel, String> titleColumn;
   @FXML private TableColumn<ProjectViewModel, String> dateColumn;
   @FXML private TableColumn<ProjectViewModel, String> typeColumn;
+  @FXML private Label errorLabel;
 
   private BuildingCompanyModel model;
   private OngoingProjectListViewModel viewModel;
@@ -49,13 +51,6 @@ public class OngoingProjectsController {
     typeColumn.setCellValueFactory(cellData -> cellData.getValue().getTypeProperty());
 
     projectListTable.setItems(viewModel.getList());
-
-    projectListTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-      if(newSelection != null){
-        handleItemClicked(newSelection);
-      }
-
-    });
   }
 
   @FXML private void onComboBoxSelectionChange() {
@@ -68,20 +63,16 @@ public class OngoingProjectsController {
   }
 
 
-  private void handleItemClicked(ProjectViewModel project) {
-    StringProperty classType = project.getTypeProperty();
-    if (classType.equals("industrial")){
-      viewHandler.openEditIndustrial("./EditIndustrial.fxml");
-    }
-    if (classType.equals("residential")){
-      viewHandler.openResidential(project.getIdProperty().get());
-    }
-    if (classType.equals("road")){
-      viewHandler.openEditRoad(project.getIdProperty().get());
-    }
-    /*if (classType.equals("model.Commercial")){
-      viewHandler.openEditCommercial(project.getId());
-    }*/
-  }
+ @FXML private void detailsPressed(){
+   errorLabel.setText("");
+   try{
+     ProjectViewModel selectedItem = projectListTable.getSelectionModel().getSelectedItem();
+     viewHandler.openDetailsSelectionView(selectedItem);
+
+   }
+   catch (Exception e) {
+     errorLabel.setText("Item not found " + e.getMessage());
+   }
+ }
 
 }
