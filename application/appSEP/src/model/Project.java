@@ -44,6 +44,20 @@ public abstract class Project {
   public int calculateSpentMonths(MyDate creationMyDate, MyDate endingMyDate){
     return MyDate.monthsBetween(creationMyDate, endingMyDate);
   }
+  public String returnProjectType(Project project){
+    if(project instanceof Residential){
+      return "residential";
+    }
+    else if (project instanceof Commercial) {
+      return "commercial";
+    }
+    else if (project instanceof Industrial) {
+      return "industrial";
+    }else {
+      return "road";
+    }
+
+  }
 
   @Override public String toString() {
     return "ID = " + id + " title = " + title + "\n" +

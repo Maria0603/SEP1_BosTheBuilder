@@ -173,29 +173,31 @@ public class ViewHandler {
 
     //      For EDIT windows
 
-    public void openEditIndustrial(int projectId) {
+    public Region openEditIndustrial(String fxmlFile) {
+        Region root = null;
 
-        if (editIndustrialViewScene == null){
-            this.editIndustrialViewScene= new Scene(new Region());
-            Region root = loadEditIndustrial("EditIndustrial.fxml", projectId);
-            editIndustrialViewScene.setRoot(root);
-            String title = "Login";
-            primaryStage.setTitle(title);
-            primaryStage.setWidth(root.getPrefWidth());
-            primaryStage.setHeight(root.getPrefHeight());
+        try
+        {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource(fxmlFile));
+            root = loader.load();
+            roadProjectController = loader.getController();
+            roadProjectController.init(this, model, root);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        primaryStage.setScene(editIndustrialViewScene);
-        primaryStage.show();
+
+        return root;
     }
 
-    private Region loadEditIndustrial(String fxmlFileName, int projectId) {
+    private Region loadEditIndustrial(String fxmlFileName) {
         Region root = null;
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource(fxmlFileName));
             root = loader.load();
             EditIndustrialController editIndustrialController = loader.getController();
-            editIndustrialController.setItem(projectId);
+            //editIndustrialController.setItem(projectId);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -206,7 +208,7 @@ public class ViewHandler {
 
         if (openResidentialViewScene == null){
             this.openResidentialViewScene= new Scene(new Region());
-            Region root = loadEditResidential("EditResidental.fxml", projectId);
+            Region root = loadEditResidential("./EditResidential.fxml", projectId);
             openResidentialViewScene.setRoot(root);
             String title = "EditResidental";
             primaryStage.setTitle(title);
@@ -223,7 +225,7 @@ public class ViewHandler {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource(fxmlFileName));
             root = loader.load();
-            EditResidentalController editIndustrialController = loader.getController();
+            EditResidentialController editIndustrialController = loader.getController();
             editIndustrialController.setItem(projectId);
         } catch (Exception e) {
             e.printStackTrace();
@@ -235,7 +237,7 @@ public class ViewHandler {
     public void openEditRoad(int projectId) {
         if (editRoadViewScene == null){
             this.editRoadViewScene= new Scene(new Region());
-            Region root = loadEditRoad("EditRoad.fxml", projectId);
+            Region root = loadEditRoad("./EditRoad.fxml", projectId);
             editRoadViewScene.setRoot(root);
             String title = "EditRoad";
             primaryStage.setTitle(title);
@@ -252,7 +254,7 @@ public class ViewHandler {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource(fxmlFileName));
             root = loader.load();
-            EditResidentalController editIndustrialController = loader.getController();
+            EditResidentialController editIndustrialController = loader.getController();
             editIndustrialController.setItem(projectId);
         } catch (Exception e) {
             e.printStackTrace();

@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import model.BuildingCompanyModel;
 import model.Industrial;
-import model.Residental;
+import model.Residential;
 import model.Road;
 import view.ViewHandler;
 
@@ -25,7 +25,7 @@ public class EditRoadController implements Initializable {
    private TextField roadId;
 
 
-    Residental residental;
+    Residential residental;
     Road road;
 
     public EditRoadController() {

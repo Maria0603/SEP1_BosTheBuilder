@@ -5,7 +5,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.BuildingCompanyModel;
 import model.MyDate;
-import model.Residental;
+import model.Residential;
 import view.ViewHandler;
 
 public class AddResidentialProjectController
@@ -50,7 +50,7 @@ public class AddResidentialProjectController
       MyDate myCreationDate = new MyDate(10,10,2010);
       MyDate myEndingDate = new MyDate(10, 10, 2020);
 
-      Residental newResidentialProject = new Residental(
+      Residential newResidentialProject = new Residential(
           id, title, expectedBudget, expectedMonths, myCreationDate, myEndingDate,
           squareMeters, numberOfKitchens, numberOfBathrooms, 0, true, numberOfRooms);
 

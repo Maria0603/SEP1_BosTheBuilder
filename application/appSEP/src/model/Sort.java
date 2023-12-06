@@ -46,7 +46,7 @@ public class Sort {
   private boolean projectTypeMatches(Project project, ProjectType type) {
     switch (type) {
       case residental:
-        return project instanceof Residental;
+        return project instanceof Residential;
       case comercial:
         return project instanceof Commercial;
       case industrial:

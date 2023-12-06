@@ -1,5 +1,6 @@
 package view;
 
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,6 +24,7 @@ public class OngoingProjectsController {
   @FXML private TableColumn<ProjectViewModel, Number> idColumn;
   @FXML private TableColumn<ProjectViewModel, String> titleColumn;
   @FXML private TableColumn<ProjectViewModel, String> dateColumn;
+  @FXML private TableColumn<ProjectViewModel, String> typeColumn;
 
   private BuildingCompanyModel model;
   private OngoingProjectListViewModel viewModel;
@@ -44,6 +46,7 @@ public class OngoingProjectsController {
     idColumn.setCellValueFactory(cellData -> cellData.getValue().getIdProperty());
     titleColumn.setCellValueFactory(cellData -> cellData.getValue().getTitleProperty());
     dateColumn.setCellValueFactory(cellData -> cellData.getValue().getDateProperty());
+    typeColumn.setCellValueFactory(cellData -> cellData.getValue().getTypeProperty());
 
     projectListTable.setItems(viewModel.getList());
 
@@ -66,14 +69,14 @@ public class OngoingProjectsController {
 
 
   private void handleItemClicked(ProjectViewModel project) {
-    String classType = project.getClass().getName();
-    if (classType.equals("model.Industrial")){
-      viewHandler.openEditIndustrial(project.getIdProperty().get());
+    StringProperty classType = project.getTypeProperty();
+    if (classType.equals("industrial")){
+      viewHandler.openEditIndustrial("./EditIndustrial.fxml");
     }
-    if (classType.equals("model.Residential")){
+    if (classType.equals("residential")){
       viewHandler.openResidential(project.getIdProperty().get());
     }
-    if (classType.equals("model.Road")){
+    if (classType.equals("road")){
       viewHandler.openEditRoad(project.getIdProperty().get());
     }
     /*if (classType.equals("model.Commercial")){

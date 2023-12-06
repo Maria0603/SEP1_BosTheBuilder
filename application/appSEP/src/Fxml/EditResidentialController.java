@@ -4,15 +4,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import model.BuildingCompanyModel;
-import model.Industrial;
-import model.Residental;
+import model.Residential;
 import view.ViewHandler;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EditResidentalController implements Initializable {
+public class EditResidentialController implements Initializable {
 
     private ViewHandler viewHandler;
     private BuildingCompanyModel model;
@@ -21,9 +19,9 @@ public class EditResidentalController implements Initializable {
     @FXML
    private TextField residentalId;
 
-    Residental residental;
+    Residential residental;
 
-    public EditResidentalController() {
+    public EditResidentialController() {
       model = viewHandler.getModel();
       viewHandler = new ViewHandler(model);
     }
@@ -36,7 +34,7 @@ public class EditResidentalController implements Initializable {
 
     public void setItem(int projectId){
         if(model.getOngoingProject(projectId) != null){
-             residental = (Residental) model.getOngoingProject(projectId);
+             residental = (Residential) model.getOngoingProject(projectId);
             System.out.printf(residental.toString());
 
             residentalId.setText(residental.getId()+"");

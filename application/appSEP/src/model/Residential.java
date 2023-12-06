@@ -1,6 +1,6 @@
 package model;
 
-public class Residental extends Project {
+public class Residential extends Project {
   private int squareMeters;
   private int numberOfKitchens;
   private int numberOfBathrooms;
@@ -8,7 +8,7 @@ public class Residental extends Project {
   private int numberOfRooms;
   private boolean isNew;
 
-  public Residental(int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate,
+  public Residential(int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate,
       MyDate endingDate, int squareMeters, int numberOfKitchens, int numberOfBathrooms,
       int numberOfOtherPlumbingRooms, boolean isNew, int numberOfRooms) {
     super(id, title, expectedBudget, expectedMonths, creationDate, endingDate);
@@ -38,7 +38,7 @@ public class Residental extends Project {
     if(obj == null || getClass() != obj.getClass()){
       return false;
     }
-    Residental other = (Residental) obj;
+    Residential other = (Residential) obj;
     return super.equals(other) && squareMeters == other.squareMeters &&
         numberOfKitchens == other.numberOfKitchens &&
         numberOfBathrooms == other.numberOfBathrooms &&
@@ -56,8 +56,8 @@ public class Residental extends Project {
         "\nisNew=" + isNew;
   }
 
-  public Residental copy() {
-    Residental copiedResidental = new Residental(getId(), getTitle(), getExpectedBudget(), getExpectedMonths(),
+  public Residential copy() {
+    Residential copiedResidental = new Residential(getId(), getTitle(), getExpectedBudget(), getExpectedMonths(),
         getCreationDate(), getEndingDate(), squareMeters, numberOfKitchens,
         numberOfBathrooms, numberOfOtherPlumbingRooms, isNew, numberOfRooms);
 

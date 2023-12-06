@@ -11,11 +11,13 @@ public class ProjectViewModel
   private IntegerProperty idProperty;
   private StringProperty titleProperty;
   private StringProperty dateProperty;
+  private StringProperty typeProperty;
 
   public ProjectViewModel(Project project) {
     idProperty = new SimpleIntegerProperty(project.getId());
     titleProperty = new SimpleStringProperty(project.getTitle());
     dateProperty = new SimpleStringProperty(project.getCreationDate().toString());
+    typeProperty = new SimpleStringProperty(project.returnProjectType(project));
   }
 
   public IntegerProperty getIdProperty()
@@ -32,4 +34,6 @@ public class ProjectViewModel
   {
     return dateProperty;
   }
+
+  public StringProperty getTypeProperty() { return typeProperty; }
 }
