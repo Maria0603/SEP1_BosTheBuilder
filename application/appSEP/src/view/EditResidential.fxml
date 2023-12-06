@@ -13,7 +13,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="66.0" prefWidth="600.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Residental Project">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Residential Project">
                <font>
                   <Font size="30.0" />
                </font>
@@ -22,7 +22,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
          <children>
-            <Text  strokeType="OUTSIDE" strokeWidth="0.0" text="              ID" wrappingWidth="220.11865234375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="              ID" wrappingWidth="220.11865234375">
                <font>
                   <Font size="21.0" />
                </font>
@@ -32,7 +32,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
          <children>
-            <Text   strokeType="OUTSIDE" strokeWidth="0.0" text="            Title" wrappingWidth="220.11865234375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="            Title" wrappingWidth="220.11865234375">
                <font>
                   <Font size="21.0" />
                </font>
@@ -47,7 +47,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="creationDateResidential" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -57,7 +57,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="expectedBudgetResidential" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -67,7 +67,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="expectedMonthsResidential" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -77,7 +77,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="squareMetersResidential" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -87,7 +87,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="numberOfKitchenResidential" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -97,7 +97,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="numberOfRoomsResidential" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -107,12 +107,12 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="numberOfBathroomsResidential" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="662.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="131.0" text="Cancel">
+            <Button mnemonicParsing="false" onAction="#cancelButtonPressed" prefHeight="47.0" prefWidth="131.0" text="Cancel">
                <font>
                   <Font size="23.0" />
                </font>
@@ -120,7 +120,7 @@
                   <Insets left="160.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="130.0" text="Submit">
+            <Button mnemonicParsing="false" onAction="#submitButtonPressed" prefHeight="49.0" prefWidth="130.0" text="Submit">
                <font>
                   <Font size="23.0" />
                </font>
