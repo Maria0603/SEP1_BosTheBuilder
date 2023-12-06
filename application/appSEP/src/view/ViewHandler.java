@@ -8,26 +8,33 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import model.BuildingCompany;
 import model.BuildingCompanyModel;
 import model.Commercial;
 import model.MyDate;
 
 public class ViewHandler {
-    private final Scene currentScene;
-    private Stage primaryStage;
 
     private BuildingCompanyModel model;
-
     private TabViewController tabViewController;
     private AddCommercialProjectController commercialProjectController;
     private AddResidentialProjectController residentialProjectController;
     private AddIndustrialProjectController industrialProjectController;
     private AddRoadProjectController roadProjectController;
+    private Scene currentScene;
+    private Stage primaryStage;
+    private Scene editIndustrialViewScene;
+    private Scene openResidentialViewScene;
+    private Scene editRoadViewScene;
 
     public ViewHandler(BuildingCompanyModel model) {
         this.currentScene = new Scene(new Region());
         this.model = model;
         model.addNewProject(new Commercial(1, "hello", 10, 10, new MyDate(10, 10, 1000), new MyDate(10, 10, 1000), 100, 5, "serious business"));
+    }
+
+    public BuildingCompanyModel getModel() {
+        return model;
     }
 
     public void start(Stage primaryStage) {
@@ -48,10 +55,10 @@ public class ViewHandler {
         primaryStage.setHeight(root.getPrefHeight());
         primaryStage.show();
 
-      switch (id) {
-        case "ongoing" -> tabViewController.openTab(0);
-        case "finished" -> tabViewController.openTab(1);
-      }
+        switch (id) {
+            case "ongoing" -> tabViewController.openTab(0);
+            case "finished" -> tabViewController.openTab(1);
+        }
     }
 
     public void closeView(){
@@ -80,21 +87,25 @@ public class ViewHandler {
 
     private Region loadTabView(String fxmlFile) {
         Region root = null;
-        if (tabViewController == null){
+        if (tabViewController == null) {
             try {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(fxmlFile));
                 root = loader.load();
                 tabViewController = loader.getController();
                 tabViewController.init(model, this, root);
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 e.printStackTrace();
             }
-        } else {
+        }
+        else {
             tabViewController.reset();
         }
         return tabViewController.getRoot();
     }
+
+    //      For ADD windows
 
     private Region loadCommercialView(String fxmlFile) {
         Region root = null;
@@ -163,4 +174,94 @@ public class ViewHandler {
 
         return root;
     }
+
+    //      For EDIT windows
+
+    public void openEditIndustrial(int projectId) {
+
+        if (editIndustrialViewScene == null){
+            this.editIndustrialViewScene= new Scene(new Region());
+            Region root = loadEditIndustrial("EditIndustrial.fxml", projectId);
+            editIndustrialViewScene.setRoot(root);
+            String title = "Login";
+            primaryStage.setTitle(title);
+            primaryStage.setWidth(root.getPrefWidth());
+            primaryStage.setHeight(root.getPrefHeight());
+        }
+        primaryStage.setScene(editIndustrialViewScene);
+        primaryStage.show();
+    }
+
+    private Region loadEditIndustrial(String fxmlFileName, int projectId) {
+        Region root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource(fxmlFileName));
+            root = loader.load();
+            EditIndustrialController editIndustrialController = loader.getController();
+            editIndustrialController.setItem(projectId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return root;
+    }
+
+    public void openResidential(int projectId) {
+
+        if (openResidentialViewScene == null){
+            this.openResidentialViewScene= new Scene(new Region());
+            Region root = loadEditResidential("EditResidental.fxml", projectId);
+            openResidentialViewScene.setRoot(root);
+            String title = "EditResidental";
+            primaryStage.setTitle(title);
+            primaryStage.setWidth(root.getPrefWidth());
+            primaryStage.setHeight(root.getPrefHeight());
+        }
+        primaryStage.setScene(openResidentialViewScene);
+        primaryStage.show();
+    }
+
+    private Region loadEditResidential(String fxmlFileName, int projectId) {
+        Region root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource(fxmlFileName));
+            root = loader.load();
+            EditResidentalController editIndustrialController = loader.getController();
+            editIndustrialController.setItem(projectId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return root;
+    }
+
+
+    public void openEditRoad(int projectId) {
+        if (editRoadViewScene == null){
+            this.editRoadViewScene= new Scene(new Region());
+            Region root = loadEditRoad("EditRoad.fxml", projectId);
+            editRoadViewScene.setRoot(root);
+            String title = "EditRoad";
+            primaryStage.setTitle(title);
+            primaryStage.setWidth(root.getPrefWidth());
+            primaryStage.setHeight(root.getPrefHeight());
+        }
+        primaryStage.setScene(editRoadViewScene);
+        primaryStage.show();
+    }
+
+    private Region loadEditRoad(String fxmlFileName, int projectId) {
+        Region root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource(fxmlFileName));
+            root = loader.load();
+            EditResidentalController editIndustrialController = loader.getController();
+            editIndustrialController.setItem(projectId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return root;
+    }
+
 }

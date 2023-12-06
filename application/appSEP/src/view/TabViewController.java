@@ -20,28 +20,26 @@ public class TabViewController {
     finishedProjectsController.init(viewHandler, model, root);
   }
 
-  public void reset(){
+  public void reset() {
     ongoingProjectsController.reset();
     finishedProjectsController.reset();
   }
 
-  public Region getRoot(){
+  public Region getRoot() {
     return root;
   }
 
-  @FXML private void tabSelected(Event event){
-    if (ongoingProjectsController != null && finishedProjectsController.getRoot() != null) {
-      int index = ((Tab)event.getSource()).getTabPane().getSelectionModel().getSelectedIndex();
+  @FXML private void tabSelected(Event event) {
+    if (ongoingProjectsController != null
+        && finishedProjectsController.getRoot() != null) {
+      int index = ((Tab) event.getSource()).getTabPane().getSelectionModel().getSelectedIndex();
       switch (index) {
         case 0 -> ongoingProjectsController.reset();
         case 1 -> finishedProjectsController.reset();
       }
     }
   }
-
   public void openTab(int index){
     tabPane.getSelectionModel().select(index);
   }
 }
-
-
