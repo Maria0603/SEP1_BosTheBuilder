@@ -1,10 +1,13 @@
 package Fxml;
 
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.BuildingCompanyModel;
 import model.Commercial;
+import model.Industrial;
+import model.MyDate;
 import view.ViewHandler;
 
 
@@ -42,5 +45,46 @@ public class EditCommercialController {
     public void init(ViewHandler viewHandler, BuildingCompanyModel model, Region root) {
         this.viewHandler = viewHandler;
         this.model = model;
+    }
+
+
+
+    @FXML
+    public void submitButtonPressed() {
+        try {
+            int id = Integer.parseInt(commercialId.getText());
+            String title = commercialTitle.getText();
+            int expectedBudget = Integer.parseInt(commercialExpectedBudget.getText());
+            int expectedMonths = Integer.parseInt(commercialExpectedMonth.getText());
+            String creationDate = commercialCreationDate.getText();
+            int squareMeters = Integer.parseInt(commercialSquareMeters.getText());
+            MyDate myCreationDate = new MyDate(10 ,11, 2023);
+            MyDate myEndingDate = new MyDate(9,5,2024);
+            Industrial newIndustrialProject = new Industrial(
+                    id, title, expectedBudget, expectedMonths, myCreationDate, myEndingDate,
+                    squareMeters, "");
+
+            model.editOngoingProjectData(commercial, newIndustrialProject);
+            clearFields();
+            viewHandler.openTabView("editIndustrial");
+        } catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+    @FXML
+    public void cancelButtonPressed() {
+        clearFields();
+        viewHandler.openTabView("editCommercial");
+    }
+
+    private void clearFields() {
+        commercialId.clear();
+        commercialTitle.clear();
+        commercialCreationDate.clear();
+        commercialExpectedBudget.clear();
+        commercialExpectedMonth.clear();
+        commercialNumberOfFloors.clear();
+        commercialSquareMeters.clear();
     }
 }
