@@ -3,13 +3,11 @@ package view;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
 import model.BuildingCompanyModel;
-import model.OngoingProjectList;
 import viewModel.OngoingProjectListViewModel;
 import viewModel.ProjectViewModel;
 
@@ -24,8 +22,6 @@ public class OngoingProjectsController {
   private OngoingProjectListViewModel viewModel;
   private ViewHandler viewHandler;
   private Region root;
-
-  public OngoingProjectList ongoingProjectList;
 
   private ObservableList<String> options;
 
@@ -55,8 +51,3 @@ public class OngoingProjectsController {
     init(this.viewHandler, this.model, this.root);
   }
 }
-
-
-
-
-

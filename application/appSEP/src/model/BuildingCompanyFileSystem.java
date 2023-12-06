@@ -22,15 +22,17 @@ public class BuildingCompanyFileSystem implements Serializable {
         }
     }
 
-    public void updateOngoingBINfile(OngoingProjectList ongoingList) {if (ongoingList == null) {
-     throw new IllegalArgumentException("Ongoing project list cannot not be null");
-     }
-
-     try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(ONGOING_FILE_PATH))) {
-          objectOutputStream.writeObject(ongoingList);      } catch (IOException e) {
-           throw new IllegalArgumentException("Error updating  the ongoing file", e);
-       }
-    }
+//    public void updateOngoingBINfile(OngoingProjectList ongoingList) {
+//        if (ongoingList == null) {
+//            throw new IllegalArgumentException("Ongoing project list cannot not be null");
+//        }
+//
+//        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(ONGOING_FILE_PATH))) {
+//            objectOutputStream.writeObject(ongoingList);
+//        } catch (IOException e) {
+//            throw new IllegalArgumentException("Error updating  the ongoing file", e);
+//        }
+//    }
 
     public void updateFinishedBINfile(FinishedProjectList finishedList) {
         if (finishedList == null) {

@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditRoadController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/21" >
    <children>
       <HBox alignment="CENTER" prefHeight="66.0" prefWidth="616.0">
          <children>
@@ -22,22 +22,22 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
          <children>
-            <Text  strokeType="OUTSIDE" strokeWidth="0.0" text="                  ID" wrappingWidth="210.21630859375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="                  ID" wrappingWidth="210.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField fx:id="roadId" prefHeight="34.0" prefWidth="357.0" />
+            <TextField prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
          <children>
-            <Text  strokeType="OUTSIDE" strokeWidth="0.0" text="              Title" wrappingWidth="210.21630859375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="              Title" wrappingWidth="210.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField fx:id="roadTitle" prefHeight="34.0" prefWidth="357.0" />
+            <TextField prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
@@ -47,7 +47,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField fx:id="RoadDate" prefHeight="34.0" prefWidth="357.0" />
+            <TextField prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
@@ -57,7 +57,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField fx:id="RoadBudget" prefHeight="34.0" prefWidth="357.0" />
+            <TextField prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">

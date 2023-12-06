@@ -4,11 +4,6 @@ import java.util.ArrayList;
 
 public class OngoingProjectList {
   private ArrayList<Project> ongoingProjects;
-
-  public ArrayList<Project> getOngoingProjects() {
-    return ongoingProjects;
-  }
-
   private OngoingProjectList() {
     ongoingProjects = new ArrayList<>();
   }
