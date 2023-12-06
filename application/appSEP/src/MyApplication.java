@@ -14,8 +14,9 @@ public class MyApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        ViewHandler view = new ViewHandler(primaryStage);
-        view.start();
+        BuildingCompanyModel model = new BuildingCompany();
+        ViewHandler view = new ViewHandler(model);
+        view.start(primaryStage);
     }
 }
 

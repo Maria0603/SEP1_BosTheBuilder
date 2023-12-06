@@ -15,8 +15,8 @@ import java.util.ResourceBundle;
 
 public class EditRoadController implements Initializable {
 
-    private final ViewHandler viewHandler;
-    private final BuildingCompanyModel model;
+    private  ViewHandler viewHandler;
+    private  BuildingCompanyModel model;
   @FXML
   public TextField roadTitle;
 
@@ -28,7 +28,7 @@ public class EditRoadController implements Initializable {
     Road road;
 
     public EditRoadController() {
-        viewHandler = ViewHandler.getInstance();
+        viewHandler = new ViewHandler(model);
         model = viewHandler.getModel();
     }
 

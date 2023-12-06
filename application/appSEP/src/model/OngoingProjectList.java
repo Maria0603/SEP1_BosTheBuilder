@@ -9,7 +9,7 @@ public class OngoingProjectList {
     return ongoingProjects;
   }
 
-  private OngoingProjectList() {
+  public OngoingProjectList() {
     ongoingProjects = new ArrayList<>();
   }
   public Project getProject(Project project) {
