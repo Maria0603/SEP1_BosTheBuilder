@@ -3,13 +3,19 @@ package view;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
-import model.BuildingCompanyModel;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.*;
 import viewModel.OngoingProjectListViewModel;
 import viewModel.ProjectViewModel;
+
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class OngoingProjectsController {
   @FXML private ComboBox<String> comboBox;
@@ -40,6 +46,13 @@ public class OngoingProjectsController {
     dateColumn.setCellValueFactory(cellData -> cellData.getValue().getDateProperty());
 
     projectListTable.setItems(viewModel.getList());
+
+    projectListTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+      if(newSelection != null){
+        handleItemClicked(newSelection);
+      }
+
+    });
   }
 
   @FXML private void onComboBoxSelectionChange() {
@@ -50,4 +63,22 @@ public class OngoingProjectsController {
   public void reset() {
     init(this.viewHandler, this.model, this.root);
   }
+
+
+  private void handleItemClicked(ProjectViewModel project) {
+    String classType = project.getClass().getName();
+    if (classType.equals("model.Industrial")){
+      viewHandler.openEditIndustrial(project.getIdProperty().get());
+    }
+    if (classType.equals("model.Residential")){
+      viewHandler.openResidential(project.getIdProperty().get());
+    }
+    if (classType.equals("model.Road")){
+      viewHandler.openEditRoad(project.getIdProperty().get());
+    }
+    /*if (classType.equals("model.Commercial")){
+      viewHandler.openEditCommercial(project.getId());
+    }*/
+  }
+
 }
