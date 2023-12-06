@@ -47,7 +47,7 @@ public class AddIndustrialProjectController {
 
       model.addNewProject(newIndustrialProject);
       clearFields();
-      viewHandler.openTabView("ongoing");
+      viewHandler.openTabView();
     } catch (NumberFormatException e) {
       System.out.println(e.getMessage());
     }
@@ -56,7 +56,7 @@ public class AddIndustrialProjectController {
   @FXML
   private void cancelButtonPressed() {
     clearFields();
-    viewHandler.openTabView("ongoing");
+    viewHandler.openTabView();
   }
 
   private void clearFields() {

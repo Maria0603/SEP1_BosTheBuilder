@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 
 public class EditIndustrialController implements Initializable {
 
-    private final ViewHandler viewHandler;
+    private ViewHandler viewHandler;
     private final BuildingCompanyModel model;
     @FXML
     private TextField industrialTitle;
@@ -20,7 +20,7 @@ public class EditIndustrialController implements Initializable {
     private Industrial industrial;
 
     public EditIndustrialController() {
-        viewHandler = ViewHandler.getInstance();
+       // viewHandler = ViewHandler.getInstance();
         model = viewHandler.getModel();
     }
 

@@ -47,7 +47,7 @@ public class AddCommercialProjectController {
 
       model.addNewProject(newCommercialProject);
       clearFields();
-      viewHandler.openTabView("ongoing");
+      viewHandler.openTabView();
     } catch (NumberFormatException e) {
       System.out.println(e.getMessage());
     }
@@ -56,7 +56,7 @@ public class AddCommercialProjectController {
   @FXML
   private void cancelButtonPressed() {
     clearFields();
-    viewHandler.openTabView("ongoing");
+    viewHandler.openTabView();
   }
 
   private void clearFields() {

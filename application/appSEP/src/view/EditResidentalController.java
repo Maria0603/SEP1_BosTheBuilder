@@ -13,8 +13,8 @@ import java.util.ResourceBundle;
 
 public class EditResidentalController implements Initializable {
 
-    private final ViewHandler viewHandler;
-    private final BuildingCompanyModel model;
+    private  ViewHandler viewHandler;
+    private BuildingCompanyModel model;
    @FXML
    private TextField residentalTitle;
     @FXML
@@ -23,8 +23,8 @@ public class EditResidentalController implements Initializable {
     Residental residental;
 
     public EditResidentalController() {
-        viewHandler = ViewHandler.getInstance();
-        model = viewHandler.getModel();
+        //viewHandler = ViewHandler.getInstance();
+        //model = viewHandler.getModel();
     }
 
     @Override

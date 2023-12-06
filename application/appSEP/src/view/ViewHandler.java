@@ -15,7 +15,7 @@ import model.MyDate;
 
 public class ViewHandler {
 
-    private static ViewHandler viewHandler;
+    private ViewHandler viewHandler;
     private  BuildingCompanyModel model;
     private Stage primaryStage;
 
@@ -31,12 +31,9 @@ public class ViewHandler {
     private AddIndustrialProjectController industrialProjectController;
     private AddRoadProjectController roadProjectController;
 
-    public ViewHandler(BuildingCompanyModel model, Stage stage) {
+    public ViewHandler(BuildingCompanyModel model) {
         this.currentScene = new Scene(new Region());
         this.model = model;
-        this.primaryStage = stage;
-        this.model = new BuildingCompany();
-        viewHandler = this;
         model.addNewProject(new Commercial(1, "hello", 10, 10, new MyDate(10, 10, 1000), new MyDate(10, 10, 1000), 100, 5, "serious business"));
     }
 
@@ -77,10 +74,10 @@ public class ViewHandler {
         return root;
     }
 
-    public static ViewHandler getInstance() {
+    public ViewHandler getInstance() {
         if (viewHandler == null){
             BuildingCompanyModel newModel  = new BuildingCompany();
-            return  new ViewHandler(newModel, new Stage());
+            return  new ViewHandler(newModel);
         }
         return viewHandler;
     }

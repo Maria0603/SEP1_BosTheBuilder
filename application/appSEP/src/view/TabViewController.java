@@ -15,7 +15,6 @@ public class TabViewController {
   private ViewHandler viewHandler;
 
   public TabViewController() {
-    viewHandler = ViewHandler.getInstance();
   }
 
   public void init(BuildingCompanyModel model, ViewHandler viewHandler, Region root) {

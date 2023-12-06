@@ -18,7 +18,7 @@ public class BuildingCompany implements BuildingCompanyModel {
     }
 
     public ArrayList<Project> getOngoingProjects() {
-        return ongoingProjects;
+        return ongoingProjectList;
     }
 
     public void listAllOngoing() {
@@ -74,8 +74,8 @@ public class BuildingCompany implements BuildingCompanyModel {
         Industrial ABCCompany = new Industrial(1, "Industrial", 90000, 8, startDate, endingDate, 1000, "Company");
         ongoingProjectList.add(ABCCompany);
 
-        Residental residental = new Residental(2,"Residental ", 12212,1212,startDate,endingDate,100,2,1,1,Boolean.TRUE);
-        ongoingProjectList.add(residental);
+        /*Residental residental = new Residental(2,"Residental ", 12212,1212,startDate,endingDate,100,2,1,1,Boolean.TRUE);
+        ongoingProjectList.add(residental);*/
 
         Road road= new Road(7677, 678, 5,7,3, "Road",89000,9, startDate, endingDate, challenges);
         ongoingProjectList.add(road);

@@ -56,7 +56,7 @@ public class AddResidentialProjectController
 
       model.addNewProject(newResidentialProject);
       clearFields();
-      viewHandler.openTabView("ongoing");
+      viewHandler.openTabView();
     } catch (NumberFormatException e) {
       System.out.println("Error parsing fields: " + e.getMessage());
     }
@@ -64,7 +64,7 @@ public class AddResidentialProjectController
 
     @FXML private void cancelButtonPressed() {
       clearFields();
-      viewHandler.openTabView("ongoing");
+      viewHandler.openTabView();
     }
 
     private void clearFields() {
