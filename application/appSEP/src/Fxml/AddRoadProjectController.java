@@ -86,7 +86,7 @@ public class AddRoadProjectController {
 
   }
 
-  private static ArrayList<String> parseEnvironmentalChallenges(String challenges) {
+  public static ArrayList<String> parseEnvironmentalChallenges(String challenges) {
     if (challenges == null || challenges.trim().isEmpty()) {
       return new ArrayList<>();
     }
@@ -106,5 +106,13 @@ public class AddRoadProjectController {
     for (String challenge : challenges) {
       System.out.println(challenge);
     }
+
+    MyDate date = new MyDate(2, 3, 4);
+
+    Road newRoadProject = new Road(343, 343, 54,
+        54, 76, "uhb", 34, 765, date,
+        date, parseEnvironmentalChallenges(challengesStr));
+
+    System.out.println(newRoadProject);
   }
 }

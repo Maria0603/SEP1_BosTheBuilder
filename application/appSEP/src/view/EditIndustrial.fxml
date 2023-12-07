@@ -27,7 +27,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField fx:id="idField" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+            <TextField fx:id="idField" alignment="CENTER_RIGHT" editable="false" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -60,6 +60,16 @@
             <TextField fx:id="expectedBudgetField" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="232.0" prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Spent Budget" wrappingWidth="220.11865234375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="spentBudgetField" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+         </children>
+      </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Expected Month" wrappingWidth="220.11865234375">
@@ -68,6 +78,16 @@
                </font>
             </Text>
             <TextField fx:id="expectedMonthField" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="336.0" prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Spent Month" wrappingWidth="220.11865234375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="spentMonthField" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -80,9 +100,19 @@
             <TextField fx:id="squareMetersField" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="427.0" prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Used For" wrappingWidth="220.11865234375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="usedForField" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" />
+         </children>
+      </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="662.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="131.0" text="Cancel">
+            <Button mnemonicParsing="false" onAction="#cancelPressed" prefHeight="47.0" prefWidth="131.0" text="Cancel">
                <font>
                   <Font size="23.0" />
                </font>
@@ -90,7 +120,7 @@
                   <Insets left="160.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="130.0" text="Submit">
+            <Button mnemonicParsing="false" onAction="#submitPressed" prefHeight="49.0" prefWidth="130.0" text="Submit">
                <font>
                   <Font size="23.0" />
                </font>
