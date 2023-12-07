@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
@@ -8,10 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="AddResidentialProject" maxHeight="-Infinity" maxWidth="-Infinity"
-      minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0"
-      prefWidth="600.0" xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.AddResidentialProjectController">
+<VBox fx:id="AddResidentialProject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.AddResidentialProjectController">
    <children>
       <HBox alignment="CENTER" prefHeight="66.0" prefWidth="600.0">
          <children>
@@ -24,72 +22,75 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="              ID" wrappingWidth="220.11865234375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" ID" textAlignment="CENTER" wrappingWidth="220.11865234375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" fx:id="idField"/>
+            <TextField fx:id="idField" prefHeight="34.0" prefWidth="370.0">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor></TextField>
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="            Title" wrappingWidth="220.11865234375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Title" textAlignment="CENTER" wrappingWidth="220.11865234375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" fx:id="titleField"/>
+            <TextField fx:id="titleField" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="      Creation Date" wrappingWidth="220.11865234375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Creation Date" textAlignment="CENTER" wrappingWidth="220.11865234375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" fx:id="creationDateField"/>
+            <TextField fx:id="creationDateField" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Expected Budget" wrappingWidth="220.11865234375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Expected Budget" textAlignment="CENTER" wrappingWidth="220.11865234375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" fx:id="expectedBudgetField"/>
+            <TextField fx:id="expectedBudgetField" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Expected Month" wrappingWidth="220.11865234375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Expected Month" textAlignment="CENTER" wrappingWidth="220.11865234375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" fx:id="expectedMonthsField"/>
+            <TextField fx:id="expectedMonthsField" prefHeight="34.0" prefWidth="370.0" text="9" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Square Meters" wrappingWidth="220.11865234375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Square Meters" textAlignment="CENTER" wrappingWidth="220.11865234375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" fx:id="squareMetersField"/>
+            <TextField fx:id="squareMetersField" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Number Of Kitchens" wrappingWidth="220.11865234375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Number Of Kitchens" textAlignment="CENTER" wrappingWidth="220.11865234375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" fx:id="numberOfKitchenField" />
+            <TextField fx:id="numberOfKitchenField" prefHeight="34.0" prefWidth="370.0" text="1" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
@@ -99,22 +100,40 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" fx:id="numberOfRoomsField" />
+            <TextField fx:id="numberOfRoomsField" prefHeight="34.0" prefWidth="370.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="600.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Number Of Bathrooms" wrappingWidth="220.11865234375">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Text>
-            <TextField alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="370.0" fx:id="numberOfBathroomsField"/>
+            <VBox alignment="CENTER" prefHeight="56.0" prefWidth="196.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Number Of Bathrooms" textAlignment="CENTER" wrappingWidth="220.11865234375">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <TextField fx:id="numberOfBathroomsField" prefHeight="34.0" prefWidth="370.0" text="1" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="448.0" prefHeight="52.0" prefWidth="600.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="56.0" prefWidth="196.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Number Of Other Plumbing Rooms" textAlignment="CENTER" wrappingWidth="220.11865234375">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <TextField fx:id="numberOfOtherPlumbingRoomsField" prefHeight="34.0" prefWidth="370.0" text="1" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="721.0">
          <children>
-            <Button onAction="#cancelButtonPressed" mnemonicParsing="false" prefHeight="47.0" prefWidth="131.0" text="Cancel">
+            <Button mnemonicParsing="false" onAction="#cancelButtonPressed" prefHeight="47.0" prefWidth="131.0" text="Cancel">
                <font>
                   <Font size="23.0" />
                </font>
@@ -122,7 +141,7 @@
                   <Insets left="160.0" />
                </HBox.margin>
             </Button>
-            <Button onAction="#submitButtonPressed" mnemonicParsing="false" prefHeight="49.0" prefWidth="130.0" text="Submit">
+            <Button mnemonicParsing="false" onAction="#submitButtonPressed" prefHeight="49.0" prefWidth="130.0" text="Submit">
                <font>
                   <Font size="23.0" />
                </font>

@@ -16,6 +16,8 @@ public class AddIndustrialProjectController {
   @FXML private TextField expectedBudgetField;
   @FXML private TextField expectedMonthsField;
   @FXML private TextField squareMetersField;
+  @FXML private TextField usedForField;
+
 
   private Region root;
   private BuildingCompanyModel model;
@@ -37,13 +39,16 @@ public class AddIndustrialProjectController {
       String title = titleField.getText();
       int expectedBudget = Integer.parseInt(expectedBudgetField.getText());
       int expectedMonths = Integer.parseInt(expectedMonthsField.getText());
-      String creationDate = creationDateField.getText();
       int squareMeters = Integer.parseInt(squareMetersField.getText());
-      MyDate myCreationDate = new MyDate(10,10,2010);
-      MyDate myEndingDate = new MyDate(10, 10, 2020);
+      String usedFor = usedForField.getText();
+
+      String creationDate = creationDateField.getText();
+      MyDate myCreationDate = MyDate.parseStringToDate(creationDate);
+      MyDate myEndDate = myCreationDate.addMonths(expectedMonths);
+
       Industrial newIndustrialProject = new Industrial(
-          id, title, expectedBudget, expectedMonths, myCreationDate, myEndingDate,
-          squareMeters, "");
+          id, title, expectedBudget, expectedMonths, myCreationDate, myEndDate,
+          squareMeters, usedFor);
 
       model.addNewProject(newIndustrialProject);
       clearFields();

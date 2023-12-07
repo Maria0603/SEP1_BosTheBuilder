@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
@@ -8,10 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="AddCommercialProject" maxHeight="-Infinity" maxWidth="-Infinity"
-      minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0"
-      prefWidth="600.0" xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.AddCommercialProjectController">
+<VBox fx:id="AddCommercialProject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.AddCommercialProjectController">
 
    <children>
       <HBox alignment="CENTER" prefHeight="48.0" prefWidth="600.0">
@@ -30,7 +28,10 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="idField" />
+            <TextField fx:id="idField" prefHeight="34.0" prefWidth="357.0">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor></TextField>
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
@@ -41,7 +42,7 @@
                </font>
             </Text>
 
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="titleField" />
+            <TextField fx:id="titleField" prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
@@ -51,17 +52,17 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="creationDateField" />
+            <TextField fx:id="creationDateField" prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Expected Month" wrappingWidth="200.21630859375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Expected Months" wrappingWidth="200.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="expectedMonthsField" />
+            <TextField fx:id="expectedMonthsField" prefHeight="34.0" prefWidth="357.0" text="18" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
@@ -71,7 +72,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="expectedBudgetField" />
+            <TextField fx:id="expectedBudgetField" prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
@@ -81,22 +82,32 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="squareMetersField" />
+            <TextField fx:id="squareMetersField" prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Number Of Floor" wrappingWidth="200.21630859375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Number Of Floors" wrappingWidth="200.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="numberOfFloorsField" />
+            <TextField fx:id="numberOfFloorsField" prefHeight="34.0" prefWidth="357.0" text="1" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="432.0" prefHeight="50.0" prefWidth="644.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Used For" wrappingWidth="200.21630859375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="usedForField" prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button onAction="#cancelButtonPressed" mnemonicParsing="false" prefHeight="43.0" prefWidth="101.0" text="Cancel">
+            <Button mnemonicParsing="false" onAction="#cancelButtonPressed" prefHeight="43.0" prefWidth="101.0" text="Cancel">
                <font>
                   <Font size="21.0" />
                </font>
@@ -104,7 +115,7 @@
                   <Insets left="170.0" />
                </HBox.margin>
             </Button>
-            <Button onAction="#submitButtonPressed" mnemonicParsing="false" prefHeight="44.0" prefWidth="98.0" text="Submit">
+            <Button mnemonicParsing="false" onAction="#submitButtonPressed" prefHeight="44.0" prefWidth="98.0" text="Submit">
                <HBox.margin>
                   <Insets left="100.0" />
                </HBox.margin>

@@ -21,7 +21,16 @@ public class OngoingProjectList {
     return null;
   }
   public void addProjectToOngoingList(Project project) {
+    validateProjectID(project);
     ongoingProjects.add(project);
+  }
+
+  private void validateProjectID(Project project) {
+    for (Project tmp : ongoingProjects) {
+      if(tmp.getId() == project.getId()){
+        throw new IllegalArgumentException("Choose unique project ID");
+      }
+    }
   }
   public void deleteProjectFromOngoingList(Project project) {
     ongoingProjects.remove(project);

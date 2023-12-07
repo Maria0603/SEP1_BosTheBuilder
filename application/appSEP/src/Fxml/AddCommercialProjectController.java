@@ -9,6 +9,7 @@ import model.MyDate;
 import view.ViewHandler;
 
 public class AddCommercialProjectController {
+  @FXML public TextField usedForField;
   @FXML private TextField idField;
   @FXML private TextField titleField;
   @FXML private TextField creationDateField;
@@ -16,6 +17,7 @@ public class AddCommercialProjectController {
   @FXML private TextField expectedMonthsField;
   @FXML private TextField squareMetersField;
   @FXML private TextField numberOfFloorsField;
+
 
   private Region root;
   private BuildingCompanyModel model;
@@ -37,17 +39,23 @@ public class AddCommercialProjectController {
       String title = titleField.getText();
       int expectedBudget = Integer.parseInt(expectedBudgetField.getText());
       int expectedMonths = Integer.parseInt(expectedMonthsField.getText());
-      String creationDate = creationDateField.getText();
       int squareMeters = Integer.parseInt(squareMetersField.getText());
       int numberOfFloors = Integer.parseInt(numberOfFloorsField.getText());
-      MyDate myCreationDate = new MyDate(10,10,2010);
+      String usedFor = usedForField.getText();
+
+      String creationDate = creationDateField.getText();
+      MyDate myCreationDate = MyDate.parseStringToDate(creationDate);
+      MyDate myEndDate = myCreationDate.addMonths(expectedMonths);
+
       Commercial newCommercialProject = new Commercial(
-          id, title, expectedBudget, expectedMonths, myCreationDate, null,
-          squareMeters, numberOfFloors, "");
+          id, title, expectedBudget, expectedMonths, myCreationDate, myEndDate,
+          squareMeters, numberOfFloors, usedFor);
 
       model.addNewProject(newCommercialProject);
       clearFields();
       viewHandler.openTabView("ongoing");
+      System.out.println(model.getOngoingProjects().toString());
+
     } catch (NumberFormatException e) {
       System.out.println(e.getMessage());
     }

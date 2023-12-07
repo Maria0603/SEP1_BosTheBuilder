@@ -1,48 +1,65 @@
-
 package Fxml;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
-import model.BuildingCompanyModel;
-import model.Industrial;
-import model.Residential;
-import model.Road;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
+import model.*;
 import view.ViewHandler;
+import viewModel.ProjectViewModel;
 
 import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EditRoadController implements Initializable {
+public class EditRoadController {
 
-    private ViewHandler viewHandler;
-    private  BuildingCompanyModel model;
-  @FXML
-  public TextField roadTitle;
+  public TextField idField;
+  public TextField titleField;
+  public TextField creationDateField;
+  public TextField expectedBudgetField;
+  public TextField lengthField;
+  public TextField widthField;
+  public TextField numberOfBridgesField;
+  public TextField numberOfTunnelsField;
 
-    @FXML
-   private TextField roadId;
 
+  private Region root;
+  private BuildingCompanyModel model;
+  private ViewHandler viewHandler;
+  private Road roadProject;
 
-    Residential residental;
-    Road road;
+  public void init(ViewHandler viewHandler, BuildingCompanyModel model,
+      Region root, ProjectViewModel selectedItem) {
 
-    public EditRoadController() {
-        viewHandler = new ViewHandler(model);
-        model = viewHandler.getModel();
-    }
+    this.model = model;
+    this.viewHandler = viewHandler;
+    this.root = root;
+    roadProject = (Road) model.getOngoingProject(
+        selectedItem.getIdProperty().get());
+  }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+  public void reset() {
+    idField.setText(String.valueOf(roadProject.getId()));
 
-    }
-    void setItem(int projectId){
-        if(model.getOngoingProject(projectId) != null){
-            road = (Road) model.getOngoingProject(projectId);
-            System.out.printf(road.toString());
-            roadId.setText(road.getId()+"");
-            roadTitle.setText(road.getTitle());
-        }
-    }
+    titleField.setText(roadProject.getTitle());
+
+    creationDateField.setText(roadProject.getCreationDate().toString());
+
+    expectedBudgetField.setText(
+        String.valueOf(roadProject.getExpectedBudget()));
+
+    lengthField.setText(
+        String.valueOf(roadProject.getLength()));
+
+    widthField.setText(
+        String.valueOf(roadProject.getWidth()));
+
+    numberOfBridgesField.setText(
+        String.valueOf(roadProject.getNumberOfBridges()));
+
+    numberOfTunnelsField.setText(
+        String.valueOf(roadProject.getNumberOfTunnels()));
+  }
 }

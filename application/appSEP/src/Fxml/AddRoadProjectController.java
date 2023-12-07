@@ -21,13 +21,15 @@ public class AddRoadProjectController {
   @FXML private TextField widthField;
   @FXML private TextField numberOfBridgesField;
   @FXML private TextField numberOfTunnelsField;
-
+  @FXML private TextField expectedMonthsField;
+  @FXML private TextField challengesField;
 
   private Region root;
   private BuildingCompanyModel model;
   private ViewHandler viewHandler;
 
-  public void init(ViewHandler viewHandler, BuildingCompanyModel model, Region root) {
+  public void init(ViewHandler viewHandler, BuildingCompanyModel model,
+      Region root) {
     this.model = model;
     this.viewHandler = viewHandler;
     this.root = root;
@@ -46,21 +48,28 @@ public class AddRoadProjectController {
       int width = Integer.parseInt(widthField.getText());
       int numberOfBridges = Integer.parseInt(numberOfBridgesField.getText());
       int numberOfTunnels = Integer.parseInt(numberOfTunnelsField.getText());
+      int expectedMonths = Integer.parseInt(expectedMonthsField.getText());
+
       String creationDate = creationDateField.getText();
-      MyDate myCreationDate = new MyDate(10,10,2010);
-      MyDate myEndingDate = new MyDate(10, 10, 2020);
-      Road newRoadProject = new Road(length, width, numberOfBridges, numberOfTunnels, id, title, expectedBudget, 42, myCreationDate, myEndingDate, new ArrayList<>(Arrays.asList("landslide", "mountains", "BIG GOOSE")));
+      MyDate myCreationDate = MyDate.parseStringToDate(creationDate);
+      MyDate myEndDate = myCreationDate.addMonths(expectedMonths);
+
+      String challenges = challengesField.getText();
+
+      Road newRoadProject = new Road(length, width, numberOfBridges,
+          numberOfTunnels, id, title, expectedBudget, expectedMonths, myCreationDate,
+          myEndDate, parseEnvironmentalChallenges(challenges));
 
       model.addNewProject(newRoadProject);
       clearFields();
       viewHandler.openTabView("ongoing");
-    } catch (NumberFormatException e) {
+    }
+    catch (NumberFormatException e) {
       System.out.println(e.getMessage());
     }
   }
 
-  @FXML
-  private void cancelButtonPressed() {
+  @FXML private void cancelButtonPressed() {
     clearFields();
     viewHandler.openTabView("ongoing");
   }
@@ -75,5 +84,27 @@ public class AddRoadProjectController {
     numberOfBridgesField.clear();
     numberOfTunnelsField.clear();
 
+  }
+
+  private static ArrayList<String> parseEnvironmentalChallenges(String challenges) {
+    if (challenges == null || challenges.trim().isEmpty()) {
+      return new ArrayList<>();
+    }
+
+    String[] challengesArray = challenges.split(",");
+    ArrayList<String> challengesList = new ArrayList<>();
+    for (String challenge : challengesArray) {
+      challengesList.add(challenge.trim());
+    }
+    return challengesList;
+  }
+
+  public static void main(String[] args) {
+    String challengesStr = "Steep terrain, Nearby river, Dense forest";
+    ArrayList<String> challenges = parseEnvironmentalChallenges(challengesStr);
+    System.out.println("Environmental Challenges:");
+    for (String challenge : challenges) {
+      System.out.println(challenge);
+    }
   }
 }

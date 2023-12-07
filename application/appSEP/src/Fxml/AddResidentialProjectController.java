@@ -8,8 +8,7 @@ import model.MyDate;
 import model.Residential;
 import view.ViewHandler;
 
-public class AddResidentialProjectController
-{
+public class AddResidentialProjectController {
 
   @FXML private TextField idField;
   @FXML private TextField titleField;
@@ -20,20 +19,22 @@ public class AddResidentialProjectController
   @FXML private TextField numberOfKitchenField;
   @FXML private TextField numberOfRoomsField;
   @FXML private TextField numberOfBathroomsField;
+  @FXML private TextField numberOfOtherPlumbingRoomsField;
 
-    private Region root;
-    private BuildingCompanyModel model;
-    private ViewHandler viewHandler;
+  private Region root;
+  private BuildingCompanyModel model;
+  private ViewHandler viewHandler;
 
-    public void init(ViewHandler viewHandler, BuildingCompanyModel model, Region root) {
-      this.model = model;
-      this.viewHandler = viewHandler;
-      this.root = root;
-    }
+  public void init(ViewHandler viewHandler, BuildingCompanyModel model,
+      Region root) {
+    this.model = model;
+    this.viewHandler = viewHandler;
+    this.root = root;
+  }
 
-    public Region getRoot() {
-      return root;
-    }
+  public Region getRoot() {
+    return root;
+  }
 
   @FXML private void submitButtonPressed() {
     try {
@@ -42,39 +43,45 @@ public class AddResidentialProjectController
       String title = titleField.getText();
       int expectedBudget = Integer.parseInt(expectedBudgetField.getText());
       int expectedMonths = Integer.parseInt(expectedMonthsField.getText());
-      String creationDate = creationDateField.getText();
       int squareMeters = Integer.parseInt(squareMetersField.getText());
       int numberOfKitchens = Integer.parseInt(numberOfKitchenField.getText());
-      int numberOfBathrooms = Integer.parseInt(numberOfBathroomsField.getText());
+      int numberOfBathrooms = Integer.parseInt(
+          numberOfBathroomsField.getText());
       int numberOfRooms = Integer.parseInt(numberOfRoomsField.getText());
-      MyDate myCreationDate = new MyDate(10,10,2010);
-      MyDate myEndingDate = new MyDate(10, 10, 2020);
+      int numberOfOtherPlumbingRooms = Integer.parseInt(
+          numberOfOtherPlumbingRoomsField.getText());
 
-      Residential newResidentialProject = new Residential(
-          id, title, expectedBudget, expectedMonths, myCreationDate, myEndingDate,
-          squareMeters, numberOfKitchens, numberOfBathrooms, 0, true, numberOfRooms);
+      String creationDate = creationDateField.getText();
+      MyDate myCreationDate = MyDate.parseStringToDate(creationDate);
+      MyDate myEndDate = myCreationDate.addMonths(expectedMonths);
+
+      Residential newResidentialProject = new Residential(id, title,
+          expectedBudget, expectedMonths, myCreationDate, myEndDate,
+          squareMeters, numberOfKitchens, numberOfBathrooms,
+          numberOfOtherPlumbingRooms, true, numberOfRooms);
 
       model.addNewProject(newResidentialProject);
       clearFields();
       viewHandler.openTabView("ongoing");
-    } catch (NumberFormatException e) {
+    }
+    catch (NumberFormatException e) {
       System.out.println("Error parsing fields: " + e.getMessage());
     }
   }
 
-    @FXML private void cancelButtonPressed() {
-      clearFields();
-      viewHandler.openTabView("ongoing");
-    }
-
-    private void clearFields() {
-      idField.clear();
-      titleField.clear();
-      creationDateField.clear();
-      expectedBudgetField.clear();
-      expectedMonthsField.clear();
-      squareMetersField.clear();
-      numberOfRoomsField.clear();
-    }
+  @FXML private void cancelButtonPressed() {
+    clearFields();
+    viewHandler.openTabView("ongoing");
   }
+
+  private void clearFields() {
+    idField.clear();
+    titleField.clear();
+    creationDateField.clear();
+    expectedBudgetField.clear();
+    expectedMonthsField.clear();
+    squareMetersField.clear();
+    numberOfRoomsField.clear();
+  }
+}
 

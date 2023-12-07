@@ -8,10 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="AddResidentialProject" maxHeight="-Infinity" maxWidth="-Infinity"
-      minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0"
-      prefWidth="600.0" xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.AddRoadProjectController">
+<VBox fx:id="AddResidentialProject" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.AddRoadProjectController">
    <children>
       <HBox alignment="CENTER" prefHeight="66.0" prefWidth="616.0">
          <children>
@@ -29,7 +26,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="idField"/>
+            <TextField fx:id="idField" prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
@@ -39,7 +36,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="titleField"/>
+            <TextField fx:id="titleField" prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
@@ -49,7 +46,17 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="creationDateField"/>
+            <TextField fx:id="creationDateField" prefHeight="34.0" prefWidth="357.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="168.0" prefHeight="50.0" prefWidth="644.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="      Expected Months" wrappingWidth="210.21630859375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="expectedMonthsField" prefHeight="34.0" prefWidth="357.0" text="18" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
@@ -59,7 +66,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="expectedBudgetField"/>
+            <TextField fx:id="expectedBudgetField" prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
@@ -69,7 +76,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="lengthField"/>
+            <TextField fx:id="lengthField" prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
@@ -79,7 +86,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="widthField"/>
+            <TextField fx:id="widthField" prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
@@ -89,7 +96,7 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="numberOfBridgesField"/>
+            <TextField fx:id="numberOfBridgesField" prefHeight="34.0" prefWidth="357.0" text="0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="644.0">
@@ -99,12 +106,22 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <TextField prefHeight="34.0" prefWidth="357.0" fx:id="numberOfTunnelsField"/>
+            <TextField fx:id="numberOfTunnelsField" prefHeight="34.0" prefWidth="357.0" text="0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="415.0" prefHeight="50.0" prefWidth="644.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Challenges" textAlignment="CENTER" wrappingWidth="210.21630859375">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="challengesField" prefHeight="34.0" prefWidth="357.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="116.0" prefWidth="659.0">
          <children>
-            <Button onAction="#cancelButtonPressed" mnemonicParsing="false" prefHeight="47.0" prefWidth="131.0" text="Cancel">
+            <Button mnemonicParsing="false" onAction="#cancelButtonPressed" prefHeight="47.0" prefWidth="131.0" text="Cancel">
                <font>
                   <Font size="23.0" />
                </font>
@@ -112,7 +129,7 @@
                   <Insets left="160.0" />
                </HBox.margin>
             </Button>
-            <Button onAction="#submitButtonPressed" mnemonicParsing="false" prefHeight="49.0" prefWidth="130.0" text="Submit">
+            <Button mnemonicParsing="false" onAction="#submitButtonPressed" prefHeight="49.0" prefWidth="130.0" text="Submit">
                <font>
                   <Font size="23.0" />
                </font>

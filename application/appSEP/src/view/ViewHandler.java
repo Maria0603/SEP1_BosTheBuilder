@@ -85,7 +85,7 @@ public class ViewHandler {
         primaryStage.close();
     }
 
-    //  For ADD windows
+    //  For opening ADD windows
     public void openComboBoxSelectionView(String id) {
         Region root = null;
         switch (id) {
@@ -174,14 +174,14 @@ public class ViewHandler {
         return root;
     }
 
-    //      For EDIT windows
+    //      For opening EDIT windows
     public void openDetailsSelectionView(ProjectViewModel selectedItem) {
         Region root = null;
         switch (selectedItem.getTypeProperty().get()) {
             case "commercial" -> root = loadEditCommercialView("./EditCommercial.fxml", selectedItem);
             case "residential" -> root = loadEditResidentialView("./EditResidential.fxml", selectedItem);
             case "industrial" -> root = loadEditIndustrialView("./EditIndustrial.fxml", selectedItem);
-            case "road" -> root = loadEditRoadView("./EditRoad.fxml");
+            case "road" -> root = loadEditRoadView("./EditRoad.fxml", selectedItem);
         }
         currentScene.setRoot(root);
         String title = "";
@@ -196,8 +196,20 @@ public class ViewHandler {
 
     }
 
-    private Region loadEditRoadView(String fxmlFileName) {
-        return null;
+    private Region loadEditRoadView(String fxmlFileName, ProjectViewModel selectedItem) {
+        Region root = null;
+        try
+        {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource(fxmlFileName));
+            root = loader.load();
+            editRoadProjectController = loader.getController();
+            editRoadProjectController.init(this, model, root, selectedItem);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        editRoadProjectController.reset();
+        return root;
     }
 
     private Region loadEditCommercialView(String fxmlFileName, ProjectViewModel selectedItem) {
@@ -247,6 +259,4 @@ public class ViewHandler {
         editIndustrialProjectController.reset();
         return root;
     }
-
-
 }
