@@ -3,12 +3,10 @@ package view;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.*;
@@ -17,6 +15,7 @@ import viewModel.ProjectViewModel;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class OngoingProjectsController {
@@ -75,4 +74,41 @@ public class OngoingProjectsController {
    }
  }
 
+ @FXML public void removePressed() {
+    try
+    {
+      ProjectViewModel selectedItem = projectListTable.getSelectionModel()
+          .getSelectedItem();
+      boolean remove = confirmation();
+      if (remove)
+      {
+
+        Project projectToRemove = model.getOngoingProject(selectedItem.getIdProperty().get());
+        model.deleteOngoingProject(projectToRemove);
+        viewModel.remove(selectedItem);
+        projectListTable.getSelectionModel().clearSelection();
+      }
+    }
+    catch (Exception e)
+    {
+      errorLabel.setText("Item not found " + e.getMessage());
+    }
+
+  }
+
+  private boolean confirmation(){
+    int index = projectListTable.getSelectionModel().getSelectedIndex();
+    ProjectViewModel selectedItem = projectListTable.getItems().get(index);
+    if (index < 0 || index >= projectListTable.getItems().size())
+    {
+      return false;
+    }
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirmation");
+    alert.setHeaderText(
+        "Removing grade {" + selectedItem.getIdProperty().get() + ": "
+            + selectedItem.getTitleProperty().get() + "}");
+    Optional<ButtonType> result = alert.showAndWait();
+    return (result.isPresent() && (result.get() == ButtonType.OK));
+  }
 }

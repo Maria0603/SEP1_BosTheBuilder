@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-      <HBox prefHeight="307.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.OngoingProjectsController">
+<HBox prefHeight="307.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.OngoingProjectsController">
          <VBox prefHeight="400.0" prefWidth="178.0">
             <HBox alignment="CENTER" prefHeight="74.0" prefWidth="178.0">
                <Label alignment="CENTER" style="-fx-font-weight: bold;" text="Your projects">
@@ -25,7 +24,7 @@
                   <ComboBox fx:id="comboBox" onAction="#onComboBoxSelectionChange" prefHeight="27.0" prefWidth="113.0" promptText="New Project" />
                </HBox>
                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="111.0" text="Remove" />
+                  <Button mnemonicParsing="false" onAction="#removePressed" prefHeight="38.0" prefWidth="111.0" text="Remove" />
                </HBox>
                <HBox alignment="CENTER" layoutX="10.0" layoutY="143.0" prefHeight="100.0" prefWidth="200.0">
                   <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" text="Send to Finished" />

@@ -34,9 +34,9 @@ public class OngoingProjectListViewModel
     list.add(new ProjectViewModel(project));
   }
 
-  public void remove(Project project) {
+  public void remove(ProjectViewModel project) {
     for (int i = 0; i < list.size(); i++) {
-      if (list.get(i).getIdProperty().get() == project.getId()) {
+      if (list.get(i).getIdProperty().get() == project.getIdProperty().get()) {
         list.remove(i);
         break;
       }
