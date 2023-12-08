@@ -14,7 +14,7 @@ public class FilePersistance {
   public OngoingProjectList readFromOngoingFXMLFile() {
     try {
       File file = new File("appSEP/src/model/ongoing.xml");
-      JAXBContext jaxbContext = JAXBContext.newInstance(OngoingProjectList.class, Project.class, Residental.class, Commercial.class, Industrial.class, Road.class);
+      JAXBContext jaxbContext = JAXBContext.newInstance(OngoingProjectList.class, Project.class, Residential.class, Commercial.class, Industrial.class, Road.class);
       Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
       return (OngoingProjectList) jaxbUnmarshaller.unmarshal(file);
     } catch (JAXBException e) {
@@ -26,7 +26,7 @@ public class FilePersistance {
   public FinishedProjectList readFromFinishedFXMLFile() {
     try {
       File file = new File("appSEP/src/model/finished.xml");
-      JAXBContext context = JAXBContext.newInstance(FinishedProjectList.class, Project.class, Residental.class, Commercial.class, Industrial.class, Road.class);
+      JAXBContext context = JAXBContext.newInstance(FinishedProjectList.class, Project.class, Residential.class, Commercial.class, Industrial.class, Road.class);
       Unmarshaller jaxbUnmarshaller = context.createUnmarshaller();
       return (FinishedProjectList) jaxbUnmarshaller.unmarshal(file);
     } catch (JAXBException e) {
@@ -38,7 +38,7 @@ public class FilePersistance {
 
   public static void writeToFinishedXMLFile(FinishedProjectList finishedProjectList){
     try {
-      JAXBContext context = JAXBContext.newInstance(FinishedProjectList.class, Project.class, Residental.class, Commercial.class, Industrial.class, Road.class);
+      JAXBContext context = JAXBContext.newInstance(FinishedProjectList.class, Project.class, Residential.class, Commercial.class, Industrial.class, Road.class);
       Marshaller mar= context.createMarshaller();
       mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
       mar.marshal(finishedProjectList, new File("./testFinished.xml"));
@@ -50,7 +50,7 @@ public class FilePersistance {
 
   public static void writeToOngoingXMLFile(OngoingProjectList ongoingProjectList){
     try {
-      JAXBContext context = JAXBContext.newInstance(FinishedProjectList.class, Project.class, Residental.class, Commercial.class, Industrial.class, Road.class);
+      JAXBContext context = JAXBContext.newInstance(FinishedProjectList.class, Project.class, Residential.class, Commercial.class, Industrial.class, Road.class);
       Marshaller mar= context.createMarshaller();
       mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
       mar.marshal(ongoingProjectList, new File("./testOngoing.xml"));
@@ -86,7 +86,7 @@ public class FilePersistance {
     MyDate date2 = new MyDate(15, 6, 2020);
     MyDate date3 = new MyDate(20, 10, 2020);
     // Create some sample projects
-    Project residentialProject = new Residental(1, "Residential Project", 3000, 12, date1, endDate, 120, 1, 1, 1, true);
+    Project residentialProject = new Residential(1, "Residential Project", 3000, 12, date1, endDate, 120, 1, 1, 1, true, 87);
     Project commercialProject = new Commercial(2, "Commercial Project", 6000, 24, date2, endDate, 240, 2, "Retail");
     Project industrialProject = new Industrial(3, "Industrial Project", 12000, 36, date3, endDate, 480, "Factory");
     // Add them to the finished project list

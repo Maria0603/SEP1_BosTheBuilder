@@ -13,11 +13,11 @@ public class BuildingCompany implements BuildingCompanyModel {
     }
 
     public ArrayList<Project> getOngoingProjects() {
-        return ongoingProjectList.getOngoingProjects();
+        return (ArrayList<Project>) ongoingProjectList.getOngoingProjects();
     }
 
     public ArrayList<Project> getFinishedProjects() {
-        return finishedProjectList.getFinishedProjects();
+        return (ArrayList<Project>) finishedProjectList.getFinishedProjects();
     }
 
     public void listAllOngoing() {
