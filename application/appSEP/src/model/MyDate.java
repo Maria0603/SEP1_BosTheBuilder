@@ -1,4 +1,7 @@
 package model;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 public class MyDate implements Comparable<MyDate> {
   private static final int[] DAYS_IN_MONTH = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
   private int day;
@@ -13,6 +16,23 @@ public class MyDate implements Comparable<MyDate> {
     this.year = year;
   }
 
+  public static MyDate parseStringToDate(String dateString) {
+    String[] parts = dateString.split("-");
+    if (parts.length != 3) {
+      throw new IllegalArgumentException("The date format should be DD-MM-YYYY");
+    }
+
+    int day = Integer.parseInt(parts[2]);
+    int month = Integer.parseInt(parts[1]);
+    int year = Integer.parseInt(parts[0]);
+
+    return new MyDate(year, month, day);
+  }
+
+  public MyDate addMonths(int monthsToAdd) {
+    LocalDate date = LocalDate.of(year, month, day).plusMonths(monthsToAdd);
+    return new MyDate(date.getDayOfMonth(), date.getMonthValue(), date.getYear());
+  }
   @Override
   public int compareTo(MyDate other) {
     if (this.year != other.year) {
@@ -79,7 +99,7 @@ public class MyDate implements Comparable<MyDate> {
 
   @Override
   public String toString() {
-    return String.format("%04d-%02d-%02d", year, month, day);
+    return String.format("%02d-%02d-%04d", day, month, year);
   }
 
   @Override
@@ -91,7 +111,23 @@ public class MyDate implements Comparable<MyDate> {
         month == other.month &&
         year == other.year;
   }
+
   public MyDate copy() {
     return new MyDate(day, month, year);
+  }
+
+  public static void main(String[] args) {
+    String dateStr = "01-09-2023";
+    try {
+      MyDate date = parseStringToDate(dateStr);
+      System.out.println("Parsed date is: " + date);
+      // Assuming MyDate class has a toString() method that formats the date back into a string.
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    MyDate date1 = new MyDate(1, 9, 2023);
+    MyDate newDate = date1.addMonths(5);
+    System.out.println("New date: " + newDate);
   }
 }

@@ -112,6 +112,8 @@ public class Road extends Project
         {
             copiedRoad.addEnvironmentalChallenges(challenge);
         }
+        copiedRoad.setSpentMonths(this.getSpentMonths());
+        copiedRoad.setSpentBudget(this.getSpentBudget());
         return copiedRoad;
     }
 }

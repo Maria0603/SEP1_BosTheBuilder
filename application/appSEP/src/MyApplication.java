@@ -19,3 +19,4 @@ public class MyApplication extends Application {
         view.start(primaryStage);
     }
 }
+

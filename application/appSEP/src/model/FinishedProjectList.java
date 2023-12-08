@@ -1,49 +1,49 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class FinishedProjectList
-{
+public class FinishedProjectList {
   private ArrayList<Project> finishedProjects;
 
-  public FinishedProjectList()
-  {
+  public FinishedProjectList() {
     this.finishedProjects = new ArrayList<Project>();
   }
 
-  public ArrayList<Project> getFinishedProjects()
-  {
-    return finishedProjects;
-  }
+  public int getSize(){ return finishedProjects.size(); }
 
-  public void setFinishedProjects(Project finishedProjects)
-  {
-    this.finishedProjects = new ArrayList<Project>();
-  }
-
-  public Project sendToOngoing(Project project)
-  {
-    if (!project.isFinished())
-    {
-      project.setFinished(false);
-      System.out.println("The project is set as Ongoing.");
+  public Project getProject(Project project) {
+    for (Project tmp : finishedProjects) {
+      if (tmp.equals(project)) {
+        return tmp;
+      }
     }
-    return project;
+    return null;
   }
 
-  public void addToFinishedList(Project project)
-  {
+  public Project getProject(int id) {
+    for (Project tmp : finishedProjects) {
+      if (tmp.getId() == id) {
+        return tmp;
+      }
+    }
+    return null;
+  }
+
+  public void removeFromFinishedList(Project project){
+    finishedProjects.remove(project);
+  }
+
+  public void addToFinishedList(Project project) {
     finishedProjects.add(project);
   }
 
-  public String toString()
-  {
+  public String toString() {
     String output = "";
-    for ( Project project : finishedProjects)
-    {
+    for (Project project : finishedProjects) {
       output += project.toString();
     }
-   return output;
+    return output;
   }
 
   public boolean equals(Object obj) {
@@ -56,11 +56,16 @@ public class FinishedProjectList
     FinishedProjectList other = (FinishedProjectList) obj;
     return this.finishedProjects.equals(other.finishedProjects);
   }
+
   public FinishedProjectList copy() {
     FinishedProjectList newList = new FinishedProjectList();
     for (Project project : finishedProjects) {
       newList.addToFinishedList(project.copy());
     }
     return newList;
+  }
+
+  public ArrayList<Project> getFinishedProjects() {
+    return finishedProjects;
   }
 }
