@@ -60,7 +60,7 @@ public class AddResidentialProjectController {
           squareMeters, numberOfKitchens, numberOfBathrooms,
           numberOfOtherPlumbingRooms, true, numberOfRooms);
 
-      model.addNewProject(newResidentialProject);
+      model.addOngoingProject(newResidentialProject);
       clearFields();
       viewHandler.openTabView("ongoing");
     }

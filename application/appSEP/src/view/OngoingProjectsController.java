@@ -96,6 +96,30 @@ public class OngoingProjectsController {
 
   }
 
+  @FXML private void sendToFinishedPressed(){
+
+    try
+    {
+      ProjectViewModel selectedItem = projectListTable.getSelectionModel()
+          .getSelectedItem();
+      boolean remove = confirmation();
+      if (remove)
+      {
+
+        Project projectToRemove = model.getOngoingProject(selectedItem.getIdProperty().get());
+        model.deleteOngoingProject(projectToRemove);
+        model.addFinishedProject(projectToRemove);
+        viewModel.remove(selectedItem);
+        projectListTable.getSelectionModel().clearSelection();
+      }
+    }
+    catch (Exception e)
+    {
+      errorLabel.setText("Item not found " + e.getMessage());
+    }
+
+  }
+
   private boolean confirmation(){
     int index = projectListTable.getSelectionModel().getSelectedIndex();
     ProjectViewModel selectedItem = projectListTable.getItems().get(index);

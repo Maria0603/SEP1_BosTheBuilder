@@ -1,8 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import javafx.collections.ObservableList;
-import java.util.List;
 
 public interface BuildingCompanyModel {
     public ArrayList<Project> getOngoingProjects();
@@ -13,7 +11,8 @@ public interface BuildingCompanyModel {
    // public void listAllFinished();
     // public FinishedProjectList listAllFinished(); Sneha
 
-    public void addNewProject(Project project);
+    public void addOngoingProject(Project project);
+    public void addFinishedProject(Project project);
     public void editOngoingProjectData(Project projectToEdit, Project projectWithNewData);
     public void editStatusOfFinishedProject(Project project);
     public void deleteOngoingProject(Project project);

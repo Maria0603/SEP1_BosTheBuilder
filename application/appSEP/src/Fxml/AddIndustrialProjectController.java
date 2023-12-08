@@ -50,7 +50,7 @@ public class AddIndustrialProjectController {
           id, title, expectedBudget, expectedMonths, myCreationDate, myEndDate,
           squareMeters, usedFor);
 
-      model.addNewProject(newIndustrialProject);
+      model.addOngoingProject(newIndustrialProject);
       clearFields();
       viewHandler.openTabView("ongoing");
     } catch (NumberFormatException e) {

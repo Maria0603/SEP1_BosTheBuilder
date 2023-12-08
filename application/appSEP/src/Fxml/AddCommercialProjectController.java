@@ -51,7 +51,7 @@ public class AddCommercialProjectController {
           id, title, expectedBudget, expectedMonths, myCreationDate, myEndDate,
           squareMeters, numberOfFloors, usedFor);
 
-      model.addNewProject(newCommercialProject);
+      model.addOngoingProject(newCommercialProject);
       clearFields();
       viewHandler.openTabView("ongoing");
       System.out.println(model.getOngoingProjects().toString());

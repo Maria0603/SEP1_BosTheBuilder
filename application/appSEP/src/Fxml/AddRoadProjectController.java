@@ -9,7 +9,6 @@ import model.Road;
 import view.ViewHandler;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class AddRoadProjectController {
 
@@ -60,7 +59,7 @@ public class AddRoadProjectController {
           numberOfTunnels, id, title, expectedBudget, expectedMonths, myCreationDate,
           myEndDate, parseEnvironmentalChallenges(challenges));
 
-      model.addNewProject(newRoadProject);
+      model.addOngoingProject(newRoadProject);
       clearFields();
       viewHandler.openTabView("ongoing");
     }

@@ -8,10 +8,7 @@ import javafx.stage.Stage;
 import model.BuildingCompanyModel;
 import model.Commercial;
 import model.MyDate;
-import model.Road;
 import viewModel.ProjectViewModel;
-
-import java.util.ArrayList;
 
 public class ViewHandler {
 
@@ -32,7 +29,7 @@ public class ViewHandler {
     public ViewHandler(BuildingCompanyModel model) {
         this.currentScene = new Scene(new Region());
         this.model = model;
-        model.addNewProject(
+        model.addOngoingProject(
             new Commercial(1, "hello", 10, 10, new MyDate(10, 10, 1000),
                 new MyDate(10, 10, 1000), 100, 5, "serious business"));
     }

@@ -27,7 +27,7 @@
                   <Button mnemonicParsing="false" onAction="#removePressed" prefHeight="38.0" prefWidth="111.0" text="Remove" />
                </HBox>
                <HBox alignment="CENTER" layoutX="10.0" layoutY="143.0" prefHeight="100.0" prefWidth="200.0">
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" text="Send to Finished" />
+                  <Button mnemonicParsing="false" onAction="#sendToFinishedPressed" prefHeight="40.0" prefWidth="106.0" text="Send to Finished" />
                </HBox>
          <HBox alignment="CENTER" layoutX="10.0" layoutY="143.0" prefHeight="100.0" prefWidth="200.0">
             <children>

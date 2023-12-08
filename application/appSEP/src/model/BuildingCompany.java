@@ -33,9 +33,14 @@ public class BuildingCompany implements BuildingCompanyModel {
 
 
 
-    public void addNewProject(Project project) {
+    public void addOngoingProject(Project project) {
         ongoingProjectList.getOngoingProjects().add(project);
     }
+
+    public void addFinishedProject(Project project) {
+        finishedProjectList.addToFinishedList(project);
+    }
+
     public void editOngoingProjectData(Project projectToEdit, Project projectWithNewData) {
         int index = ongoingProjectList.getOngoingProjects().indexOf(projectToEdit);
         if (index != -1) {

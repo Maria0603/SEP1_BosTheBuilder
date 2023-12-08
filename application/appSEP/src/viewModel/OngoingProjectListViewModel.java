@@ -30,7 +30,7 @@ public class OngoingProjectListViewModel
   }
 
   public void add(Project project) {
-    model.addNewProject(project);
+    model.addOngoingProject(project);
     list.add(new ProjectViewModel(project));
   }
 
