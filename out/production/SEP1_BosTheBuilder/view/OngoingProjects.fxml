@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="344.0" prefWidth="488.0"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="view.OngoingProjectsController">
+   <TabPane prefHeight="346.0" prefWidth="483.0"
+            tabClosingPolicy="UNAVAILABLE">
+      <Tab text="Ongoing">
+         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="258.0"
+                     prefWidth="488.0">
+            <HBox layoutX="7.0" layoutY="4.0" prefHeight="304.0"
+                  prefWidth="478.0">
+               <VBox prefHeight="400.0" prefWidth="178.0">
+                  <HBox alignment="CENTER" prefHeight="54.0"
+                        prefWidth="223.0">
+                     <Label alignment="CENTER"
+                            style="-fx-font-weight: bold;"
+                            text="Your projects">
+                        <font>
+                           <Font size="23.0"/>
+                        </font>
+                     </Label>
+                  </HBox>
+                  <VBox alignment="CENTER" prefHeight="200.0"
+                        prefWidth="100.0">
+                     <HBox alignment="CENTER"
+                           prefHeight="100.0"
+                           prefWidth="200.0">
+                        <ComboBox prefHeight="27.0"
+                                  prefWidth="113.0"
+                                  promptText="New Project"
+                                  fx:id="comboBox"
+                                  onAction="#onComboBoxSelectionChange"
+                        />
+                     </HBox>
+                     <HBox alignment="CENTER"
+                           prefHeight="100.0"
+                           prefWidth="200.0">
+                        <Button mnemonicParsing="false"
+                                prefHeight="38.0"
+                                prefWidth="111.0"
+                                text="Remove"/>
+                     </HBox>
+                     <HBox alignment="CENTER" layoutX="10.0"
+                           layoutY="143.0" prefHeight="100.0"
+                           prefWidth="200.0">
+                        <Button mnemonicParsing="false"
+                                prefHeight="40.0"
+                                prefWidth="106.0"
+                                text="Send to Finished"/>
+                     </HBox>
+                  </VBox>
+               </VBox>
+               <VBox prefHeight="304.0" prefWidth="273.0">
+                  <HBox prefHeight="244.0" prefWidth="226.0">
+                     <TableView fx:id="projectListTable"
+                                prefHeight="200.0"
+                                prefWidth="302.0">
+                        <columns>
+                           <TableColumn fx:id="idColumn"
+                                        prefWidth="75.0"
+                                        text="ID"/>
+                           <TableColumn fx:id="titleColumn"
+                                        prefWidth="75.0"
+                                        text="Title"/>
+                           <TableColumn fx:id="dateColumn"
+                                        prefWidth="75.0"
+                                        text="Date"/>
+                        </columns>
+                     </TableView>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0"
+                        prefWidth="200.0">
+                     <Label fx:id="errorLabel"
+                            text="Error Label"
+                            textFill="#d13939">
+                        <font>
+                           <Font size="21.0"/>
+                        </font>
+                     </Label>
+                  </HBox>
+               </VBox>
+            </HBox>
+         </AnchorPane>
+      </Tab>
+      <Tab text="Finished">
+         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                     prefWidth="200.0"/>
+      </Tab>
+   </TabPane>
+</VBox>

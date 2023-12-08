@@ -15,8 +15,7 @@ public class Commercial extends Project
 
 
   public Commercial(int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate, MyDate endingDate,
-      int squareMeters, int numberOfFloors, String usedFor)
-  {
+      int squareMeters, int numberOfFloors, String usedFor) {
     super(id, title, expectedBudget, expectedMonths, creationDate, endingDate);
     this.squareMeters = squareMeters;
     this.numberOfFloors = numberOfFloors;
@@ -76,11 +75,14 @@ public class Commercial extends Project
         "\n" + "used for = " + usedFor;
   }
 
+  @Override
   public Commercial copy() {
-    return new Commercial(
+    Commercial copy = new Commercial(
         getId(), getTitle(), getExpectedBudget(), getExpectedMonths(), getCreationDate().copy(), getEndingDate().copy(),
-        squareMeters, numberOfFloors, usedFor
-    );
+        squareMeters, numberOfFloors, usedFor);
+    copy.setSpentMonths(this.getSpentMonths());
+    copy.setSpentBudget(this.getSpentBudget());
+    return copy;
   }
 }
 

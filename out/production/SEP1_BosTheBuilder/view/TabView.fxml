@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+
+<TabPane fx:id="tabPane" prefHeight="400.0" prefWidth="600.0" userData="Tab view" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TabViewController">
+    <tabs>
+        <Tab onSelectionChanged="#tabSelected" text="Ongoing">
+            <fx:include fx:id="ongoingProjects" source="OngoingProjects.fxml" />
+        </Tab>
+        <Tab onSelectionChanged="#tabSelected" text="Finished">
+            <fx:include fx:id="finishedProjects" source="FinishedProjects.fxml" />
+        </Tab>
+    </tabs>
+
+</TabPane>

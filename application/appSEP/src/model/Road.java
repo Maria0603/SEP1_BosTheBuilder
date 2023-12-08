@@ -108,7 +108,10 @@ import java.util.List;
     for (String challenge : environmentalChallenges) {
       copiedRoad.addEnvironmentalChallenges(challenge);
     }
+    copiedRoad.setSpentMonths(this.getSpentMonths());
+    copiedRoad.setSpentBudget(this.getSpentBudget());
     return copiedRoad;
   }
 }
+
 

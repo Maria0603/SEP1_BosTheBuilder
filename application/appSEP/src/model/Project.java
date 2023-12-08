@@ -3,7 +3,7 @@ package model;
 import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlSeeAlso({Residental.class, Commercial.class, Industrial.class, Road.class})
+@XmlSeeAlso({Residential.class, Commercial.class, Industrial.class, Road.class})
 public abstract class Project {
 
   private int id;
@@ -21,7 +21,6 @@ public abstract class Project {
   private boolean isFinished;
   private MyDate creationDate;
   private MyDate endingDate;
-
   private String creationDateString;
 
   private String endingDateString;
@@ -73,7 +72,7 @@ public abstract class Project {
   }
   public void setExpectedBudget(int expectedBudget) {this.expectedBudget = expectedBudget;}
   public void setExpectedMonths(int expectedMonths) {this.expectedMonths = expectedMonths;}
-  public void setFinished(boolean finished) {isFinished = finished;}
+  public void setFinished(boolean finished) {isFinished = !finished;}
   public void setId(int id) {this.id = id;}
   public void setSpentBudget(int spentBudget) {this.spentBudget = spentBudget;}
   public void setSpentMonths(int spentMonths) {this.spentMonths = spentMonths;}
@@ -83,22 +82,40 @@ public abstract class Project {
   }
 
   @Override public String toString() {
-    return "ID = " + id + " title = " + title + "\n" +
-        "expected budget = " + expectedBudget + " spent budget = " + spentBudget + "\n" +
-        "expected months = " + expectedMonths + " spent months = " + spentMonths + "\n" +
-        "creation date = " + creationDateString + " ending date = " + endingDateString;
+    return "ID = " + id + " title = " + title + "\n" + "expected budget = " + expectedBudget + " spent budget = " + spentBudget + "\n"
+        + "expected months = " + expectedMonths + " spent months = " + spentMonths + "\n" + "creation date = " + creationDateString
+        + " ending date = " + endingDateString;
   }
 
-  @Override
-  public boolean equals(Object obj) {
+  public String returnProjectType(Project project) {
+    if (project instanceof Residential) {
+      return "residential";
+    }
+    else if (project instanceof Commercial) {
+      return "commercial";
+    }
+    else if (project instanceof Industrial) {
+      return "industrial";
+    }
+    else {
+      return "road";
+    }
+  }
+
+  @Override public boolean equals(Object obj) {
     if (obj == null || getClass() != obj.getClass()) {
       return false;
     }
     Project other = (Project) obj;
-    return this.id == other.id && this.isFinished == other.isFinished && this.expectedBudget == other.expectedBudget &&
-        this.spentBudget == other.spentBudget && this.spentMonths == other.spentMonths && this.expectedMonths == other.expectedMonths &&
-        this.title.equals(other.title) && this.creationDate.equals(other.creationDate) && this.endingDate.equals(other.endingDate);
+    return this.id == other.id && this.isFinished == other.isFinished
+        && this.expectedBudget == other.expectedBudget
+        && this.spentBudget == other.spentBudget
+        && this.spentMonths == other.spentMonths
+        && this.expectedMonths == other.expectedMonths && this.title.equals(
+        other.title) && this.creationDate.equals(other.creationDate)
+        && this.endingDate.equals(other.endingDate);
   }
+
   public abstract Project copy();
 
 }

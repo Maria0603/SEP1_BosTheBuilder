@@ -13,6 +13,7 @@ import java.util.List;
 public class OngoingProjectList implements Serializable {
   @XmlElement(name = "Project")
   private List<Project> ongoingProjects;
+
   public OngoingProjectList() {
     ongoingProjects = new ArrayList<>();
   }
@@ -31,29 +32,19 @@ public class OngoingProjectList implements Serializable {
     this.ongoingProjects = ongoingProjects;
   }
   public void addProjectToOngoingList(Project project) {
+    validateProjectID(project);
     ongoingProjects.add(project);
+  }
+
+  private void validateProjectID(Project project) {
+    for (Project tmp : ongoingProjects) {
+      if(tmp.getId() == project.getId()){
+        throw new IllegalArgumentException("Choose unique project ID");
+      }
+    }
   }
   public void deleteProjectFromOngoingList(Project project) {
     ongoingProjects.remove(project);
-  }
-  public void editProject(Project projectToEdit, Project projectWithNewData) {
-    Project existingProject = getProject(projectToEdit);
-
-    if (existingProject != null) {
-      int index = ongoingProjects.indexOf(existingProject);
-      if (index != -1) {
-        ongoingProjects.set(index, projectWithNewData);
-      }
-    } else {
-      System.out.println("Project to edit was not found in the ongoing projects list.");
-    }
-  }
-
-  public Project SendToFinishedList(Project project) {
-    Project tmp;
-    tmp = project.copy();
-    ongoingProjects.remove(project);
-    return tmp;
   }
 
   public OngoingProjectList copy() {
