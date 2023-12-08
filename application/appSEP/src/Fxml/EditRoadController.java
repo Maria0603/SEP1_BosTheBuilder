@@ -76,7 +76,7 @@ public class EditRoadController {
 
     expectedMonthsField.setText(String.valueOf(roadProject.getExpectedMonths()));
 
-    challengesField.setText(challengesToString(roadProject.getEnvironmentalChallenges()));
+    challengesField.setText(challengesToString((ArrayList<String>) roadProject.getEnvironmentalChallenges()));
 
   }
 

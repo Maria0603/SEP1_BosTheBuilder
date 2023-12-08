@@ -1,11 +1,16 @@
 package model;
 
+import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Commercial extends Project
 {
+  @XmlElement(name = "SquareMeters")
   private int squareMeters;
+  @XmlElement(name = "NumberOfFloors")
   private int numberOfFloors;
+  @XmlElement(name = "UsedFor")
   private String usedFor;
 
 
@@ -17,6 +22,12 @@ public class Commercial extends Project
     this.usedFor = usedFor;
   }
 
+  public Commercial(){
+    super();
+    this.squareMeters = -1;
+    this.numberOfFloors = -1;
+    this.usedFor = null;
+  }
   public int getSquareMeters()
   {
     return squareMeters;
@@ -59,9 +70,9 @@ public class Commercial extends Project
 
   @Override
   public String toString() {
-    return "Commercial"  + "\n" + super.toString() + "\n" +
+    return "\nCommercial"  + "\n" + super.toString() + "\n" +
         "square meters = " + squareMeters + " number of floors = " + numberOfFloors +
-        "\n" + "used fro = " + usedFor;
+        "\n" + "used for = " + usedFor;
   }
 
   @Override

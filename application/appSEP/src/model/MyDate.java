@@ -7,6 +7,7 @@ public class MyDate implements Comparable<MyDate> {
   private int day;
   private int month;
   private int year;
+  private String dateString;
 
   public MyDate(int day, int month, int year) {
     validateMonth(month);
@@ -14,6 +15,26 @@ public class MyDate implements Comparable<MyDate> {
     this.day = day;
     this.month = month;
     this.year = year;
+    dateString = constructDateString(this);
+  }
+
+  public MyDate(){
+    year = 0;
+    month = 0;
+    day = 0;
+    dateString = null;
+  }
+
+  public String constructDateString(MyDate date){
+    return date.year + "-" + date.month + "-" + date.day;
+  }
+
+  public void setDateString(int year, int month, int day) {
+    dateString = year + "-" + month + "-" + day;
+  }
+
+  public String getDateString() {
+    return dateString;
   }
 
   public static MyDate parseStringToDate(String dateString) {

@@ -1,25 +1,40 @@
 package model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Arrays;
 
-public class FinishedProjectList {
-  private ArrayList<Project> finishedProjects;
+@XmlRootElement(name = "FinishedProjects")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class FinishedProjectList implements Serializable
+    {
+  @XmlElement(name = "Project")
+  private List<Project> finishedProjects;
+
 
   public FinishedProjectList() {
     this.finishedProjects = new ArrayList<Project>();
   }
 
-  public int getSize(){ return finishedProjects.size(); }
+  public List<Project> getFinishedProjects()
+  {
+    return finishedProjects;
+  }
 
-  public Project getProject(Project project) {
+  public Project getProject(Project project){
     for (Project tmp : finishedProjects) {
-      if (tmp.equals(project)) {
-        return tmp;
-      }
+      if (tmp.equals(project))
+        return project;
     }
     return null;
   }
+
+  public int getSize(){ return finishedProjects.size(); }
 
   public Project getProject(int id) {
     for (Project tmp : finishedProjects) {
@@ -65,7 +80,4 @@ public class FinishedProjectList {
     return newList;
   }
 
-  public ArrayList<Project> getFinishedProjects() {
-    return finishedProjects;
-  }
 }
