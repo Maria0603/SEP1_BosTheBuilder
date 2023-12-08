@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FinishedProjectsController">
    <children>
                   <VBox alignment="TOP_CENTER" prefHeight="306.0" prefWidth="166.0" spacing="30.0">
@@ -27,16 +26,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="72.0" prefWidth="178.0">
                      <children>
-                                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="134.0" text="Send to ongoing">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Button>
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="67.0" prefWidth="178.0">
-                     <children>
-                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="139.0" text="Cancel">
+                                    <Button mnemonicParsing="false" onAction="#sendToOngoingPressed" prefHeight="40.0" prefWidth="134.0" text="Send to ongoing">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -45,7 +35,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="59.0" prefWidth="178.0">
                      <children>
-                                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="140.0" text="Create report">
+                                    <Button mnemonicParsing="false" onAction="#createReportPressed" prefHeight="40.0" prefWidth="140.0" text="Create report">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -63,12 +53,12 @@
                   <Insets top="10.0" />
                </VBox.margin>
                <children>
-                              <TableView prefHeight="234.0" prefWidth="330.0">
+                              <TableView fx:id="projectListTable" prefHeight="234.0" prefWidth="330.0">
                                 <columns>
-                                  <TableColumn prefWidth="68.79998624324799" text="Id" />
-                                  <TableColumn minWidth="13.0" prefWidth="86.40003204345703" text="Title" />
-                                    <TableColumn prefWidth="92.79998779296875" text="Date" />
-                        <TableColumn prefWidth="84.79998779296875" text="Type" />
+                                  <TableColumn fx:id="idColumn" prefWidth="68.79998624324799" text="Id" />
+                                  <TableColumn fx:id="titleColumn" minWidth="13.0" prefWidth="86.40003204345703" text="Title" />
+                                    <TableColumn fx:id="dateColumn" prefWidth="92.79998779296875" text="Date" />
+                        <TableColumn fx:id="typeColumn" prefWidth="84.79998779296875" text="Type" />
                                 </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -83,7 +73,7 @@
                            <children>
                               <VBox alignment="CENTER">
                                  <children>
-                                    <Label prefHeight="35.0" prefWidth="164.0" text="Error Label" textAlignment="CENTER" textFill="#cf0f0f">
+                                    <Label fx:id="errorLabel" prefHeight="35.0" prefWidth="164.0" text="Error Label" textAlignment="CENTER" textFill="#cf0f0f">
                                        <font>
                                           <Font size="24.0" />
                                        </font>

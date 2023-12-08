@@ -16,6 +16,10 @@ public class BuildingCompany implements BuildingCompanyModel {
         return ongoingProjectList.getOngoingProjects();
     }
 
+    public ArrayList<Project> getFinishedProjects() {
+        return finishedProjectList.getFinishedProjects();
+    }
+
     public void listAllOngoing() {
         for (Project project : ongoingProjectList.getOngoingProjects()) {
             System.out.println(project.toString());
@@ -63,14 +67,21 @@ public class BuildingCompany implements BuildingCompanyModel {
 
     @Override
     public Project getOngoingProject(int projectId) {
-        //Dummy data if there is no file
-
         for (int i = 0; i < ongoingProjectList.getOngoingProjects().size(); i++) {
             if (ongoingProjectList.getOngoingProjects().get(i).getId() == projectId){
                 return ongoingProjectList.getOngoingProjects().get(i);
             }
         }
 
+        return null;
+    }
+
+    @Override public Project getFinishedProject(int projectId) {
+        for (int i = 0; i < finishedProjectList.getSize(); i++) {
+            if (finishedProjectList.getFinishedProjects().get(i).getId() == projectId){
+                return finishedProjectList.getFinishedProjects().get(i);
+            }
+        }
         return null;
     }
 
