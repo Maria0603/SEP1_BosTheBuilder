@@ -13,16 +13,7 @@
    <children>
                   <VBox alignment="TOP_CENTER" prefHeight="306.0" prefWidth="166.0" spacing="30.0">
                      <children>
-            <VBox alignment="CENTER" prefHeight="63.0" prefWidth="166.0">
-               <children>
-                  <Label style="-fx-font-weight: bold;" text="Finished projects">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="166.0">
+            <VBox alignment="BOTTOM_CENTER" prefHeight="208.0" prefWidth="166.0">
                <children>
                   <VBox alignment="CENTER" prefHeight="72.0" prefWidth="178.0">
                      <children>
