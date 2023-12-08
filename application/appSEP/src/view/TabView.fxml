@@ -3,7 +3,7 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 
-<TabPane fx:id="tabPane" prefHeight="350.0" prefWidth="522.0" userData="Tab view" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TabViewController">
+<TabPane fx:id="tabPane" prefHeight="350.0" prefWidth="522.0" userData="Tab view" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.TabViewController">
     <tabs>
         <Tab onSelectionChanged="#tabSelected" text="Ongoing">
             <fx:include fx:id="ongoingProjects" source="OngoingProjects.fxml" />

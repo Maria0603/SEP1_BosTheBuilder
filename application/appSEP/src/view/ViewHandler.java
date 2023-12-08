@@ -1,6 +1,6 @@
 package view;
 
-import Fxml.*;
+import fxml.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
@@ -276,7 +276,7 @@ public class ViewHandler {
     root = loadReportView();
 
     currentScene.setRoot(root);
-    String title = "";
+    String title = "Report";
     if (root.getUserData() != null) {
       title += root.getUserData();
     }

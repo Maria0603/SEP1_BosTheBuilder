@@ -1,18 +1,13 @@
-package Fxml;
+package fxml;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.BuildingCompanyModel;
-import model.Commercial;
 import model.Industrial;
 import model.MyDate;
 import view.ViewHandler;
 import viewModel.ProjectViewModel;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class EditIndustrialController {
 

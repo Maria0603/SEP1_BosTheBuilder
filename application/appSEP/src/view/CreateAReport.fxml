@@ -11,18 +11,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox layoutX="20.0" layoutY="14.0" prefHeight="36.0" prefWidth="560.0">
+      <HBox layoutX="209.0" layoutY="14.0" prefHeight="54.0" prefWidth="371.0">
          <children>
-            <Label alignment="CENTER" prefHeight="39.0" prefWidth="578.0" text="Create a report">
+            <Label alignment="CENTER" prefHeight="54.0" prefWidth="410.0" text="Create a report" textAlignment="RIGHT">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
          </children>
       </HBox>
-      <VBox layoutX="13.0" layoutY="86.0" prefHeight="435.0" prefWidth="175.0">
+      <VBox layoutX="13.0" layoutY="21.0" prefHeight="445.0" prefWidth="175.0">
          <children>
             <Label alignment="CENTER" prefHeight="27.0" prefWidth="215.0" text="Filters">
                <font>
@@ -34,7 +34,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="218.0" text="All-Default">
+            <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="218.0" selected="true" text="All-Default">
                <font>
                   <Font size="14.0" />
                </font>
@@ -69,19 +69,19 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField prefHeight="26.0" prefWidth="223.0" />
+            <TextField prefHeight="26.0" prefWidth="223.0" text="01-01-2020" />
             <Label prefHeight="18.0" prefWidth="226.0" text="to:">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField prefHeight="4.0" prefWidth="215.0" />
+            <TextField prefHeight="4.0" prefWidth="215.0" text="01-01-2024" />
             <Label prefHeight="20.0" prefWidth="222.0" text="Sort by">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="226.0" text="Date-Default">
+            <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="226.0" selected="true" text="Date-Default">
                <font>
                   <Font size="14.0" />
                </font>
@@ -101,40 +101,46 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="234.0" text="↑ to ↓">
+            <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="234.0" selected="true" text="↑ to ↓">
                <font>
                   <Font size="14.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="229.0" text=" ↓ from ↑">
+            <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="229.0" text=" ↓ to ↑">
                <font>
                   <Font size="14.0" />
                </font>
             </RadioButton>
          </children>
       </VBox>
-      <TableView layoutX="227.0" layoutY="123.0" prefHeight="378.0" prefWidth="408.0">
+      <TableView fx:id="projectListTable" layoutX="226.0" layoutY="78.0" prefHeight="327.0" prefWidth="349.0">
         <columns>
-          <TableColumn prefWidth="90.4000244140625" text="Id" />
-          <TableColumn prefWidth="195.20001220703125" text="Title" />
-            <TableColumn prefWidth="120.800048828125" text="Date" />
+          <TableColumn fx:id="idColumn" prefWidth="59.20002746582031" text="Id" />
+          <TableColumn fx:id="titleColumn" prefWidth="97.60003662109375" text="Title" />
+            <TableColumn fx:id="dateColumn" prefWidth="95.20001220703125" text="Date" />
+            <TableColumn fx:id="typeColumn" prefWidth="92.79998779296875" text="Type" />
         </columns>
       </TableView>
-      <Button layoutX="15.0" layoutY="584.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="127.0" text="Cancel">
+      <Button layoutX="167.0" layoutY="473.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="Cancel">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="456.0" layoutY="584.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="144.0" text="Create a report">
+      <Button layoutX="357.0" layoutY="473.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="186.0" text="Generate report file">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
       <Label layoutX="-72.0" layoutY="342.0" text="from:" />
-      <Button layoutX="15.0" layoutY="537.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="127.0" text="apply filters">
+      <Button layoutX="13.0" layoutY="473.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="136.0" text="Apply filters">
          <font>
-            <Font size="16.0" />
+            <Font size="18.0" />
          </font>
       </Button>
+      <Label fx:id="errorLabel" layoutX="231.0" layoutY="428.0" prefHeight="27.0" prefWidth="339.0" text="Error Label" textFill="#dc2e2e">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

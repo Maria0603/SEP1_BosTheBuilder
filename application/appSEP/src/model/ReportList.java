@@ -14,6 +14,10 @@ public class ReportList {
     this.toDate = toDate;
   }
 
+  public ArrayList<Project> getReportList() {
+    return (ArrayList<Project>) reportList.getFinishedProjects();
+  }
+
   public ArrayList<Project> applyFilters(Sort.Order order, Sort.SortingCategory sortingCategory,
       Sort.ProjectType projectType) {
     List<Project> filteredList = reportList.getFinishedProjects().stream()

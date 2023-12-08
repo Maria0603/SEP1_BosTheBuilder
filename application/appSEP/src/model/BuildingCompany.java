@@ -7,6 +7,7 @@ public class BuildingCompany implements BuildingCompanyModel {
     private FinishedProjectList finishedProjectList;
     private OngoingProjectList ongoingProjectList;
 
+
     public BuildingCompany() {
         this.finishedProjectList = new FinishedProjectList();
         this.ongoingProjectList = new OngoingProjectList();
@@ -18,6 +19,10 @@ public class BuildingCompany implements BuildingCompanyModel {
 
     public ArrayList<Project> getFinishedProjects() {
         return (ArrayList<Project>) finishedProjectList.getFinishedProjects();
+    }
+
+    public ArrayList<Project> getReportProjects() {
+        return getReportProjects();
     }
 
     public void listAllOngoing() {

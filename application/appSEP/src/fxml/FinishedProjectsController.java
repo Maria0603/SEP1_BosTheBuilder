@@ -1,25 +1,17 @@
-package view;
+package fxml;
 
-import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.*;
 import javafx.scene.layout.Region;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import model.*;
-import viewModel.OngoingProjectListViewModel;
+import view.ViewHandler;
+import viewModel.FinishedProjectListViewModel;
 import viewModel.ProjectViewModel;
 
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
-public class OngoingProjectsController {
-  @FXML private ComboBox<String> comboBox;
+public class FinishedProjectsController {
+
   @FXML private TableView<ProjectViewModel> projectListTable;
   @FXML private TableColumn<ProjectViewModel, Number> idColumn;
   @FXML private TableColumn<ProjectViewModel, String> titleColumn;
@@ -28,21 +20,15 @@ public class OngoingProjectsController {
   @FXML private Label errorLabel;
 
   private BuildingCompanyModel model;
-  private OngoingProjectListViewModel viewModel;
+  private FinishedProjectListViewModel viewModel;
   private ViewHandler viewHandler;
   private Region root;
-
-  private ObservableList<String> options;
 
   public void init(ViewHandler viewHandler, BuildingCompanyModel model, Region root) {
     this.model = model;
     this.viewHandler = viewHandler;
     this.root = root;
-    this.viewModel = new OngoingProjectListViewModel(model);
-
-    options = FXCollections.observableArrayList("Residential", "Commercial", "Industrial", "Road");
-
-    comboBox.setItems(options);
+    this.viewModel = new FinishedProjectListViewModel(model);
 
     idColumn.setCellValueFactory(cellData -> cellData.getValue().getIdProperty());
     titleColumn.setCellValueFactory(cellData -> cellData.getValue().getTitleProperty());
@@ -52,29 +38,17 @@ public class OngoingProjectsController {
     projectListTable.setItems(viewModel.getList());
   }
 
-  @FXML private void onComboBoxSelectionChange() {
-    String selectedItem = comboBox.getSelectionModel().getSelectedItem();
-    viewHandler.openComboBoxSelectionView(selectedItem);
-  }
-
   public void reset() {
     init(this.viewHandler, this.model, this.root);
   }
 
+  public Region getRoot() {
+    return root;
+  }
 
- @FXML private void detailsPressed(){
-   errorLabel.setText("");
-   try{
-     ProjectViewModel selectedItem = projectListTable.getSelectionModel().getSelectedItem();
-     viewHandler.openDetailsSelectionView(selectedItem);
 
-   }
-   catch (Exception e) {
-     errorLabel.setText("Item not found " + e.getMessage());
-   }
- }
+  @FXML private void sendToOngoingPressed(){
 
- @FXML public void removePressed() {
     try
     {
       ProjectViewModel selectedItem = projectListTable.getSelectionModel()
@@ -83,8 +57,9 @@ public class OngoingProjectsController {
       if (remove)
       {
 
-        Project projectToRemove = model.getOngoingProject(selectedItem.getIdProperty().get());
-        model.deleteOngoingProject(projectToRemove);
+        Project projectToRemove = model.getFinishedProject(selectedItem.getIdProperty().get());
+        model.deleteFinishedProject(projectToRemove);
+        model.addOngoingProject(projectToRemove);
         viewModel.remove(selectedItem);
         projectListTable.getSelectionModel().clearSelection();
       }
@@ -96,29 +71,7 @@ public class OngoingProjectsController {
 
   }
 
-  @FXML private void sendToFinishedPressed(){
-
-    try
-    {
-      ProjectViewModel selectedItem = projectListTable.getSelectionModel()
-          .getSelectedItem();
-      boolean remove = confirmation();
-      if (remove)
-      {
-
-        Project projectToRemove = model.getOngoingProject(selectedItem.getIdProperty().get());
-        model.deleteOngoingProject(projectToRemove);
-        model.addFinishedProject(projectToRemove);
-        viewModel.remove(selectedItem);
-        projectListTable.getSelectionModel().clearSelection();
-      }
-    }
-    catch (Exception e)
-    {
-      errorLabel.setText("Item not found " + e.getMessage());
-    }
-
-  }
+  @FXML private void createReportPressed(){ viewHandler.openReportView(); }
 
   private boolean confirmation(){
     int index = projectListTable.getSelectionModel().getSelectedIndex();
