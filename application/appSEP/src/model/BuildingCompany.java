@@ -1,11 +1,6 @@
 package model;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class BuildingCompany implements BuildingCompanyModel {
 
@@ -21,16 +16,11 @@ public class BuildingCompany implements BuildingCompanyModel {
         return ongoingProjectList.getOngoingProjects();
     }
 
-    public ArrayList<Project> getFinishedProjects() {
-        return finishedProjectList.getFinishedProjects();
-    }
-
     public void listAllOngoing() {
         for (Project project : ongoingProjectList.getOngoingProjects()) {
             System.out.println(project.toString());
         }
     }
-
 
 
     public void addOngoingProject(Project project) {
@@ -50,12 +40,12 @@ public class BuildingCompany implements BuildingCompanyModel {
         }
     }
 
-    public void editStatusOfFinishedProject(Project project) {
-        project = finishedProjectList.sendToOngoing(project);
-    }
 
+    public void deleteFinishedProject(Project project) {
+        finishedProjectList.removeFromFinishedList(project);
+    }
     public void deleteOngoingProject(Project project) {
-        ongoingProjectList.getOngoingProjects().remove(project);
+        ongoingProjectList.deleteProjectFromOngoingList(project);
     }
 
     public ReportList generateReport(MyDate fromDate, MyDate toDate, Sort.Order order, Sort.SortingCategory sortingCategory, Sort.ProjectType projectType) {

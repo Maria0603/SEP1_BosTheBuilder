@@ -57,10 +57,12 @@ public class Residential extends Project {
   }
 
   public Residential copy() {
-    Residential copiedResidental = new Residential(getId(), getTitle(), getExpectedBudget(), getExpectedMonths(),
+    Residential copy = new Residential(getId(), getTitle(), getExpectedBudget(), getExpectedMonths(),
         getCreationDate(), getEndingDate(), squareMeters, numberOfKitchens,
         numberOfBathrooms, numberOfOtherPlumbingRooms, isNew, numberOfRooms);
+    copy.setSpentMonths(this.getSpentMonths());
+    copy.setSpentBudget(this.getSpentBudget());
 
-    return copiedResidental;
+    return copy;
   }
 }

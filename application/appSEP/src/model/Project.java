@@ -77,7 +77,7 @@ public abstract class Project {
   }
 
   public void setFinished(boolean finished) {
-    isFinished = finished;
+    isFinished = !finished;
   }
 
   public void setId(int id) {

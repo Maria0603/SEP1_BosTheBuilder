@@ -35,25 +35,8 @@ public class OngoingProjectList {
   public void deleteProjectFromOngoingList(Project project) {
     ongoingProjects.remove(project);
   }
-  public void editProject(Project projectToEdit, Project projectWithNewData) {
-    Project existingProject = getProject(projectToEdit);
 
-    if (existingProject != null) {
-      int index = ongoingProjects.indexOf(existingProject);
-      if (index != -1) {
-        ongoingProjects.set(index, projectWithNewData);
-      }
-    } else {
-      System.out.println("Project to edit was not found in the ongoing projects list.");
-    }
-  }
 
-  public Project SendToFinishedList(Project project) {
-    Project tmp;
-    tmp = project.copy();
-    ongoingProjects.remove(project);
-    return tmp;
-  }
 
   public OngoingProjectList copy() {
     OngoingProjectList newList = new OngoingProjectList();

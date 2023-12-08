@@ -46,7 +46,10 @@ public class Industrial extends Project {
     }
 
     public Project copy() {
-        return new Industrial(this.getId(), this.getTitle(), this.getExpectedBudget(), this.getExpectedMonths(),
+        Industrial copy = new Industrial(this.getId(), this.getTitle(), this.getExpectedBudget(), this.getExpectedMonths(),
             this.getCreationDate(), this.getEndingDate(), this.getSquareMeters(), this.getUsedFor());
+        copy.setSpentMonths(this.getSpentMonths());
+        copy.setSpentBudget(this.getSpentBudget());
+        return copy;
     }
 }
