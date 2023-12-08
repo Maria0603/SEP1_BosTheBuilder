@@ -11,11 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="647.0" prefWidth="654.0"
-            fx:controller="Fxml.ReportController"
-            xmlns:fx="http://javafx.com/javafx/21">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox layoutX="20.0" layoutY="14.0" prefHeight="36.0" prefWidth="560.0">
          <children>
@@ -105,12 +101,12 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="234.0" text="to">
+            <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="234.0" text="↑ to ↓">
                <font>
                   <Font size="14.0" />
                </font>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="229.0" text="to">
+            <RadioButton mnemonicParsing="false" prefHeight="18.0" prefWidth="229.0" text=" ↓ from ↑">
                <font>
                   <Font size="14.0" />
                </font>
@@ -118,11 +114,11 @@
          </children>
       </VBox>
       <TableView layoutX="227.0" layoutY="123.0" prefHeight="378.0" prefWidth="408.0">
-        <columns>
-          <TableColumn prefWidth="90.4000244140625" text="Id" />
-          <TableColumn prefWidth="195.20001220703125" text="Title" />
+         <columns>
+            <TableColumn prefWidth="90.4000244140625" text="Id" />
+            <TableColumn prefWidth="195.20001220703125" text="Title" />
             <TableColumn prefWidth="120.800048828125" text="Date" />
-        </columns>
+         </columns>
       </TableView>
       <Button layoutX="15.0" layoutY="584.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="127.0" text="Cancel">
          <font>
