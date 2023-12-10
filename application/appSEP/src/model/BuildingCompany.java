@@ -8,15 +8,39 @@ public class BuildingCompany implements BuildingCompanyModel {
   private OngoingProjectList ongoingProjectList;
   private ReportList reportList;
 
-
   public BuildingCompany() {
     FilePersistance fileSystem = new FilePersistance();
 
     // Read the finished projects from the XML file
     this.finishedProjectList = fileSystem.readFromFinishedFXMLFile();
-
     this.ongoingProjectList = fileSystem.readFromOngoingFXMLFile();
-    this.reportList = null;
+    setDates();
+    this.reportList = new ReportList(finishedProjectList);
+    System.out.println(reportList);
+  }
+
+  private void setDates() {
+    for (Project tmp : finishedProjectList.getFinishedProjects()) {
+      tmp.setCreationDate(
+          MyDate.parseStringToDate(tmp.getCreationDateString()));
+      tmp.setEndingDate(MyDate.parseStringToDate(tmp.getEndingDateString()));
+      System.out.println(tmp.getCreationDate());
+      System.out.println(tmp.getEndingDate());
+
+    }
+    for (Project tmp : ongoingProjectList.getOngoingProjects()) {
+      tmp.setCreationDate(
+          MyDate.parseStringToDate(tmp.getCreationDateString()));
+      System.out.println(tmp.getCreationDate());
+    }
+  }
+
+  public void setFromDateForReport(MyDate date) {
+    reportList.setFromDate(date);
+  }
+
+  public void setToDateForReport(MyDate date) {
+    reportList.setToDate(date);
   }
 
   public ArrayList<Project> getOngoingProjects() {
@@ -31,6 +55,18 @@ public class BuildingCompany implements BuildingCompanyModel {
     return reportList.getReportList();
   }
 
+  public void setReportProjects(FinishedProjectList finishedProjectList) {
+    this.reportList.setReportList(finishedProjectList);
+  }
+
+  public void setReportList(ArrayList<Project> reportList) {
+    this.reportList.setReportList(reportList);
+  }
+
+  public void resetReportList() {
+    this.reportList = new ReportList(finishedProjectList);
+  }
+
   public void addOngoingProject(Project project) {
     ongoingProjectList.getOngoingProjects().add(project);
     FilePersistance.writeToOngoingXMLFile(ongoingProjectList);
@@ -38,6 +74,7 @@ public class BuildingCompany implements BuildingCompanyModel {
 
   public void addFinishedProject(Project project) {
     finishedProjectList.addToFinishedList(project);
+    reportList.setReportList(finishedProjectList);
     FilePersistance.writeToFinishedXMLFile(finishedProjectList);
   }
 
@@ -55,6 +92,7 @@ public class BuildingCompany implements BuildingCompanyModel {
 
   public void deleteFinishedProject(Project project) {
     finishedProjectList.removeFromFinishedList(project);
+    reportList.setReportList(finishedProjectList);
     FilePersistance.writeToFinishedXMLFile(finishedProjectList);
   }
 
@@ -63,18 +101,25 @@ public class BuildingCompany implements BuildingCompanyModel {
     FilePersistance.writeToOngoingXMLFile(ongoingProjectList);
   }
 
-  public ReportList generateReport(MyDate fromDate, MyDate toDate,
-      Sort.Order order, Sort.SortingCategory sortingCategory,
-      Sort.ProjectType projectType) {
-    ReportList reports = new ReportList(finishedProjectList, fromDate, toDate);
-    ArrayList<Project> filteredAndSortedProjects = reports.applyFilters(order,
-        sortingCategory, projectType);
+  public ReportList generateReport(Sort.Order order,
+      Sort.SortingCategory sortingCategory, Sort.ProjectType projectType) {
+
+    ArrayList<Project> filteredProjects;
+
+    filteredProjects = reportList.applyFilters(order, sortingCategory,
+        projectType);
 
     // Display or process the generated report
-    for (Project project : filteredAndSortedProjects) {
+    for (Project project : filteredProjects) {
       System.out.println(project.toString());
     }
-    return reports; // Return the report list if needed for further processing
+    setReportList(filteredProjects);
+
+    return reportList; // Return the report list if needed for further processing
+  }
+
+  @Override public void generateReportTXT() {
+    FilePersistance.createReportTXTFile(getReportProjects());
   }
 
   @Override public Project getOngoingProject(int projectId) {
@@ -87,7 +132,7 @@ public class BuildingCompany implements BuildingCompanyModel {
     return null;
   }
 
-  @Override public Project getFinishedProject(int projectId) {
+  public Project getFinishedProject(int projectId) {
     for (int i = 0; i < finishedProjectList.getSize(); i++) {
       if (finishedProjectList.getFinishedProjects().get(i).getId()
           == projectId) {

@@ -103,8 +103,8 @@ public abstract class Project {
 
   @Override public String toString() {
     return "ID = " + id + " title = " + title + "\n" + "expected budget = " + expectedBudget + " spent budget = " + spentBudget + "\n"
-        + "expected months = " + expectedMonths + " spent months = " + spentMonths + "\n" + "creation date = " + creationDateString
-        + " ending date = " + endingDateString;
+        + "expected months = " + expectedMonths + " spent months = " + spentMonths + "\n" + "creation date = " + creationDate.toString()
+        + " ending date = " + endingDate.toString();
   }
 
   public String returnProjectType(Project project) {

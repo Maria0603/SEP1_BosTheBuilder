@@ -64,7 +64,7 @@ public class MyDate implements Comparable<MyDate> {
     int month = Integer.parseInt(parts[1]);
     int year = Integer.parseInt(parts[2]);
 
-    return new MyDate(year, month, day);
+    return new MyDate(day, month, year);
   }
 
   public MyDate addMonths(int monthsToAdd) {
