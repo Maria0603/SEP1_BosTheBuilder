@@ -1,0 +1,24 @@
+
+Residental
+ID = 1 title = Residential Project
+expected budget = 3000 spent budget = 0
+expected months = 12 spent months = 0
+creation date = 2020-2-10 ending date = 2020-12-31
+squareMeters=120 numberOfKitchens=1
+numberOfBathrooms=1 numberOfOtherPlumbingRooms=1
+isNew=true
+
+Commercial
+ID = 2 title = Commercial Project
+expected budget = 6000 spent budget = 0
+expected months = 24 spent months = 0
+creation date = 2020-6-15 ending date = 2020-12-31
+square meters = 240 number of floors = 2
+used for = Retail
+
+Industrial
+ID = 3 title = Industrial Project
+expected budget = 12000 spent budget = 0
+expected months = 36 spent months = 0
+creation date = 2020-10-20 ending date = 2020-12-31
+SquareMeters = 480 UsedFor = Factory

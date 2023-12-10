@@ -22,8 +22,22 @@ public abstract class Project {
   private MyDate creationDate;
   private MyDate endingDate;
   private String creationDateString;
-
   private String endingDateString;
+
+
+  public Project(int id, String title, int expectedBudget, int expectedMonths, String creationDateString, String endingDateString){
+    this.id = id;
+    this.title = title;
+    this.expectedBudget = expectedBudget;
+    this.spentBudget = 0;
+    this.expectedMonths = expectedMonths;
+    this.spentMonths = 0;
+    this.creationDate = new MyDate(creationDateString);
+    this.endingDate = new MyDate(endingDateString);
+    this.isFinished = false;
+    this.creationDateString = creationDateString;
+    this.endingDateString = endingDateString;
+  }
 
   public Project(int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate, MyDate endingDate){
     this.id = id;
@@ -35,10 +49,9 @@ public abstract class Project {
     this.creationDate = creationDate;
     this.endingDate = endingDate;
     this.isFinished = false;
-    creationDateString = creationDate.getDateString();
-    endingDateString = endingDate.getDateString();
+    this.creationDateString = creationDate.toString();
+    this.endingDateString = endingDate.toString();
   }
-
   public Project(){
     this.id = -1;
     this.title = null;
@@ -49,8 +62,6 @@ public abstract class Project {
     this.creationDate = null;
     this.endingDate = null;
     this.isFinished = false;
-    creationDateString = null;
-    endingDateString = null;
 
   }
   public int getId() {return id;}
@@ -58,6 +69,15 @@ public abstract class Project {
   public int getExpectedBudget() {return expectedBudget;}
   public int getSpentBudget() {return spentBudget;}
   public MyDate getCreationDate() {return creationDate;}
+
+  public String getCreationDateString() {
+    return creationDateString;
+  }
+
+  public String getEndingDateString() {
+    return endingDateString;
+  }
+
   public MyDate getEndingDate() {return endingDate;}
   public int getExpectedMonths() {return expectedMonths;}
   public int getSpentMonths() {return spentMonths;}

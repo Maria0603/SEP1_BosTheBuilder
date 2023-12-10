@@ -124,8 +124,8 @@ public class OngoingProjectsController {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Confirmation");
     alert.setHeaderText(
-        "Removing grade {" + selectedItem.getIdProperty().get() + ": "
-            + selectedItem.getTitleProperty().get() + "}");
+        "Removing project from Ongoing: " + selectedItem.getIdProperty().get() + " "
+            + selectedItem.getTitleProperty().get() + "");
     Optional<ButtonType> result = alert.showAndWait();
     return (result.isPresent() && (result.get() == ButtonType.OK));
   }

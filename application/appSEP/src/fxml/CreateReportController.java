@@ -10,7 +10,7 @@ import view.ViewHandler;
 import viewModel.FinishedProjectListViewModel;
 import viewModel.ProjectViewModel;
 
-public class ReportController {
+public class CreateReportController {
 
   @FXML private TableView<ProjectViewModel> projectListTable;
   @FXML private TableColumn<ProjectViewModel, Number> idColumn;
@@ -29,6 +29,13 @@ public class ReportController {
     this.viewHandler = viewHandler;
     this.root = root;
     this.viewModel = new FinishedProjectListViewModel(model);
+
+    idColumn.setCellValueFactory(cellData -> cellData.getValue().getIdProperty());
+    titleColumn.setCellValueFactory(cellData -> cellData.getValue().getTitleProperty());
+    dateColumn.setCellValueFactory(cellData -> cellData.getValue().getDateProperty());
+    typeColumn.setCellValueFactory(cellData -> cellData.getValue().getTypeProperty());
+
+    projectListTable.setItems(viewModel.getList());
 
   }
 

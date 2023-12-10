@@ -15,7 +15,24 @@ public class MyDate implements Comparable<MyDate> {
     this.day = day;
     this.month = month;
     this.year = year;
-    dateString = constructDateString(this);
+  }
+
+  public MyDate(String str){
+    String[] parts = str.split("-");
+    if (parts.length != 3) {
+      throw new IllegalArgumentException("The date format should be DD-MM-YYYY");
+    }
+
+    int day = Integer.parseInt(parts[0]);
+    int month = Integer.parseInt(parts[1]);
+    int year = Integer.parseInt(parts[2]);
+    validateMonth(month);
+    validateDay(day, month, year);
+
+    this.day = day;
+    this.month = month;
+    this.year = year;
+
   }
 
   public MyDate(){
@@ -43,9 +60,9 @@ public class MyDate implements Comparable<MyDate> {
       throw new IllegalArgumentException("The date format should be DD-MM-YYYY");
     }
 
-    int day = Integer.parseInt(parts[2]);
+    int day = Integer.parseInt(parts[0]);
     int month = Integer.parseInt(parts[1]);
-    int year = Integer.parseInt(parts[0]);
+    int year = Integer.parseInt(parts[2]);
 
     return new MyDate(year, month, day);
   }
@@ -147,8 +164,7 @@ public class MyDate implements Comparable<MyDate> {
       e.printStackTrace();
     }
 
-    MyDate date1 = new MyDate(1, 9, 2023);
-    MyDate newDate = date1.addMonths(5);
-    System.out.println("New date: " + newDate);
+    MyDate date1 = new MyDate("1-2-3002");
+    System.out.println("New date: " + date1);
   }
 }

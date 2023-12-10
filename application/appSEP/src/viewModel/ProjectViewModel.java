@@ -16,7 +16,7 @@ public class ProjectViewModel
   public ProjectViewModel(Project project) {
     idProperty = new SimpleIntegerProperty(project.getId());
     titleProperty = new SimpleStringProperty(project.getTitle());
-    dateProperty = new SimpleStringProperty(project.getCreationDate().toString());
+    dateProperty = new SimpleStringProperty(project.getCreationDateString());
     typeProperty = new SimpleStringProperty(project.returnProjectType(project));
   }
 

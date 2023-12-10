@@ -62,6 +62,7 @@ public class FinishedProjectsController {
         model.addOngoingProject(projectToRemove);
         viewModel.remove(selectedItem);
         projectListTable.getSelectionModel().clearSelection();
+
       }
     }
     catch (Exception e)
@@ -83,8 +84,8 @@ public class FinishedProjectsController {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Confirmation");
     alert.setHeaderText(
-        "Removing grade {" + selectedItem.getIdProperty().get() + ": "
-            + selectedItem.getTitleProperty().get() + "}");
+        "Removing project from Finished: " + selectedItem.getIdProperty().get() + " "
+            + selectedItem.getTitleProperty().get() + "");
     Optional<ButtonType> result = alert.showAndWait();
     return (result.isPresent() && (result.get() == ButtonType.OK));
   }

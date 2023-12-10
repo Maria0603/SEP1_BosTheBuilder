@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="307.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.OngoingProjectsController">
+<HBox prefHeight="307.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.OngoingProjectsController">
          <VBox prefHeight="400.0" prefWidth="178.0">
             <VBox alignment="CENTER" prefHeight="199.0" prefWidth="177.0">
                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -29,14 +29,14 @@
          </HBox>
             </VBox>
          </VBox>
-         <VBox prefHeight="274.0" prefWidth="313.0">
-            <HBox prefHeight="224.0" prefWidth="319.0">
-               <TableView fx:id="projectListTable" prefHeight="182.0" prefWidth="311.0">
+         <VBox prefHeight="307.0" prefWidth="427.0">
+            <HBox prefHeight="215.0" prefWidth="352.0">
+               <TableView fx:id="projectListTable" prefHeight="201.0" prefWidth="423.0">
                   <columns>
-                     <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-                     <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Title" />
-                     <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
-               <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Type" />
+                     <TableColumn fx:id="idColumn" prefWidth="46.400022864341736" text="ID" />
+                     <TableColumn fx:id="titleColumn" prefWidth="142.39998626708984" text="Title" />
+                     <TableColumn fx:id="dateColumn" prefWidth="111.20001220703125" text="Date" />
+               <TableColumn fx:id="typeColumn" prefWidth="111.2000732421875" text="Type" />
                   </columns>
             <columnResizePolicy>
                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -47,9 +47,9 @@
                </TableView>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="300.0">
-               <Label fx:id="errorLabel" text="Error Label" textFill="#d13939">
+               <Label fx:id="errorLabel" prefHeight="31.0" prefWidth="418.0" text="Error Label" textFill="#d13939">
                   <font>
-                     <Font size="21.0" />
+                     <Font size="9.0" />
                   </font>
                </Label>
             </HBox>

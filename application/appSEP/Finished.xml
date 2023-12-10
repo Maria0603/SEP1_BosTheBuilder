@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <FinishedProjects>
-    <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="residential">
-        <id>1</id>
-        <title>Residential Project</title>
-        <expectedBudget>3000</expectedBudget>
-        <spentBudget>0</spentBudget>
-        <expectedMonths>12</expectedMonths>
-        <spentMonths>0</spentMonths>
-        <isFinished>false</isFinished>
-        <creationDateString>2020-2-10</creationDateString>
-        <endingDateString>2020-12-31</endingDateString>
-        <SquareMeters>120</SquareMeters>
-        <NumberOfKitchens>1</NumberOfKitchens>
-        <NumberOfBathrooms>1</NumberOfBathrooms>
-        <NumberOfPlumbingRooms>1</NumberOfPlumbingRooms>
-        <IsNew>true</IsNew>
-    </Project>
     <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="commercial">
         <id>2</id>
         <title>Commercial Project</title>
@@ -26,8 +10,8 @@
         <isFinished>false</isFinished>
         <creationDate/>
         <endingDate/>
-        <creationDateString>2020-6-15</creationDateString>
-        <endingDateString>2020-12-31</endingDateString>
+        <creationDateString>10-2-2020</creationDateString>
+        <endingDateString>31-12-2020</endingDateString>
         <SquareMeters>240</SquareMeters>
         <NumberOfFloors>2</NumberOfFloors>
         <UsedFor>Retail</UsedFor>
@@ -42,9 +26,26 @@
         <isFinished>false</isFinished>
         <creationDate/>
         <endingDate/>
-        <creationDateString>2020-10-20</creationDateString>
-        <endingDateString>2020-12-31</endingDateString>
+        <creationDateString>10-2-2020</creationDateString>
+        <endingDateString>31-12-2020</endingDateString>
         <SquareMeters>480</SquareMeters>
         <UsedFor>Factory</UsedFor>
+    </Project>
+    <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="residential">
+        <id>4</id>
+        <title>Residential Project</title>
+        <expectedBudget>3000</expectedBudget>
+        <spentBudget>0</spentBudget>
+        <expectedMonths>12</expectedMonths>
+        <spentMonths>0</spentMonths>
+        <isFinished>false</isFinished>
+        <creationDateString>10-2-2020</creationDateString>
+        <endingDateString>31-12-2020</endingDateString>
+        <SquareMeters>120</SquareMeters>
+        <NumberOfKitchens>1</NumberOfKitchens>
+        <NumberOfBathrooms>1</NumberOfBathrooms>
+        <NumberOfPlumbingRooms>1</NumberOfPlumbingRooms>
+        <IsNew>0</IsNew>
+        <isNew>false</isNew>
     </Project>
 </FinishedProjects>

@@ -1,6 +1,7 @@
 package model;
 
 import javax.xml.bind.annotation.*;
+import java.util.Objects;
 
 //@XmlAccessorType(XmlAccessType.FIELD)
 //@XmlType(name = "Residental")
@@ -9,12 +10,12 @@ public class Residential extends Project {
   @XmlElement(name = "NumberOfKitchens") private int numberOfKitchens;
   @XmlElement(name = "NumberOfBathrooms") private int numberOfBathrooms;
   @XmlElement(name = "NumberOfPlumbingRooms") private int numberOfOtherPlumbingRooms;
-  @XmlElement(name = "IsNew")
-  private int numberOfRooms;
+  @XmlElement(name = "IsNew") private int numberOfRooms;
   private boolean isNew;
 
-  public Residential(int id, String title, int expectedBudget, int expectedMonths, MyDate creationDate,
-      MyDate endingDate, int squareMeters, int numberOfKitchens, int numberOfBathrooms,
+  public Residential(int id, String title, int expectedBudget,
+      int expectedMonths, MyDate creationDate, MyDate endingDate,
+      int squareMeters, int numberOfKitchens, int numberOfBathrooms,
       int numberOfOtherPlumbingRooms, boolean isNew, int numberOfRooms) {
     super(id, title, expectedBudget, expectedMonths, creationDate, endingDate);
 
@@ -84,18 +85,22 @@ public class Residential extends Project {
   }
 
   public boolean equals(Object obj) {
-    if (obj == null || getClass() != obj.getClass()) {
+    if (this == obj) {
+      return true;
+    }
+    if (!(obj instanceof Residential)) {
       return false;
     }
     Residential other = (Residential) obj;
-    return super.equals(other) && squareMeters == other.squareMeters
-        && numberOfKitchens == other.numberOfKitchens && numberOfBathrooms == other.numberOfBathrooms
-        && numberOfOtherPlumbingRooms == other.numberOfOtherPlumbingRooms
-        && isNew == other.isNew;
+    return super.equals(obj) && this.squareMeters == other.squareMeters
+        && this.numberOfKitchens == other.numberOfKitchens
+        && this.numberOfBathrooms == other.numberOfBathrooms
+        && this.numberOfOtherPlumbingRooms == other.numberOfOtherPlumbingRooms;
   }
 
   @Override public String toString() {
-    return "\nResidental\n" + super.toString() + "\nsquareMeters=" + squareMeters + " numberOfKitchens=" + numberOfKitchens
+    return "\nResidential\n" + super.toString() + "\nsquareMeters="
+        + squareMeters + " numberOfKitchens=" + numberOfKitchens
         + "\nnumberOfBathrooms=" + numberOfBathrooms
         + " numberOfOtherPlumbingRooms=" + numberOfOtherPlumbingRooms
         + "\nisNew=" + isNew;
@@ -103,9 +108,9 @@ public class Residential extends Project {
 
   public Residential copy() {
     Residential copy = new Residential(getId(), getTitle(), getExpectedBudget(),
-        getExpectedMonths(), getCreationDate(), getEndingDate(), squareMeters,
-        numberOfKitchens, numberOfBathrooms, numberOfOtherPlumbingRooms, isNew,
-        numberOfRooms);
+        getExpectedMonths(), getCreationDate().copy(), getEndingDate().copy(),
+        squareMeters, numberOfKitchens, numberOfBathrooms,
+        numberOfOtherPlumbingRooms, isNew, numberOfRooms);
     copy.setSpentMonths(this.getSpentMonths());
     copy.setSpentBudget(this.getSpentBudget());
 

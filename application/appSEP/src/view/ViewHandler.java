@@ -22,16 +22,13 @@ public class ViewHandler {
   private EditResidentialController editResidentialProjectController;
   private EditIndustrialController editIndustrialProjectController;
   private EditRoadController editRoadProjectController;
-  private ReportController reportController;
+  private CreateReportController createReportController;
   private Scene currentScene;
   private Stage primaryStage;
 
   public ViewHandler(BuildingCompanyModel model) {
     this.currentScene = new Scene(new Region());
     this.model = model;
-    model.addOngoingProject(
-        new Commercial(1, "hello", 10, 10, new MyDate(10, 10, 1000),
-            new MyDate(10, 10, 1000), 100, 5, "serious business"));
   }
 
   public BuildingCompanyModel getModel() {
@@ -52,8 +49,8 @@ public class ViewHandler {
     }
     primaryStage.setTitle(title);
     primaryStage.setScene(currentScene);
-    primaryStage.setWidth(root.getPrefWidth());
-    primaryStage.setHeight(root.getPrefHeight());
+   /* primaryStage.setWidth(root.getPrefWidth());
+    primaryStage.setHeight(root.getPrefHeight());*/
     primaryStage.show();
 
     switch (id) {
@@ -294,8 +291,8 @@ public class ViewHandler {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("./CreateAReport.fxml"));
         root = loader.load();
-        reportController = loader.getController();
-        reportController.init(this, model, root);
+        createReportController = loader.getController();
+        createReportController.init(this, model, root);
       }
       catch (Exception e) {
         e.printStackTrace();
