@@ -1,6 +1,6 @@
 package view;
 
-import Fxml.*;
+import fxml.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
@@ -22,16 +22,13 @@ public class ViewHandler {
   private EditResidentialController editResidentialProjectController;
   private EditIndustrialController editIndustrialProjectController;
   private EditRoadController editRoadProjectController;
-  private ReportController reportController;
+  private CreateReportController createReportController;
   private Scene currentScene;
   private Stage primaryStage;
 
   public ViewHandler(BuildingCompanyModel model) {
     this.currentScene = new Scene(new Region());
     this.model = model;
-    model.addOngoingProject(
-        new Commercial(1, "hello", 10, 10, new MyDate(10, 10, 1000),
-            new MyDate(10, 10, 1000), 100, 5, "serious business"));
   }
 
   public BuildingCompanyModel getModel() {
@@ -276,7 +273,7 @@ public class ViewHandler {
     root = loadReportView();
 
     currentScene.setRoot(root);
-    String title = "";
+    String title = "Report";
     if (root.getUserData() != null) {
       title += root.getUserData();
     }
@@ -294,8 +291,8 @@ public class ViewHandler {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("./CreateAReport.fxml"));
         root = loader.load();
-        reportController = loader.getController();
-        reportController.init(this, model, root);
+        createReportController = loader.getController();
+        createReportController.init(this, model, root);
       }
       catch (Exception e) {
         e.printStackTrace();

@@ -13,7 +13,7 @@ public class FilePersistance {
 
   public OngoingProjectList readFromOngoingFXMLFile() {
     try {
-      File file = new File("appSEP/src/model/ongoing.xml");
+      File file = new File("./Ongoing.xml");
       JAXBContext jaxbContext = JAXBContext.newInstance(OngoingProjectList.class, Project.class, Residential.class, Commercial.class, Industrial.class, Road.class);
       Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
       return (OngoingProjectList) jaxbUnmarshaller.unmarshal(file);
@@ -25,7 +25,7 @@ public class FilePersistance {
 
   public FinishedProjectList readFromFinishedFXMLFile() {
     try {
-      File file = new File("appSEP/src/model/finished.xml");
+      File file = new File("./Finished.xml");
       JAXBContext context = JAXBContext.newInstance(FinishedProjectList.class, Project.class, Residential.class, Commercial.class, Industrial.class, Road.class);
       Unmarshaller jaxbUnmarshaller = context.createUnmarshaller();
       return (FinishedProjectList) jaxbUnmarshaller.unmarshal(file);
@@ -41,7 +41,7 @@ public class FilePersistance {
       JAXBContext context = JAXBContext.newInstance(FinishedProjectList.class, Project.class, Residential.class, Commercial.class, Industrial.class, Road.class);
       Marshaller mar= context.createMarshaller();
       mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-      mar.marshal(finishedProjectList, new File("./testFinished.xml"));
+      mar.marshal(finishedProjectList, new File("./Finished.xml"));
     } catch (JAXBException e){
       e.printStackTrace();
     }
@@ -50,10 +50,10 @@ public class FilePersistance {
 
   public static void writeToOngoingXMLFile(OngoingProjectList ongoingProjectList){
     try {
-      JAXBContext context = JAXBContext.newInstance(FinishedProjectList.class, Project.class, Residential.class, Commercial.class, Industrial.class, Road.class);
+      JAXBContext context = JAXBContext.newInstance(OngoingProjectList.class, Project.class, Residential.class, Commercial.class, Industrial.class, Road.class);
       Marshaller mar= context.createMarshaller();
       mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-      mar.marshal(ongoingProjectList, new File("./testOngoing.xml"));
+      mar.marshal(ongoingProjectList, new File("./Ongoing.xml"));
     } catch (JAXBException e){
       e.printStackTrace();
     }
@@ -96,6 +96,7 @@ public class FilePersistance {
     finishedProjectList.addToFinishedList(industrialProject);
 
     writeToFinishedXMLFile(finishedProjectList);
+
     createReportTXTFile((ArrayList<Project>) finishedProjectList.getFinishedProjects());
 
   }

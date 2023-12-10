@@ -9,35 +9,26 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FinishedProjectsController">
+<HBox prefHeight="338.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.FinishedProjectsController">
    <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="306.0" prefWidth="166.0" spacing="30.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="338.0" prefWidth="162.0" spacing="30.0">
                      <children>
-            <VBox alignment="CENTER" prefHeight="63.0" prefWidth="166.0">
-               <children>
-                  <Label style="-fx-font-weight: bold;" text="Finished projects">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="166.0">
+            <VBox alignment="BOTTOM_CENTER" prefHeight="207.0" prefWidth="156.0">
                <children>
                   <VBox alignment="CENTER" prefHeight="72.0" prefWidth="178.0">
                      <children>
-                                    <Button mnemonicParsing="false" onAction="#sendToOngoingPressed" prefHeight="40.0" prefWidth="134.0" text="Send to ongoing">
+                                    <Button mnemonicParsing="false" onAction="#sendToOngoingPressed" prefHeight="40.0" prefWidth="123.0" text="Send to ongoing">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font size="14.0" />
                                        </font>
                                     </Button>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="59.0" prefWidth="178.0">
                      <children>
-                                    <Button mnemonicParsing="false" onAction="#createReportPressed" prefHeight="40.0" prefWidth="140.0" text="Create report">
+                                    <Button mnemonicParsing="false" onAction="#createReportPressed" prefHeight="40.0" prefWidth="120.0" text="Create report">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font size="14.0" />
                                        </font>
                                     </Button>
                      </children>
@@ -46,7 +37,7 @@
             </VBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="338.0" prefWidth="330.0">
+                  <VBox prefHeight="338.0" prefWidth="409.0">
                      <children>
             <VBox prefHeight="234.0" prefWidth="239.0">
                <VBox.margin>
@@ -55,9 +46,9 @@
                <children>
                               <TableView fx:id="projectListTable" prefHeight="234.0" prefWidth="330.0">
                                 <columns>
-                                  <TableColumn fx:id="idColumn" prefWidth="68.79998624324799" text="Id" />
-                                  <TableColumn fx:id="titleColumn" minWidth="13.0" prefWidth="86.40003204345703" text="Title" />
-                                    <TableColumn fx:id="dateColumn" prefWidth="92.79998779296875" text="Date" />
+                                  <TableColumn fx:id="idColumn" prefWidth="53.5999721288681" text="Id" />
+                                  <TableColumn fx:id="titleColumn" minWidth="13.0" prefWidth="147.20001220703125" text="Title" />
+                                    <TableColumn fx:id="dateColumn" prefWidth="96.79998779296875" text="Date" />
                         <TableColumn fx:id="typeColumn" prefWidth="84.79998779296875" text="Type" />
                                 </columns>
                      <columnResizePolicy>
@@ -71,11 +62,11 @@
             </VBox>
                         <VBox prefHeight="64.0" prefWidth="273.0">
                            <children>
-                              <VBox alignment="CENTER">
+                              <VBox alignment="CENTER" prefHeight="64.0" prefWidth="435.0">
                                  <children>
-                                    <Label fx:id="errorLabel" prefHeight="35.0" prefWidth="164.0" text="Error Label" textAlignment="CENTER" textFill="#cf0f0f">
+                                    <Label fx:id="errorLabel" prefHeight="76.0" prefWidth="386.0" text="Error Label" textAlignment="CENTER" textFill="#cf0f0f">
                                        <font>
-                                          <Font size="24.0" />
+                                          <Font size="10.0" />
                                        </font>
                                     </Label>
                                  </children>

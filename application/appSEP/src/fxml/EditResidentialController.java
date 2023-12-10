@@ -1,11 +1,9 @@
-package Fxml;
+package fxml;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.BuildingCompanyModel;
-import model.Industrial;
 import model.MyDate;
 import model.Residential;
 import view.ViewHandler;

@@ -18,10 +18,14 @@ public class FinishedProjectList implements Serializable
 
 
   public FinishedProjectList() {
-    this.finishedProjects = new ArrayList<Project>();
+    this.finishedProjects = new ArrayList<>();
   }
 
-  public List<Project> getFinishedProjects()
+      public void setFinishedProjects(List<Project> finishedProjects) {
+        this.finishedProjects = finishedProjects;
+      }
+
+      public List<Project> getFinishedProjects()
   {
     return finishedProjects;
   }
@@ -75,7 +79,7 @@ public class FinishedProjectList implements Serializable
   public FinishedProjectList copy() {
     FinishedProjectList newList = new FinishedProjectList();
     for (Project project : finishedProjects) {
-      newList.addToFinishedList(project.copy());
+      newList.addToFinishedList(project);
     }
     return newList;
   }

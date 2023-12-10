@@ -1,24 +1,14 @@
-package view;
+package fxml;
 
 import javafx.scene.layout.Region;
-import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.Region;
-import javafx.scene.control.cell.PropertyValueFactory;
 import model.*;
+import view.ViewHandler;
 import viewModel.FinishedProjectListViewModel;
-import viewModel.OngoingProjectListViewModel;
 import viewModel.ProjectViewModel;
 
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 public class FinishedProjectsController {
 
@@ -72,6 +62,7 @@ public class FinishedProjectsController {
         model.addOngoingProject(projectToRemove);
         viewModel.remove(selectedItem);
         projectListTable.getSelectionModel().clearSelection();
+
       }
     }
     catch (Exception e)
@@ -93,8 +84,8 @@ public class FinishedProjectsController {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Confirmation");
     alert.setHeaderText(
-        "Removing grade {" + selectedItem.getIdProperty().get() + ": "
-            + selectedItem.getTitleProperty().get() + "}");
+        "Removing project from Finished: " + selectedItem.getIdProperty().get() + " "
+            + selectedItem.getTitleProperty().get() + "");
     Optional<ButtonType> result = alert.showAndWait();
     return (result.isPresent() && (result.get() == ButtonType.OK));
   }

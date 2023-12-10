@@ -1,4 +1,4 @@
-package view;
+package fxml;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -6,6 +6,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.Region;
 import model.BuildingCompanyModel;
+import view.ViewHandler;
 
 public class TabViewController {
   @FXML private TabPane tabPane;
