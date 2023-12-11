@@ -15,6 +15,7 @@ public class MyDate implements Comparable<MyDate> {
     this.day = day;
     this.month = month;
     this.year = year;
+    this.dateString = this.toString();
   }
 
   public MyDate(String str){
@@ -32,6 +33,7 @@ public class MyDate implements Comparable<MyDate> {
     this.day = day;
     this.month = month;
     this.year = year;
+    this.dateString = str;
 
   }
 

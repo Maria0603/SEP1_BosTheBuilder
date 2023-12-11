@@ -1,5 +1,7 @@
 package model;
 
+import javafx.fxml.FXML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -11,26 +13,22 @@ import java.util.Arrays;
 
 @XmlRootElement(name = "FinishedProjects")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class FinishedProjectList implements Serializable
-    {
-  @XmlElement(name = "Project")
-  private List<Project> finishedProjects;
-
+public class FinishedProjectList implements Serializable {
+  @XmlElement(name = "Project") private List<Project> finishedProjects;
 
   public FinishedProjectList() {
     this.finishedProjects = new ArrayList<>();
   }
 
-      public void setFinishedProjects(List<Project> finishedProjects) {
-        this.finishedProjects = finishedProjects;
-      }
+  public void setFinishedProjects(List<Project> finishedProjects) {
+    this.finishedProjects = finishedProjects;
+  }
 
-      public List<Project> getFinishedProjects()
-  {
+  public List<Project> getFinishedProjects() {
     return finishedProjects;
   }
 
-  public Project getProject(Project project){
+  public Project getProject(Project project) {
     for (Project tmp : finishedProjects) {
       if (tmp.equals(project))
         return project;
@@ -38,7 +36,9 @@ public class FinishedProjectList implements Serializable
     return null;
   }
 
-  public int getSize(){ return finishedProjects.size(); }
+  public int getSize() {
+    return finishedProjects.size();
+  }
 
   public Project getProject(int id) {
     for (Project tmp : finishedProjects) {
@@ -49,7 +49,7 @@ public class FinishedProjectList implements Serializable
     return null;
   }
 
-  public void removeFromFinishedList(Project project){
+  public void removeFromFinishedList(Project project) {
     finishedProjects.remove(project);
   }
 
