@@ -4,24 +4,42 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The {@code ReportList} class represents a list of finished projects with filtering and sorting capabilities.
+ */
 public class ReportList {
   private FinishedProjectList reportList;
-  MyDate fromDate, toDate;
+  private MyDate fromDate, toDate;
 
-  public ReportList(FinishedProjectList finishedProjectList, MyDate fromDate, MyDate toDate){
+  /**
+   * Constructs a new {@code ReportList} with the specified parameters.
+   *
+   * @param finishedProjectList The list of finished projects.
+   * @param fromDate            The starting date for filtering projects.
+   * @param toDate              The ending date for filtering projects.
+   */
+  public ReportList(FinishedProjectList finishedProjectList, MyDate fromDate, MyDate toDate) {
     this.reportList = finishedProjectList.copy();
     this.fromDate = fromDate;
     this.toDate = toDate;
   }
 
+  /**
+   * Applies filters and sorting to the finished projects based on the specified criteria.
+   *
+   * @param order            The sorting order.
+   * @param sortingCategory  The sorting category.
+   * @param projectType      The type of projects to include in the report.
+   * @return A list of filtered and sorted projects.
+   */
   public ArrayList<Project> applyFilters(Sort.Order order, Sort.SortingCategory sortingCategory,
-      Sort.ProjectType projectType) {
+                                         Sort.ProjectType projectType) {
     List<Project> filteredList = reportList.getFinishedProjects().stream()
-        .filter(project -> project.getCreationDate().isInInterval(fromDate, toDate))
-        .filter(project -> projectType == Sort.ProjectType.all || projectMatchesType(project, projectType))
-        .toList();
+            .filter(project -> project.getCreationDate().isInInterval(fromDate, toDate))
+            .filter(project -> projectType == Sort.ProjectType.all || projectMatchesType(project, projectType))
+            .toList();
 
-    Sort sort = new Sort(new ArrayList<>(filteredList), order, sortingCategory, projectType );
+    Sort sort = new Sort(new ArrayList<>(filteredList), order, sortingCategory, projectType);
 
     switch (sortingCategory) {
       case money:
@@ -34,6 +52,14 @@ public class ReportList {
         return new ArrayList<>(filteredList);
     }
   }
+
+  /**
+   * Checks if a project matches the specified type.
+   *
+   * @param project The project to check.
+   * @param type    The project type to match.
+   * @return {@code true} if the project matches the type, {@code false} otherwise.
+   */
   private boolean projectMatchesType(Project project, Sort.ProjectType type) {
     switch (type) {
       case residental:
@@ -48,16 +74,26 @@ public class ReportList {
         return false;
     }
   }
-  public String toString()
-  {
+
+  /**
+   * Returns a string representation of the projects in the report.
+   *
+   * @return A string representation of the projects.
+   */
+  public String toString() {
     String output = "";
-    for ( Project project : reportList.getFinishedProjects())
-    {
+    for (Project project : reportList.getFinishedProjects()) {
       output += project.toString();
     }
     return output;
   }
 
+  /**
+   * Checks if this report list is equal to another object.
+   *
+   * @param obj The object to compare.
+   * @return {@code true} if the objects are equal, {@code false} otherwise.
+   */
   public boolean equals(Object obj) {
     if (this == obj) {
       return true;
@@ -68,6 +104,12 @@ public class ReportList {
     ReportList other = (ReportList) obj;
     return this.reportList.equals(other.reportList);
   }
+
+  /**
+   * Creates a copy of the finished project list in the report.
+   *
+   * @return A copy of the finished project list.
+   */
   public FinishedProjectList copy() {
     FinishedProjectList newList = new FinishedProjectList();
     for (Project project : reportList.getFinishedProjects()) {
