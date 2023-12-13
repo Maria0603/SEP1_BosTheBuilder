@@ -9,6 +9,9 @@ import model.Residential;
 import view.ViewHandler;
 import viewModel.ProjectViewModel;
 
+/**
+ * Controller class for editing Residential projects.
+ */
 public class EditResidentialController {
 
   @FXML private TextField idField;
@@ -29,16 +32,26 @@ public class EditResidentialController {
   private Residential residentialProject;
   private Region root;
 
+  /**
+   * Initializes the controller with the necessary components.
+   *
+   * @param viewHandler The ViewHandler instance.
+   * @param model The BuildingCompanyModel instance.
+   * @param root The root Region for the view.
+   * @param selectedItem The selected ProjectViewModel.
+   */
   public void init(ViewHandler viewHandler, BuildingCompanyModel model,
-      Region root, ProjectViewModel selectedItem) {
+                   Region root, ProjectViewModel selectedItem) {
     this.model = model;
     this.viewHandler = viewHandler;
     this.root = root;
     residentialProject = (Residential) model.getOngoingProject(
-        selectedItem.getIdProperty().get());
-
+            selectedItem.getIdProperty().get());
   }
 
+  /**
+   * Resets the form fields with the data of the residential project being edited.
+   */
   public void reset() {
     idField.setText(String.valueOf(residentialProject.getId()));
 
@@ -47,36 +60,41 @@ public class EditResidentialController {
     creationDateField.setText(residentialProject.getCreationDate().toString());
 
     ExpectedBudgetField.setText(
-        String.valueOf(residentialProject.getExpectedBudget()));
+            String.valueOf(residentialProject.getExpectedBudget()));
 
     expectedMonthField.setText(
-        String.valueOf(residentialProject.getExpectedMonths()));
+            String.valueOf(residentialProject.getExpectedMonths()));
 
     squareMetersField.setText(
-        String.valueOf(residentialProject.getSquareMeters()));
+            String.valueOf(residentialProject.getSquareMeters()));
 
     NumberOfKitchensField.setText(
-        String.valueOf(residentialProject.getNumberOfKitchens()));
+            String.valueOf(residentialProject.getNumberOfKitchens()));
 
     numberOfRoomsField.setText(
-        String.valueOf(residentialProject.getNumberOfRooms()));
+            String.valueOf(residentialProject.getNumberOfRooms()));
 
     numberOfBathroomsField.setText(
-        String.valueOf(residentialProject.getNumberOfBathrooms()));
+            String.valueOf(residentialProject.getNumberOfBathrooms()));
 
     numberOfOtherPlumbingRoomsField.setText(
-        String.valueOf(residentialProject.getNumberOfOtherPlumbingRooms()));
+            String.valueOf(residentialProject.getNumberOfOtherPlumbingRooms()));
 
     spentBudgetField.setText(String.valueOf(residentialProject.getSpentBudget()));
 
     spentMonthField.setText(String.valueOf(residentialProject.getSpentMonths()));
-
   }
 
+  /**
+   * Handles the cancel button press event.
+   */
   @FXML public void cancelPressed() {
     viewHandler.openTabView("ongoing");
   }
 
+  /**
+   * Handles the submit button press event for editing a Residential project.
+   */
   @FXML public void submitPressed() {
     try {
 
@@ -88,27 +106,26 @@ public class EditResidentialController {
       int spentMonths = Integer.parseInt(spentMonthField.getText());
       int spentBudget = Integer.parseInt(spentBudgetField.getText());
       int numberOfBathrooms = Integer.parseInt(
-          numberOfBathroomsField.getText());
+              numberOfBathroomsField.getText());
       int numberOfKitchens = Integer.parseInt(NumberOfKitchensField.getText());
       int numberOfOtherPlumbingRooms = Integer.parseInt(
-          numberOfOtherPlumbingRoomsField.getText());
+              numberOfOtherPlumbingRoomsField.getText());
       int numberOfRooms = Integer.parseInt(numberOfRoomsField.getText());
 
       String creationDate = creationDateField.getText();
       MyDate myCreationDate = MyDate.parseStringToDate(creationDate);
       MyDate myEndDate = myCreationDate.addMonths(expectedMonths);
 
-
       Residential newResidentialProject = new Residential(id, title,
-          expectedBudget, expectedMonths, myCreationDate, myEndDate,
-          squareMeters, numberOfKitchens, numberOfBathrooms,
-          numberOfOtherPlumbingRooms, true, numberOfRooms);
+              expectedBudget, expectedMonths, myCreationDate, myEndDate,
+              squareMeters, numberOfKitchens, numberOfBathrooms,
+              numberOfOtherPlumbingRooms, true, numberOfRooms);
 
       newResidentialProject.setSpentBudget(spentBudget);
       newResidentialProject.setSpentMonths(spentMonths);
 
       model.editOngoingProjectData(model.getOngoingProject(id),
-          newResidentialProject);
+              newResidentialProject);
       viewHandler.openTabView("ongoing");
       System.out.println(model.getOngoingProjects().toString());
 

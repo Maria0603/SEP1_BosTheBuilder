@@ -9,6 +9,9 @@ import model.MyDate;
 import view.ViewHandler;
 import viewModel.ProjectViewModel;
 
+/**
+ * Controller class for editing Industrial projects.
+ */
 public class EditIndustrialController {
 
   @FXML private TextField idField;
@@ -26,16 +29,26 @@ public class EditIndustrialController {
   private Industrial industrialProject;
   private Region root;
 
+  /**
+   * Initializes the controller with the necessary components.
+   *
+   * @param viewHandler The ViewHandler instance.
+   * @param model The BuildingCompanyModel instance.
+   * @param root The root Region for the view.
+   * @param selectedItem The selected ProjectViewModel.
+   */
   public void init(ViewHandler viewHandler, BuildingCompanyModel model,
-      Region root, ProjectViewModel selectedItem) {
+                   Region root, ProjectViewModel selectedItem) {
     this.model = model;
     this.viewHandler = viewHandler;
     this.root = root;
     industrialProject = (Industrial) model.getOngoingProject(
-        selectedItem.getIdProperty().get());
-
+            selectedItem.getIdProperty().get());
   }
 
+  /**
+   * Resets the form fields with the data of the industrial project being edited.
+   */
   public void reset() {
     idField.setText(String.valueOf(industrialProject.getId()));
 
@@ -44,27 +57,32 @@ public class EditIndustrialController {
     creationDateField.setText(industrialProject.getCreationDate().toString());
 
     expectedBudgetField.setText(
-        String.valueOf(industrialProject.getExpectedBudget()));
+            String.valueOf(industrialProject.getExpectedBudget()));
 
     expectedMonthField.setText(
-        String.valueOf(industrialProject.getExpectedMonths()));
+            String.valueOf(industrialProject.getExpectedMonths()));
 
     squareMetersField.setText(
-        String.valueOf(industrialProject.getSquareMeters()));
+            String.valueOf(industrialProject.getSquareMeters()));
 
     spentBudgetField.setText(
-        String.valueOf(industrialProject.getSpentBudget()));
+            String.valueOf(industrialProject.getSpentBudget()));
 
     spentMonthField.setText(String.valueOf(industrialProject.getSpentMonths()));
 
     usedForField.setText(String.valueOf(industrialProject.getUsedFor()));
-
   }
 
+  /**
+   * Handles the cancel button press event.
+   */
   @FXML public void cancelPressed() {
     viewHandler.openTabView("ongoing");
   }
 
+  /**
+   * Handles the submit button press event for editing an Industrial project.
+   */
   @FXML public void submitPressed() {
     try {
 
@@ -82,14 +100,14 @@ public class EditIndustrialController {
       MyDate myEndDate = myCreationDate.addMonths(expectedMonths);
 
       Industrial newIndustrialProject = new Industrial(id, title,
-          expectedBudget, expectedMonths, myCreationDate, myEndDate,
-          squareMeters, usedFor);
+              expectedBudget, expectedMonths, myCreationDate, myEndDate,
+              squareMeters, usedFor);
 
       newIndustrialProject.setSpentBudget(spentBudget);
       newIndustrialProject.setSpentMonths(spentMonths);
 
       model.editOngoingProjectData(model.getOngoingProject(id),
-          newIndustrialProject);
+              newIndustrialProject);
       viewHandler.openTabView("ongoing");
       System.out.println(model.getOngoingProjects().toString());
 

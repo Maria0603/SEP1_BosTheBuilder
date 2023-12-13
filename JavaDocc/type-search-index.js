@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"viewModel","l":"FinishedProjectListViewModel"},{"p":"viewModel","l":"OngoingProjectListViewModel"},{"p":"viewModel","l":"ProjectViewModel"},{"p":"viewModel","l":"ReportListViewModel"}];updateSearchResults();

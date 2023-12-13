@@ -10,6 +10,9 @@ import view.ViewHandler;
 
 import java.util.ArrayList;
 
+/**
+ * Controller class for adding road projects.
+ */
 public class AddRoadProjectController {
 
   @FXML private TextField idField;
@@ -27,13 +30,25 @@ public class AddRoadProjectController {
   private BuildingCompanyModel model;
   private ViewHandler viewHandler;
 
+  /**
+   * Initializes the controller with the necessary components.
+   *
+   * @param viewHandler The ViewHandler instance.
+   * @param model The BuildingCompanyModel instance.
+   * @param root The root Region for the view.
+   */
   public void init(ViewHandler viewHandler, BuildingCompanyModel model,
-      Region root) {
+                   Region root) {
     this.model = model;
     this.viewHandler = viewHandler;
     this.root = root;
   }
 
+  /**
+   * Gets the root Region of the view.
+   *
+   * @return The root Region.
+   */
   public Region getRoot() {
     return root;
   }
@@ -56,14 +71,13 @@ public class AddRoadProjectController {
       String challenges = challengesField.getText();
 
       Road newRoadProject = new Road(length, width, numberOfBridges,
-          numberOfTunnels, id, title, expectedBudget, expectedMonths, myCreationDate,
-          myEndDate, parseEnvironmentalChallenges(challenges));
+              numberOfTunnels, id, title, expectedBudget, expectedMonths, myCreationDate,
+              myEndDate, parseEnvironmentalChallenges(challenges));
 
       model.addOngoingProject(newRoadProject);
       clearFields();
       viewHandler.openTabView("ongoing");
-    }
-    catch (NumberFormatException e) {
+    } catch (NumberFormatException e) {
       System.out.println(e.getMessage());
     }
   }
@@ -73,6 +87,9 @@ public class AddRoadProjectController {
     viewHandler.openTabView("ongoing");
   }
 
+  /**
+   * Clears the input fields.
+   */
   private void clearFields() {
     idField.clear();
     titleField.clear();
@@ -82,9 +99,14 @@ public class AddRoadProjectController {
     widthField.clear();
     numberOfBridgesField.clear();
     numberOfTunnelsField.clear();
-
   }
 
+  /**
+   * Parses the environmental challenges string into an ArrayList of strings.
+   *
+   * @param challenges The comma-separated string of challenges.
+   * @return ArrayList of environmental challenges.
+   */
   public static ArrayList<String> parseEnvironmentalChallenges(String challenges) {
     if (challenges == null || challenges.trim().isEmpty()) {
       return new ArrayList<>();
@@ -98,6 +120,11 @@ public class AddRoadProjectController {
     return challengesList;
   }
 
+  /**
+   * Main method for testing the parsing of environmental challenges.
+   *
+   * @param args Command-line arguments (not used).
+   */
   public static void main(String[] args) {
     String challengesStr = "Steep terrain, Nearby river, Dense forest";
     ArrayList<String> challenges = parseEnvironmentalChallenges(challengesStr);
@@ -109,8 +136,8 @@ public class AddRoadProjectController {
     MyDate date = new MyDate(2, 3, 4);
 
     Road newRoadProject = new Road(343, 343, 54,
-        54, 76, "uhb", 34, 765, date,
-        date, parseEnvironmentalChallenges(challengesStr));
+            54, 76, "uhb", 34, 765, date,
+            date, parseEnvironmentalChallenges(challengesStr));
 
     System.out.println(newRoadProject);
   }

@@ -6,13 +6,21 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.Project;
 
-public class ProjectViewModel
-{
+/**
+ * The ProjectViewModel class represents the view model for a project.
+ */
+public class ProjectViewModel {
+
   private IntegerProperty idProperty;
   private StringProperty titleProperty;
   private StringProperty dateProperty;
   private StringProperty typeProperty;
 
+  /**
+   * Constructs a ProjectViewModel based on the provided Project model.
+   *
+   * @param project The Project model to create the view model from.
+   */
   public ProjectViewModel(Project project) {
     idProperty = new SimpleIntegerProperty(project.getId());
     titleProperty = new SimpleStringProperty(project.getTitle());
@@ -20,20 +28,39 @@ public class ProjectViewModel
     typeProperty = new SimpleStringProperty(project.returnProjectType(project));
   }
 
-  public IntegerProperty getIdProperty()
-  {
+  /**
+   * Gets the IntegerProperty for the project's ID.
+   *
+   * @return The IntegerProperty for the project's ID.
+   */
+  public IntegerProperty getIdProperty() {
     return idProperty;
   }
 
-  public StringProperty getTitleProperty()
-  {
+  /**
+   * Gets the StringProperty for the project's title.
+   *
+   * @return The StringProperty for the project's title.
+   */
+  public StringProperty getTitleProperty() {
     return titleProperty;
   }
 
-  public StringProperty getDateProperty()
-  {
+  /**
+   * Gets the StringProperty for the project's creation date.
+   *
+   * @return The StringProperty for the project's creation date.
+   */
+  public StringProperty getDateProperty() {
     return dateProperty;
   }
 
-  public StringProperty getTypeProperty() { return typeProperty; }
+  /**
+   * Gets the StringProperty for the project's type.
+   *
+   * @return The StringProperty for the project's type.
+   */
+  public StringProperty getTypeProperty() {
+    return typeProperty;
+  }
 }

@@ -8,6 +8,9 @@ import model.MyDate;
 import model.Residential;
 import view.ViewHandler;
 
+/**
+ * Controller class for adding residential projects.
+ */
 public class AddResidentialProjectController {
 
   @FXML private TextField idField;
@@ -25,20 +28,31 @@ public class AddResidentialProjectController {
   private BuildingCompanyModel model;
   private ViewHandler viewHandler;
 
+  /**
+   * Initializes the controller with the necessary components.
+   *
+   * @param viewHandler The ViewHandler instance.
+   * @param model The BuildingCompanyModel instance.
+   * @param root The root Region for the view.
+   */
   public void init(ViewHandler viewHandler, BuildingCompanyModel model,
-      Region root) {
+                   Region root) {
     this.model = model;
     this.viewHandler = viewHandler;
     this.root = root;
   }
 
+  /**
+   * Gets the root Region of the view.
+   *
+   * @return The root Region.
+   */
   public Region getRoot() {
     return root;
   }
 
   @FXML private void submitButtonPressed() {
     try {
-
       int id = Integer.parseInt(idField.getText());
       String title = titleField.getText();
       int expectedBudget = Integer.parseInt(expectedBudgetField.getText());
@@ -46,25 +60,24 @@ public class AddResidentialProjectController {
       int squareMeters = Integer.parseInt(squareMetersField.getText());
       int numberOfKitchens = Integer.parseInt(numberOfKitchenField.getText());
       int numberOfBathrooms = Integer.parseInt(
-          numberOfBathroomsField.getText());
+              numberOfBathroomsField.getText());
       int numberOfRooms = Integer.parseInt(numberOfRoomsField.getText());
       int numberOfOtherPlumbingRooms = Integer.parseInt(
-          numberOfOtherPlumbingRoomsField.getText());
+              numberOfOtherPlumbingRoomsField.getText());
 
       String creationDate = creationDateField.getText();
       MyDate myCreationDate = MyDate.parseStringToDate(creationDate);
       MyDate myEndDate = myCreationDate.addMonths(expectedMonths);
 
       Residential newResidentialProject = new Residential(id, title,
-          expectedBudget, expectedMonths, myCreationDate, myEndDate,
-          squareMeters, numberOfKitchens, numberOfBathrooms,
-          numberOfOtherPlumbingRooms, true, numberOfRooms);
+              expectedBudget, expectedMonths, myCreationDate, myEndDate,
+              squareMeters, numberOfKitchens, numberOfBathrooms,
+              numberOfOtherPlumbingRooms, true, numberOfRooms);
 
       model.addOngoingProject(newResidentialProject);
       clearFields();
       viewHandler.openTabView("ongoing");
-    }
-    catch (NumberFormatException e) {
+    } catch (NumberFormatException e) {
       System.out.println("Error parsing fields: " + e.getMessage());
     }
   }
@@ -74,6 +87,9 @@ public class AddResidentialProjectController {
     viewHandler.openTabView("ongoing");
   }
 
+  /**
+   * Clears the input fields.
+   */
   private void clearFields() {
     idField.clear();
     titleField.clear();
@@ -84,4 +100,3 @@ public class AddResidentialProjectController {
     numberOfRoomsField.clear();
   }
 }
-
