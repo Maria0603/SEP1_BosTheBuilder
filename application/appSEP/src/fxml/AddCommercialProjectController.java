@@ -8,6 +8,9 @@ import model.Commercial;
 import model.MyDate;
 import view.ViewHandler;
 
+/**
+ * Controller class for adding commercial projects.
+ */
 public class AddCommercialProjectController {
   @FXML public TextField usedForField;
   @FXML private TextField idField;
@@ -18,17 +21,28 @@ public class AddCommercialProjectController {
   @FXML private TextField squareMetersField;
   @FXML private TextField numberOfFloorsField;
 
-
   private Region root;
   private BuildingCompanyModel model;
   private ViewHandler viewHandler;
 
+  /**
+   * Initializes the controller with the necessary components.
+   *
+   * @param viewHandler The ViewHandler instance.
+   * @param model The BuildingCompanyModel instance.
+   * @param root The root Region for the view.
+   */
   public void init(ViewHandler viewHandler, BuildingCompanyModel model, Region root) {
     this.model = model;
     this.viewHandler = viewHandler;
     this.root = root;
   }
 
+  /**
+   * Gets the root Region of the view.
+   *
+   * @return The root Region.
+   */
   public Region getRoot() {
     return root;
   }
@@ -48,8 +62,8 @@ public class AddCommercialProjectController {
       MyDate myEndDate = myCreationDate.addMonths(expectedMonths);
 
       Commercial newCommercialProject = new Commercial(
-          id, title, expectedBudget, expectedMonths, myCreationDate, myEndDate,
-          squareMeters, numberOfFloors, usedFor);
+              id, title, expectedBudget, expectedMonths, myCreationDate, myEndDate,
+              squareMeters, numberOfFloors, usedFor);
 
       model.addOngoingProject(newCommercialProject);
       clearFields();
@@ -67,6 +81,9 @@ public class AddCommercialProjectController {
     viewHandler.openTabView("ongoing");
   }
 
+  /**
+   * Clears the input fields.
+   */
   private void clearFields() {
     idField.clear();
     titleField.clear();

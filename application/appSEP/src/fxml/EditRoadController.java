@@ -11,6 +11,9 @@ import java.util.ArrayList;
 
 import static fxml.AddRoadProjectController.parseEnvironmentalChallenges;
 
+/**
+ * Controller class for editing Road projects.
+ */
 public class EditRoadController {
 
   @FXML private TextField idField;
@@ -26,22 +29,32 @@ public class EditRoadController {
   @FXML private TextField expectedMonthsField;
   @FXML private TextField challengesField;
 
-
   private Region root;
   private BuildingCompanyModel model;
   private ViewHandler viewHandler;
   private Road roadProject;
 
+  /**
+   * Initializes the controller with the necessary components.
+   *
+   * @param viewHandler The ViewHandler instance.
+   * @param model The BuildingCompanyModel instance.
+   * @param root The root Region for the view.
+   * @param selectedItem The selected ProjectViewModel.
+   */
   public void init(ViewHandler viewHandler, BuildingCompanyModel model,
-      Region root, ProjectViewModel selectedItem) {
+                   Region root, ProjectViewModel selectedItem) {
 
     this.model = model;
     this.viewHandler = viewHandler;
     this.root = root;
     roadProject = (Road) model.getOngoingProject(
-        selectedItem.getIdProperty().get());
+            selectedItem.getIdProperty().get());
   }
 
+  /**
+   * Resets the form fields with the data of the road project being edited.
+   */
   public void reset() {
     idField.setText(String.valueOf(roadProject.getId()));
 
@@ -50,19 +63,19 @@ public class EditRoadController {
     creationDateField.setText(roadProject.getCreationDate().toString());
 
     expectedBudgetField.setText(
-        String.valueOf(roadProject.getExpectedBudget()));
+            String.valueOf(roadProject.getExpectedBudget()));
 
     lengthField.setText(
-        String.valueOf(roadProject.getLength()));
+            String.valueOf(roadProject.getLength()));
 
     widthField.setText(
-        String.valueOf(roadProject.getWidth()));
+            String.valueOf(roadProject.getWidth()));
 
     numberOfBridgesField.setText(
-        String.valueOf(roadProject.getNumberOfBridges()));
+            String.valueOf(roadProject.getNumberOfBridges()));
 
     numberOfTunnelsField.setText(
-        String.valueOf(roadProject.getNumberOfTunnels()));
+            String.valueOf(roadProject.getNumberOfTunnels()));
 
     spentBudgetField.setText(String.valueOf(roadProject.getSpentBudget()));
 
@@ -74,9 +87,16 @@ public class EditRoadController {
 
   }
 
+  /**
+   * Handles the cancel button press event.
+   */
   @FXML public void cancelPressed() {
     viewHandler.openTabView("ongoing");
   }
+
+  /**
+   * Handles the submit button press event for editing a Road project.
+   */
   public void submitPressed() {
     try {
       int id = Integer.parseInt(idField.getText());
@@ -97,8 +117,8 @@ public class EditRoadController {
       String challenges = challengesField.getText();
 
       Road newRoadProject = new Road(length, width, numberOfBridges,
-          numberOfTunnels, id, title, expectedBudget, expectedMonths, myCreationDate,
-          myEndDate, parseEnvironmentalChallenges(challenges));
+              numberOfTunnels, id, title, expectedBudget, expectedMonths, myCreationDate,
+              myEndDate, parseEnvironmentalChallenges(challenges));
 
       newRoadProject.setSpentBudget(spentBudget);
       newRoadProject.setSpentMonths(spentMonths);
@@ -112,6 +132,12 @@ public class EditRoadController {
 
   }
 
+  /**
+   * Converts the ArrayList of environmental challenges to a String.
+   *
+   * @param challenges The ArrayList of environmental challenges.
+   * @return The concatenated String of challenges.
+   */
   public static String challengesToString(ArrayList<String> challenges){
     String output = "";
     for (String tmp : challenges) {

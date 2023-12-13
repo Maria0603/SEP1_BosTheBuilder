@@ -10,6 +10,9 @@ import viewModel.ProjectViewModel;
 
 import java.util.Optional;
 
+/**
+ * Controller class for managing finished projects view.
+ */
 public class FinishedProjectsController {
 
   @FXML private TableView<ProjectViewModel> projectListTable;
@@ -24,6 +27,13 @@ public class FinishedProjectsController {
   private ViewHandler viewHandler;
   private Region root;
 
+  /**
+   * Initializes the controller with the necessary components.
+   *
+   * @param viewHandler The ViewHandler instance.
+   * @param model The BuildingCompanyModel instance.
+   * @param root The root Region for the view.
+   */
   public void init(ViewHandler viewHandler, BuildingCompanyModel model, Region root) {
     this.model = model;
     this.viewHandler = viewHandler;
@@ -38,21 +48,32 @@ public class FinishedProjectsController {
     projectListTable.setItems(viewModel.getList());
   }
 
+  /**
+   * Resets the view by initializing it again.
+   */
   public void reset() {
     init(this.viewHandler, this.model, this.root);
   }
 
+  /**
+   * Gets the root Region of the view.
+   *
+   * @return The root Region.
+   */
   public Region getRoot() {
     return root;
   }
 
-
+  /**
+   * Handles the action when the "Send to Ongoing" button is pressed.
+   * Moves a finished project to ongoing projects.
+   */
   @FXML private void sendToOngoingPressed(){
 
     try
     {
       ProjectViewModel selectedItem = projectListTable.getSelectionModel()
-          .getSelectedItem();
+              .getSelectedItem();
       boolean remove = confirmation();
       if (remove)
       {
@@ -72,8 +93,17 @@ public class FinishedProjectsController {
 
   }
 
+  /**
+   * Handles the action when the "Create Report" button is pressed.
+   * Opens the report view.
+   */
   @FXML private void createReportPressed(){ viewHandler.openReportView(); }
 
+  /**
+   * Displays a confirmation dialog for the user to confirm an action.
+   *
+   * @return True if the user clicks OK, otherwise false.
+   */
   private boolean confirmation(){
     int index = projectListTable.getSelectionModel().getSelectedIndex();
     ProjectViewModel selectedItem = projectListTable.getItems().get(index);
@@ -84,8 +114,8 @@ public class FinishedProjectsController {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Confirmation");
     alert.setHeaderText(
-        "Removing project from Finished: " + selectedItem.getIdProperty().get() + " "
-            + selectedItem.getTitleProperty().get() + "");
+            "Removing project from Finished: " + selectedItem.getIdProperty().get() + " "
+                    + selectedItem.getTitleProperty().get() + "");
     Optional<ButtonType> result = alert.showAndWait();
     return (result.isPresent() && (result.get() == ButtonType.OK));
   }

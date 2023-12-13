@@ -9,6 +9,9 @@ import model.MyDate;
 import view.ViewHandler;
 import viewModel.ProjectViewModel;
 
+/**
+ * Controller class for editing Commercial projects.
+ */
 public class EditCommercialController {
 
   @FXML public TextField titleField;
@@ -27,16 +30,27 @@ public class EditCommercialController {
   private ViewHandler viewHandler;
   private Commercial commercialProject;
 
+  /**
+   * Initializes the controller with the necessary components.
+   *
+   * @param viewHandler The ViewHandler instance.
+   * @param model The BuildingCompanyModel instance.
+   * @param root The root Region for the view.
+   * @param selectedItem The selected ProjectViewModel.
+   */
   public void init(ViewHandler viewHandler, BuildingCompanyModel model,
-      Region root, ProjectViewModel selectedItem) {
+                   Region root, ProjectViewModel selectedItem) {
 
     this.model = model;
     this.viewHandler = viewHandler;
     this.root = root;
     commercialProject = (Commercial) model.getOngoingProject(
-        selectedItem.getIdProperty().get());
+            selectedItem.getIdProperty().get());
   }
 
+  /**
+   * Resets the form fields with the data of the commercial project being edited.
+   */
   public void reset() {
     idField.setText(String.valueOf(commercialProject.getId()));
 
@@ -45,31 +59,36 @@ public class EditCommercialController {
     creationDateField.setText(commercialProject.getCreationDate().toString());
 
     expectedBudgetField.setText(
-        String.valueOf(commercialProject.getExpectedBudget()));
+            String.valueOf(commercialProject.getExpectedBudget()));
 
     expectedMonthField.setText(
-        String.valueOf(commercialProject.getExpectedMonths()));
+            String.valueOf(commercialProject.getExpectedMonths()));
 
     squareMetersField.setText(
-        String.valueOf(commercialProject.getSquareMeters()));
+            String.valueOf(commercialProject.getSquareMeters()));
 
     numberOfFloorsField.setText(
-        String.valueOf(commercialProject.getNumberOfFloors()));
+            String.valueOf(commercialProject.getNumberOfFloors()));
 
     spentBudgetField.setText(
-        String.valueOf(commercialProject.getSpentBudget()));
+            String.valueOf(commercialProject.getSpentBudget()));
 
     spentMonthField.setText(
-        String.valueOf(commercialProject.getSpentMonths()));
+            String.valueOf(commercialProject.getSpentMonths()));
 
     usedForField.setText(String.valueOf(commercialProject.getUsedFor()));
-
   }
 
+  /**
+   * Handles the cancel button press event.
+   */
   @FXML public void cancelPressed() {
-      viewHandler.openTabView("ongoing");
+    viewHandler.openTabView("ongoing");
   }
 
+  /**
+   * Handles the submit button press event for editing a Commercial project.
+   */
   @FXML public void submitPressed() {
     try {
 
@@ -88,8 +107,8 @@ public class EditCommercialController {
       MyDate myEndDate = myCreationDate.addMonths(expectedMonths);
 
       Commercial newCommercialProject = new Commercial(
-          id, title, expectedBudget, expectedMonths, myCreationDate, myEndDate,
-          squareMeters, numberOfFloors, usedFor);
+              id, title, expectedBudget, expectedMonths, myCreationDate, myEndDate,
+              squareMeters, numberOfFloors, usedFor);
       newCommercialProject.setSpentBudget(spentBudget);
       newCommercialProject.setSpentMonths(spentMonths);
 

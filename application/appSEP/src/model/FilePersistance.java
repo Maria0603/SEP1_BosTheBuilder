@@ -5,12 +5,20 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.io.*;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
-
+/**
+ * Handles reading and writing project data to XML files and creating a report TXT file.
+ */
 public class FilePersistance {
 
+  /**
+   * Reads ongoing projects from the Ongoing XML file.
+   *
+   * @return The ongoing project list.
+   */
   public OngoingProjectList readFromOngoingFXMLFile() {
     try {
       File file = new File("./Ongoing.xml");
@@ -23,6 +31,11 @@ public class FilePersistance {
     }
   }
 
+  /**
+   * Reads finished projects from the Finished XML file.
+   *
+   * @return The finished project list.
+   */
   public FinishedProjectList readFromFinishedFXMLFile() {
     try {
       File file = new File("./Finished.xml");
@@ -35,32 +48,43 @@ public class FilePersistance {
     }
   }
 
-
-  public static void writeToFinishedXMLFile(FinishedProjectList finishedProjectList){
+  /**
+   * Writes the finished project list to the Finished XML file.
+   *
+   * @param finishedProjectList The finished project list to be written.
+   */
+  public static void writeToFinishedXMLFile(FinishedProjectList finishedProjectList) {
     try {
       JAXBContext context = JAXBContext.newInstance(FinishedProjectList.class, Project.class, Residential.class, Commercial.class, Industrial.class, Road.class);
-      Marshaller mar= context.createMarshaller();
+      Marshaller mar = context.createMarshaller();
       mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
       mar.marshal(finishedProjectList, new File("./Finished.xml"));
-    } catch (JAXBException e){
+    } catch (JAXBException e) {
       e.printStackTrace();
     }
-
   }
 
-  public static void writeToOngoingXMLFile(OngoingProjectList ongoingProjectList){
+  /**
+   * Writes the ongoing project list to the Ongoing XML file.
+   *
+   * @param ongoingProjectList The ongoing project list to be written.
+   */
+  public static void writeToOngoingXMLFile(OngoingProjectList ongoingProjectList) {
     try {
       JAXBContext context = JAXBContext.newInstance(OngoingProjectList.class, Project.class, Residential.class, Commercial.class, Industrial.class, Road.class);
-      Marshaller mar= context.createMarshaller();
+      Marshaller mar = context.createMarshaller();
       mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
       mar.marshal(ongoingProjectList, new File("./Ongoing.xml"));
-    } catch (JAXBException e){
+    } catch (JAXBException e) {
       e.printStackTrace();
     }
-
   }
 
-  // Method to create a report TXT file
+  /**
+   * Creates a report TXT file with project details.
+   *
+   * @param projectListForReport The list of projects for the report.
+   */
   public static void createReportTXTFile(ArrayList<Project> projectListForReport) {
     try (PrintWriter writer = new PrintWriter(new File("ProjectReport.txt"))) {
       for (Project project : projectListForReport) {
@@ -71,6 +95,12 @@ public class FilePersistance {
     }
   }
 
+  /**
+   * Main method for testing purposes.
+   *
+   * @param args Command line arguments.
+   * @throws JAXBException If there's an issue with JAXB.
+   */
   public static void main(String[] args) throws JAXBException {
     FilePersistance fileSystem = new FilePersistance();
 
@@ -98,6 +128,5 @@ public class FilePersistance {
     writeToFinishedXMLFile(finishedProjectList);
 
     createReportTXTFile((ArrayList<Project>) finishedProjectList.getFinishedProjects());
-
   }
 }

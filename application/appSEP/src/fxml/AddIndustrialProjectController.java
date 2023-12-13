@@ -8,6 +8,9 @@ import model.Industrial;
 import model.MyDate;
 import view.ViewHandler;
 
+/**
+ * Controller class for adding industrial projects.
+ */
 public class AddIndustrialProjectController {
 
   @FXML private TextField idField;
@@ -18,17 +21,28 @@ public class AddIndustrialProjectController {
   @FXML private TextField squareMetersField;
   @FXML private TextField usedForField;
 
-
   private Region root;
   private BuildingCompanyModel model;
   private ViewHandler viewHandler;
 
+  /**
+   * Initializes the controller with the necessary components.
+   *
+   * @param viewHandler The ViewHandler instance.
+   * @param model The BuildingCompanyModel instance.
+   * @param root The root Region for the view.
+   */
   public void init(ViewHandler viewHandler, BuildingCompanyModel model, Region root) {
     this.model = model;
     this.viewHandler = viewHandler;
     this.root = root;
   }
 
+  /**
+   * Gets the root Region of the view.
+   *
+   * @return The root Region.
+   */
   public Region getRoot() {
     return root;
   }
@@ -47,8 +61,8 @@ public class AddIndustrialProjectController {
       MyDate myEndDate = myCreationDate.addMonths(expectedMonths);
 
       Industrial newIndustrialProject = new Industrial(
-          id, title, expectedBudget, expectedMonths, myCreationDate, myEndDate,
-          squareMeters, usedFor);
+              id, title, expectedBudget, expectedMonths, myCreationDate, myEndDate,
+              squareMeters, usedFor);
 
       model.addOngoingProject(newIndustrialProject);
       clearFields();
@@ -64,6 +78,9 @@ public class AddIndustrialProjectController {
     viewHandler.openTabView("ongoing");
   }
 
+  /**
+   * Clears the input fields.
+   */
   private void clearFields() {
     idField.clear();
     titleField.clear();
