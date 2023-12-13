@@ -9,7 +9,7 @@ body{
 .navbar {
     background-color: #1844bc;
   }
-  
+
   .navbar-brand {
       font-weight: bold;
       font-size: 24px;
@@ -23,15 +23,15 @@ body{
   .navbar .nav-link {
       color: white;
   }
-  
+
   .navbar-toggler {
       border-color: white;
   }
-  
+
   .navbar-toggler-icon {
       background-color: #1844bc;
   }
-  
+
 #banner{
     height:70px;
     background-color:goldenrod;
@@ -42,28 +42,8 @@ body{
     font-size:large;
 }
 /* images for residental */
-#image3{
-    width: 250px;
-    height:200px;
-    
-}
-#image4{
-    width: 250px;
-    height:200px;
-    margin-right:15px;
-    
-}
-
-#image5{
-    width: 250px;
-    height:200px;
-}
-#image6{
-    width:250px;
-    height:200px;
-}
 .residental{
-   
+
     overflow: auto;
     padding:50px 50px;
     color:#ffffff;
@@ -73,6 +53,7 @@ body{
 #caption{
     color:#ffffff;
 }
+
 /* headings*/
 h6,h5{
     text-align:left;
@@ -88,55 +69,24 @@ h4{
 }
 /* commercial*/
 .commercial{
-   
+
     overflow: auto;
     padding:50px 50px;
     color:#ffffff;
     font-size: large;
     margin-right: auto;
-
 }
 
-#commercial2{
-    width: 275px;
-    height: 200px;;
-}
-#warehouse{
-    color:#ffffff;
-}
-#university{
-    color:#ffffff;
-}
-#university2{
-    width: 275px;
-   height: 226px;
-}
-#unicaption{
-    color:#ffffff;
-}
-#universityaarhus{
-    width:300px;
-}
 /* road projects*/
 
 .roadconstruction{
      overflow: auto;
     padding:50px 50px;
     color:#ffffff;
-    font-size: large;   
+    font-size: large;
 }
 .roadconstruction1{
     color:#ffffff;
-}
-
-
-#road1{
-    width: 350px;
-    margin-left: auto;
-}
-#road2{
-    width: 350px;
-    float:right;
 }
 
 /*industrial projects*/
@@ -150,33 +100,20 @@ h4{
 .industrial1{
     color:#ffffff;
 }
-#industry2{
-    width: 280px;
-    float:right;
-}
-#industry1{
-    width: 280px;
-    margin-left: auto;
-}
-
-#road{
-    float: left;
-    width:350px;
-    margin-right: 10px;
-
-}
 
 /* Sections*/
 .blue-section {
     background-color: #1844bc;
     padding: 50px 0;
     position: relative;
+    color:white;
   }
-  
+
   .black-section {
     background-color: rgb(63, 64, 65);
     padding: 50px 0;
     position: relative;
+    color:white;
   }
 /* Footer */
 .footer {
@@ -184,19 +121,13 @@ h4{
     color: #fff;
     padding: 30px 0;
   }
-  
+
   .footer a {
     color: #fff;
     margin-right: 20px;
   }
-  
+
   .footer .social-icons a {
     font-size: 20px;
     margin-right: 15px;
   }
-  
-  
-
-
-
-
