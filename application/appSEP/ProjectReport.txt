@@ -1,28 +1,4 @@
 
-Commercial
-ID = 2 title = Commercial Project
-expected budget = 6000 spent budget = 0
-expected months = 24 spent months = 0
-creation date = 10-02-2020 ending date = 31-12-2020
-square meters = 240 number of floors = 2
-used for = Retail
-
-Industrial
-ID = 3 title = Industrial Project
-expected budget = 12000 spent budget = 0
-expected months = 36 spent months = 0
-creation date = 10-02-2020 ending date = 31-12-2020
-SquareMeters = 480 UsedFor = Factory
-
-Residential
-ID = 4 title = Residential Project
-expected budget = 3000 spent budget = 0
-expected months = 12 spent months = 0
-creation date = 10-02-2020 ending date = 31-12-2020
-squareMeters=120 numberOfKitchens=1
-numberOfBathrooms=1 numberOfOtherPlumbingRooms=1
-isNew=false
-
 Residential
 ID = 1 title = Residential Project
 expected budget = 3000 spent budget = 0
@@ -32,9 +8,11 @@ squareMeters=120 numberOfKitchens=1
 numberOfBathrooms=1 numberOfOtherPlumbingRooms=1
 isNew=false
 
-Industrial
-ID = 7 title = Industrial Project
-expected budget = 12000 spent budget = 0
-expected months = 36 spent months = 0
+Residential
+ID = 4 title = Residential Project
+expected budget = 3000 spent budget = 0
+expected months = 12 spent months = 0
 creation date = 10-02-2020 ending date = 31-12-2020
-SquareMeters = 480 UsedFor = Factory
+squareMeters=120 numberOfKitchens=1
+numberOfBathrooms=1 numberOfOtherPlumbingRooms=1
+isNew=false

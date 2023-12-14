@@ -64,9 +64,9 @@
                            <children>
                               <VBox alignment="CENTER" prefHeight="64.0" prefWidth="435.0">
                                  <children>
-                                    <Label fx:id="errorLabel" prefHeight="76.0" prefWidth="386.0" text="Error Label" textAlignment="CENTER" textFill="#cf0f0f">
+                                    <Label fx:id="errorLabel" prefHeight="76.0" prefWidth="386.0" text="   " textAlignment="CENTER" textFill="#cf0f0f">
                                        <font>
-                                          <Font size="10.0" />
+                                          <Font size="16.0" />
                                        </font>
                                     </Label>
                                  </children>
