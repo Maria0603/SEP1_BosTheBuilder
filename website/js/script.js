@@ -1,7 +1,7 @@
 //Details for Residential Projects
 $.get("xml/ongoing.xml", function (xml, status) {
     var txt = "";
-    $(xml).find("Residential").each(function () {
+    $(xml).find("residential").each(function () {
         var id = $(this).find("id").text();
         var title = $(this).find("title").text();
         var SquareMeters = $(this).find("SquareMeters").text();
@@ -39,7 +39,7 @@ $.get("xml/ongoing.xml", function (xml, status) {
 //Details for Commercial Projects
 $.get("xml/ongoing.xml", function (xml, status) {
     var txt = "";
-    $(xml).find("Commercial").each(function () {
+    $(xml).find("commercial").each(function () {
         var id = $(this).find("id").text();
         var title = $(this).find("title").text();
         var SquareMeters = $(this).find("SquareMeters").text();
@@ -72,7 +72,7 @@ $.get("xml/ongoing.xml", function (xml, status) {
 //Details for industrial Projects
 $.get("xml/ongoing.xml", function (xml, status) {
     var txt = "";
-    $(xml).find("Industrial").each(function () {
+    $(xml).find("industrial").each(function () {
         var id = $(this).find("id").text();
         var title = $(this).find("title").text();
         var SquareMeters = $(this).find("SquareMeters").text();
@@ -104,7 +104,7 @@ $.get("xml/ongoing.xml", function (xml, status) {
 //Details for road construction
 $.get("xml/ongoing.xml", function (xml, status) {
     var txt = "";
-    $(xml).find("Road").each(function () {
+    $(xml).find("road").each(function () {
         var id = $(this).find("id").text();
         var title = $(this).find("title").text();
         var Length = $(this).find("Length").text();

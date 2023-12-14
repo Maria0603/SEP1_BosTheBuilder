@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OngoingProjects>
-    <Residential>
+    <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="residential">
         <id>1</id>
         <title>Residential House</title>
         <SquareMeters>120</SquareMeters>
@@ -16,9 +16,9 @@
         <CreationDateString>2020-01-10</CreationDateString>
         <EndingDateString>2021-01-10</EndingDateString>
 
-    </Residential>
+        </Project>
 
-    <Commercial>
+    <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="commercial">
         <id>2</id>
         <title>Commercial Complex</title>
         <SquareMeters>240</SquareMeters>
@@ -31,8 +31,8 @@
         <IsFinished>false</IsFinished>
         <CreationDateString>2020-02-15</CreationDateString>
         <EndingDateString>2022-02-15</EndingDateString>
-    </Commercial>
-<Industrial>
+    </Project>
+    <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="industrial">
         <id>3</id>
         <title>Industrial Facility</title>
         <SquareMeters>480</SquareMeters>
@@ -44,8 +44,8 @@
         <IsFinished>false</IsFinished>
         <CreationDateString>2020-03-20</CreationDateString>
         <EndingDateString>2023-03-20</EndingDateString>
-    </Industrial>
-    <Road>
+    </Project>
+   <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="road">
         <id>4</id>
         <title>Highway Expansion</title>
         <Length>5000</Length>
@@ -63,6 +63,6 @@
         <IsFinished>false</IsFinished>
         <CreationDateString>2020-04-25</CreationDateString>
         <EndingDateString>2024-04-25</EndingDateString>
-    </Road>
+    </Project>
 
 </OngoingProjects>
