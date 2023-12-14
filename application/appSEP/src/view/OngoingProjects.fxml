@@ -12,14 +12,7 @@
 
 <HBox prefHeight="307.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.OngoingProjectsController">
          <VBox prefHeight="400.0" prefWidth="178.0">
-            <HBox alignment="CENTER" prefHeight="74.0" prefWidth="178.0">
-               <Label alignment="CENTER" style="-fx-font-weight: bold;" text="Your projects">
-                  <font>
-                     <Font size="23.0" />
-                  </font>
-               </Label>
-            </HBox>
-            <VBox alignment="CENTER" prefHeight="199.0" prefWidth="177.0">
+            <VBox alignment="CENTER" prefHeight="274.0" prefWidth="177.0">
                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                   <ComboBox fx:id="comboBox" onAction="#onComboBoxSelectionChange" prefHeight="27.0" prefWidth="113.0" promptText="New Project" />
                </HBox>
@@ -54,7 +47,7 @@
                </TableView>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="300.0">
-               <Label fx:id="errorLabel" text="Error Label" textFill="#d13939">
+               <Label fx:id="errorLabel" text="   " textFill="#d13939">
                   <font>
                      <Font size="21.0" />
                   </font>
